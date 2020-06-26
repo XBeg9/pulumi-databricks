@@ -20,7 +20,7 @@ import (
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 
 	databricks "github.com/XBeg9/pulumi-databricks/provider"
-	"github.com/XBeg9/pulumi-databricks/provider:/pkg/version"
+	"github.com/XBeg9/pulumi-databricks/provider/pkg/version"
 )
 
 func main() {
