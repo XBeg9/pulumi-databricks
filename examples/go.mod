@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-databricks/examples
+module github.com/XBeg9/pulumi-databricks/examples
 
 go 1.14
 

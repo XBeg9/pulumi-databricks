@@ -72,7 +72,7 @@ To use from Python, install using `pip`:
 
 To use from Go, use `go get` to grab the latest version of the library
 
-    $ go get github.com/pulumi/pulumi-databricks/sdk/go/...
+    $ go get github.com/XBeg9/pulumi-databricks/sdk/go/...
 
 ## Configuration
 
