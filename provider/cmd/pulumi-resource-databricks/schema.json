@@ -1,0 +1,210 @@
+{
+    "name": "databricks",
+    "description": "A Pulumi package for creating and managing databricks cloud resources.",
+    "keywords": [
+        "pulumi",
+        "databricks"
+    ],
+    "homepage": "https://pulumi.io",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`databricks` Terraform Provider](https://github.com/terraform-providers/terraform-provider-databricks).",
+    "repository": "https://github.com/XBeg9/pulumi-databricks",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "config": {
+        "variables": {
+            "azureAuth": {
+                "$ref": "#/types/databricks:config/azureAuth:azureAuth"
+            },
+            "basicAuth": {
+                "$ref": "#/types/databricks:config/basicAuth:basicAuth"
+            },
+            "configFile": {
+                "type": "string",
+                "description": "Location of the Databricks CLI credentials file, that is created by `databricks configure --token` command. By default,\nit is located in ~/.databrickscfg. Check https://docs.databricks.com/dev-tools/cli/index.html#set-up-authentication for\ndocs. Config file credetials will only be used when host/token are not provided.\n"
+            },
+            "host": {
+                "type": "string"
+            },
+            "profile": {
+                "type": "string",
+                "description": "Connection profile specified within ~/.databrickscfg. Please check\nhttps://docs.databricks.com/dev-tools/cli/index.html#connection-profiles for documentation.\n"
+            },
+            "token": {
+                "type": "string"
+            }
+        }
+    },
+    "types": {
+        "databricks:config/azureAuth:azureAuth": {
+            "properties": {
+                "azureRegion": {
+                    "type": "string"
+                },
+                "clientId": {
+                    "type": "string"
+                },
+                "clientSecret": {
+                    "type": "string"
+                },
+                "managedResourceGroup": {
+                    "type": "string"
+                },
+                "resourceGroup": {
+                    "type": "string"
+                },
+                "subscriptionId": {
+                    "type": "string"
+                },
+                "tenantId": {
+                    "type": "string"
+                },
+                "workspaceName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "azureRegion",
+                "clientId",
+                "clientSecret",
+                "managedResourceGroup",
+                "resourceGroup",
+                "subscriptionId",
+                "tenantId",
+                "workspaceName"
+            ]
+        },
+        "databricks:config/basicAuth:basicAuth": {
+            "properties": {
+                "password": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "password",
+                "username"
+            ]
+        },
+        "databricks:index/ProviderAzureAuth:ProviderAzureAuth": {
+            "properties": {
+                "azureRegion": {
+                    "type": "string"
+                },
+                "clientId": {
+                    "type": "string"
+                },
+                "clientSecret": {
+                    "type": "string"
+                },
+                "managedResourceGroup": {
+                    "type": "string"
+                },
+                "resourceGroup": {
+                    "type": "string"
+                },
+                "subscriptionId": {
+                    "type": "string"
+                },
+                "tenantId": {
+                    "type": "string"
+                },
+                "workspaceName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "azureRegion",
+                "clientId",
+                "clientSecret",
+                "managedResourceGroup",
+                "resourceGroup",
+                "subscriptionId",
+                "tenantId",
+                "workspaceName"
+            ]
+        },
+        "databricks:index/ProviderBasicAuth:ProviderBasicAuth": {
+            "properties": {
+                "password": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "username": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "password",
+                "username"
+            ]
+        }
+    },
+    "provider": {
+        "description": "The provider type for the databricks package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "inputProperties": {
+            "azureAuth": {
+                "$ref": "#/types/databricks:index/ProviderAzureAuth:ProviderAzureAuth"
+            },
+            "basicAuth": {
+                "$ref": "#/types/databricks:index/ProviderBasicAuth:ProviderBasicAuth"
+            },
+            "configFile": {
+                "type": "string",
+                "description": "Location of the Databricks CLI credentials file, that is created by `databricks configure --token` command. By default,\nit is located in ~/.databrickscfg. Check https://docs.databricks.com/dev-tools/cli/index.html#set-up-authentication for\ndocs. Config file credetials will only be used when host/token are not provided.\n"
+            },
+            "host": {
+                "type": "string"
+            },
+            "profile": {
+                "type": "string",
+                "description": "Connection profile specified within ~/.databrickscfg. Please check\nhttps://docs.databricks.com/dev-tools/cli/index.html#connection-profiles for documentation.\n"
+            },
+            "token": {
+                "type": "string"
+            }
+        }
+    },
+    "language": {
+        "csharp": {
+            "namespaces": null,
+            "packageReferences": {
+                "Pulumi": "2.*",
+                "System.Collections.Immutable": "1.6.0"
+            }
+        },
+        "nodejs": {
+            "dependencies": {
+                "@pulumi/pulumi": "^2.0.0"
+            },
+            "devDependencies": {
+                "@types/mime": "^2.0.0",
+                "@types/node": "^8.0.25"
+            },
+            "packageDescription": "A Pulumi package for creating and managing databricks cloud resources.",
+            "packageName": "",
+            "typescriptVersion": ""
+        },
+        "python": {
+            "requires": {
+                "pulumi": "\u003e=2.0.0,\u003c3.0.0"
+            }
+        }
+    }
+}
