@@ -17,8 +17,8 @@ package main
 import (
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfgen"
 
-	databricks "github.com/pulumi/pulumi-databricks/provider"
-	"github.com/pulumi/pulumi-databricks/provider/pkg/version"
+	databricks "github.com/XBeg9/pulumi-databricks/provider"
+	"github.com/XBeg9/pulumi-databricks/provider:/pkg/version"
 )
 
 func main() {

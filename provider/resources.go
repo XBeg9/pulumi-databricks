@@ -22,7 +22,7 @@ import (
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
-	"github.com/terraform-providers/terraform-provider-databricks/databricks"
+	"github.com/databrickslabs/databricks-terraform"
 )
 
 // all of the token components used below.
