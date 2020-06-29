@@ -109,24 +109,58 @@ func Provider() tfbridge.ProviderInfo {
 			// },
 		},
 		PreConfigureCallback: preConfigureCallback,
-		Resources:            map[string]*tfbridge.ResourceInfo{
+		Resources: map[string]*tfbridge.ResourceInfo{
 			// Map each resource in the Terraform provider to a Pulumi type. Two examples
 			// are below - the single line form is the common case. The multi-line form is
 			// needed only if you wish to override types or other default options.
 			//
-			// "aws_iam_role": {Tok: makeResource(mainMod, "IamRole")}
-			//
-			// "aws_acm_certificate": {
-			// 	Tok: makeResource(mainMod, "Certificate"),
-			// 	Fields: map[string]*tfbridge.SchemaInfo{
-			// 		"tags": {Type: makeType(mainPkg, "Tags")},
-			// 	},
-			// },
+			"databricks_token":         {Tok: makeResource(mainMod, "Token")},
+			"databricks_secret_scope":  {Tok: makeResource(mainMod, "SecretScope")},
+			"databricks_secret":        {Tok: makeResource(mainMod, "Secret")},
+			"databricks_secret_acl":    {Tok: makeResource(mainMod, "SecretAcl")},
+			"databricks_permissions":   {Tok: makeResource(mainMod, "Permissions")},
+			"databricks_instance_pool": {Tok: makeResource(mainMod, "InstancePool")},
+			"databricks_scim_user":     {Tok: makeResource(mainMod, "ScimUser")},
+			"databricks_scim_group":    {Tok: makeResource(mainMod, "ScimGroup")},
+
+			// Scim Group is split into multiple components for flexibility to pick and choose
+			"databricks_group":                  {Tok: makeResource(mainMod, "Group")},
+			"databricks_group_instance_profile": {Tok: makeResource(mainMod, "GroupInstanceProfile")},
+			"databricks_group_member":           {Tok: makeResource(mainMod, "GroupMember")},
+			"databricks_notebook":               {Tok: makeResource(mainMod, "Notebook")},
+			"databricks_cluster":                {Tok: makeResource(mainMod, "Cluster")},
+			"databricks_cluster_policy":         {Tok: makeResource(mainMod, "ClusterPolicy")},
+			"databricks_job":                    {Tok: makeResource(mainMod, "Job")},
+			"databricks_dbfs_file":              {Tok: makeResource(mainMod, "DbfsFile")},
+			"databricks_dbfs_file_sync":         {Tok: makeResource(mainMod, "DbfsFileSync")},
+			"databricks_instance_profile":       {Tok: makeResource(mainMod, "InstanceProfile")},
+			"databricks_aws_s3_mount":           {Tok: makeResource(mainMod, "AwsS3Mount")},
+			"databricks_azure_blob_mount":       {Tok: makeResource(mainMod, "AzureBlobMount")},
+			"databricks_azure_adls_gen1_mount":  {Tok: makeResource(mainMod, "AzureAdlsGen1Mount")},
+			"databricks_azure_adls_gen2_mount":  {Tok: makeResource(mainMod, "AzureAdlsGen2Mount")},
+
+			//	MWS (multiple workspaces) resources are only limited to AWS as azure already has a built in concept of MWS
+			"databricks_mws_credentials":            {Tok: makeResource(mainMod, "MwsCredentials")},
+			"databricks_mws_storage_configurations": {Tok: makeResource(mainMod, "MwsStorageConfigurations")},
+			"databricks_mws_networks":               {Tok: makeResource(mainMod, "MwsNetworks")},
+			"databricks_mws_workspaces":             {Tok: makeResource(mainMod, "MwsWorkspaces")},
 		},
+		//
+		// "aws_acm_certificate": {
+		// 	Tok: makeResource(mainMod, "Certificate"),
+		// 	Fields: map[string]*tfbridge.SchemaInfo{
+		// 		"tags": {Type: makeType(mainPkg, "Tags")},
+		// 	},
+		// },
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// Map each resource in the Terraform provider to a Pulumi function. An example
 			// is below.
-			// "aws_ami": {Tok: makeDataSource(mainMod, "getAmi")},
+			"databricks_default_user_roles": {Tok: makeDataSource(mainMod, "getDefaultUserRoles")},
+			"databricks_notebook":           {Tok: makeDataSource(mainMod, "getNotebook")},
+			"databricks_notebook_paths":     {Tok: makeDataSource(mainMod, "getNotebookPaths")},
+			"databricks_dbfs_file":          {Tok: makeDataSource(mainMod, "getDbfsFile")},
+			"databricks_dbfs_file_paths":    {Tok: makeDataSource(mainMod, "getDbfsFilePaths")},
+			"databricks_zones":              {Tok: makeDataSource(mainMod, "getZones")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// AsyncDataSources: true,

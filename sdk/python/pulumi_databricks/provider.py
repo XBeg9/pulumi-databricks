@@ -28,13 +28,13 @@ class Provider(pulumi.ProviderResource):
         The **azure_auth** object supports the following:
 
           * `azureRegion` (`pulumi.Input[str]`)
-          * `clientId` (`pulumi.Input[str]`)
+          * `client_id` (`pulumi.Input[str]`)
           * `clientSecret` (`pulumi.Input[str]`)
           * `managedResourceGroup` (`pulumi.Input[str]`)
           * `resourceGroup` (`pulumi.Input[str]`)
           * `subscriptionId` (`pulumi.Input[str]`)
-          * `tenantId` (`pulumi.Input[str]`)
-          * `workspaceName` (`pulumi.Input[str]`)
+          * `tenant_id` (`pulumi.Input[str]`)
+          * `workspace_name` (`pulumi.Input[str]`)
 
         The **basic_auth** object supports the following:
 

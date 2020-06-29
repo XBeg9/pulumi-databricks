@@ -2,7 +2,37 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./awsS3Mount";
+export * from "./azureAdlsGen1Mount";
+export * from "./azureAdlsGen2Mount";
+export * from "./azureBlobMount";
+export * from "./cluster";
+export * from "./dbfsFile";
+export * from "./dbfsFileSync";
+export * from "./getDbfsFile";
+export * from "./getDbfsFilePaths";
+export * from "./getDefaultUserRoles";
+export * from "./getNotebook";
+export * from "./getNotebookPaths";
+export * from "./getZones";
+export * from "./group";
+export * from "./groupInstanceProfile";
+export * from "./groupMember";
+export * from "./instancePool";
+export * from "./instanceProfile";
+export * from "./job";
+export * from "./mwsCredentials";
+export * from "./mwsNetworks";
+export * from "./mwsStorageConfigurations";
+export * from "./mwsWorkspaces";
+export * from "./notebook";
 export * from "./provider";
+export * from "./scimGroup";
+export * from "./scimUser";
+export * from "./secret";
+export * from "./secretAcl";
+export * from "./secretScope";
+export * from "./token";
 
 // Export sub-modules:
 import * as config from "./config/index";

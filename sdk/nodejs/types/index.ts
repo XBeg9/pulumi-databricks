@@ -3,4 +3,5 @@
 
 // Export sub-modules:
 import * as input from "./input";
-export {input};
+import * as output from "./output";
+export {input, output};

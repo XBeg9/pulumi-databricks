@@ -10,6 +10,5611 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type ClusterAutoscale struct {
+	MaxWorkers *int `pulumi:"maxWorkers"`
+	MinWorkers *int `pulumi:"minWorkers"`
+}
+
+// ClusterAutoscaleInput is an input type that accepts ClusterAutoscaleArgs and ClusterAutoscaleOutput values.
+// You can construct a concrete instance of `ClusterAutoscaleInput` via:
+//
+// 		 ClusterAutoscaleArgs{...}
+//
+type ClusterAutoscaleInput interface {
+	pulumi.Input
+
+	ToClusterAutoscaleOutput() ClusterAutoscaleOutput
+	ToClusterAutoscaleOutputWithContext(context.Context) ClusterAutoscaleOutput
+}
+
+type ClusterAutoscaleArgs struct {
+	MaxWorkers pulumi.IntPtrInput `pulumi:"maxWorkers"`
+	MinWorkers pulumi.IntPtrInput `pulumi:"minWorkers"`
+}
+
+func (ClusterAutoscaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAutoscale)(nil)).Elem()
+}
+
+func (i ClusterAutoscaleArgs) ToClusterAutoscaleOutput() ClusterAutoscaleOutput {
+	return i.ToClusterAutoscaleOutputWithContext(context.Background())
+}
+
+func (i ClusterAutoscaleArgs) ToClusterAutoscaleOutputWithContext(ctx context.Context) ClusterAutoscaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoscaleOutput)
+}
+
+func (i ClusterAutoscaleArgs) ToClusterAutoscalePtrOutput() ClusterAutoscalePtrOutput {
+	return i.ToClusterAutoscalePtrOutputWithContext(context.Background())
+}
+
+func (i ClusterAutoscaleArgs) ToClusterAutoscalePtrOutputWithContext(ctx context.Context) ClusterAutoscalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoscaleOutput).ToClusterAutoscalePtrOutputWithContext(ctx)
+}
+
+// ClusterAutoscalePtrInput is an input type that accepts ClusterAutoscaleArgs, ClusterAutoscalePtr and ClusterAutoscalePtrOutput values.
+// You can construct a concrete instance of `ClusterAutoscalePtrInput` via:
+//
+// 		 ClusterAutoscaleArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ClusterAutoscalePtrInput interface {
+	pulumi.Input
+
+	ToClusterAutoscalePtrOutput() ClusterAutoscalePtrOutput
+	ToClusterAutoscalePtrOutputWithContext(context.Context) ClusterAutoscalePtrOutput
+}
+
+type clusterAutoscalePtrType ClusterAutoscaleArgs
+
+func ClusterAutoscalePtr(v *ClusterAutoscaleArgs) ClusterAutoscalePtrInput {
+	return (*clusterAutoscalePtrType)(v)
+}
+
+func (*clusterAutoscalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAutoscale)(nil)).Elem()
+}
+
+func (i *clusterAutoscalePtrType) ToClusterAutoscalePtrOutput() ClusterAutoscalePtrOutput {
+	return i.ToClusterAutoscalePtrOutputWithContext(context.Background())
+}
+
+func (i *clusterAutoscalePtrType) ToClusterAutoscalePtrOutputWithContext(ctx context.Context) ClusterAutoscalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoscalePtrOutput)
+}
+
+type ClusterAutoscaleOutput struct{ *pulumi.OutputState }
+
+func (ClusterAutoscaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAutoscale)(nil)).Elem()
+}
+
+func (o ClusterAutoscaleOutput) ToClusterAutoscaleOutput() ClusterAutoscaleOutput {
+	return o
+}
+
+func (o ClusterAutoscaleOutput) ToClusterAutoscaleOutputWithContext(ctx context.Context) ClusterAutoscaleOutput {
+	return o
+}
+
+func (o ClusterAutoscaleOutput) ToClusterAutoscalePtrOutput() ClusterAutoscalePtrOutput {
+	return o.ToClusterAutoscalePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAutoscaleOutput) ToClusterAutoscalePtrOutputWithContext(ctx context.Context) ClusterAutoscalePtrOutput {
+	return o.ApplyT(func(v ClusterAutoscale) *ClusterAutoscale {
+		return &v
+	}).(ClusterAutoscalePtrOutput)
+}
+func (o ClusterAutoscaleOutput) MaxWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterAutoscale) *int { return v.MaxWorkers }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterAutoscaleOutput) MinWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterAutoscale) *int { return v.MinWorkers }).(pulumi.IntPtrOutput)
+}
+
+type ClusterAutoscalePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterAutoscalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAutoscale)(nil)).Elem()
+}
+
+func (o ClusterAutoscalePtrOutput) ToClusterAutoscalePtrOutput() ClusterAutoscalePtrOutput {
+	return o
+}
+
+func (o ClusterAutoscalePtrOutput) ToClusterAutoscalePtrOutputWithContext(ctx context.Context) ClusterAutoscalePtrOutput {
+	return o
+}
+
+func (o ClusterAutoscalePtrOutput) Elem() ClusterAutoscaleOutput {
+	return o.ApplyT(func(v *ClusterAutoscale) ClusterAutoscale { return *v }).(ClusterAutoscaleOutput)
+}
+
+func (o ClusterAutoscalePtrOutput) MaxWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterAutoscale) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxWorkers
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterAutoscalePtrOutput) MinWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterAutoscale) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinWorkers
+	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterAwsAttributes struct {
+	Availability        *string `pulumi:"availability"`
+	EbsVolumeCount      *int    `pulumi:"ebsVolumeCount"`
+	EbsVolumeSize       *int    `pulumi:"ebsVolumeSize"`
+	EbsVolumeType       *string `pulumi:"ebsVolumeType"`
+	FirstOnDemand       *int    `pulumi:"firstOnDemand"`
+	InstanceProfileArn  *string `pulumi:"instanceProfileArn"`
+	SpotBidPricePercent *int    `pulumi:"spotBidPricePercent"`
+	ZoneId              string  `pulumi:"zoneId"`
+}
+
+// ClusterAwsAttributesInput is an input type that accepts ClusterAwsAttributesArgs and ClusterAwsAttributesOutput values.
+// You can construct a concrete instance of `ClusterAwsAttributesInput` via:
+//
+// 		 ClusterAwsAttributesArgs{...}
+//
+type ClusterAwsAttributesInput interface {
+	pulumi.Input
+
+	ToClusterAwsAttributesOutput() ClusterAwsAttributesOutput
+	ToClusterAwsAttributesOutputWithContext(context.Context) ClusterAwsAttributesOutput
+}
+
+type ClusterAwsAttributesArgs struct {
+	Availability        pulumi.StringPtrInput `pulumi:"availability"`
+	EbsVolumeCount      pulumi.IntPtrInput    `pulumi:"ebsVolumeCount"`
+	EbsVolumeSize       pulumi.IntPtrInput    `pulumi:"ebsVolumeSize"`
+	EbsVolumeType       pulumi.StringPtrInput `pulumi:"ebsVolumeType"`
+	FirstOnDemand       pulumi.IntPtrInput    `pulumi:"firstOnDemand"`
+	InstanceProfileArn  pulumi.StringPtrInput `pulumi:"instanceProfileArn"`
+	SpotBidPricePercent pulumi.IntPtrInput    `pulumi:"spotBidPricePercent"`
+	ZoneId              pulumi.StringInput    `pulumi:"zoneId"`
+}
+
+func (ClusterAwsAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAwsAttributes)(nil)).Elem()
+}
+
+func (i ClusterAwsAttributesArgs) ToClusterAwsAttributesOutput() ClusterAwsAttributesOutput {
+	return i.ToClusterAwsAttributesOutputWithContext(context.Background())
+}
+
+func (i ClusterAwsAttributesArgs) ToClusterAwsAttributesOutputWithContext(ctx context.Context) ClusterAwsAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAwsAttributesOutput)
+}
+
+func (i ClusterAwsAttributesArgs) ToClusterAwsAttributesPtrOutput() ClusterAwsAttributesPtrOutput {
+	return i.ToClusterAwsAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterAwsAttributesArgs) ToClusterAwsAttributesPtrOutputWithContext(ctx context.Context) ClusterAwsAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAwsAttributesOutput).ToClusterAwsAttributesPtrOutputWithContext(ctx)
+}
+
+// ClusterAwsAttributesPtrInput is an input type that accepts ClusterAwsAttributesArgs, ClusterAwsAttributesPtr and ClusterAwsAttributesPtrOutput values.
+// You can construct a concrete instance of `ClusterAwsAttributesPtrInput` via:
+//
+// 		 ClusterAwsAttributesArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ClusterAwsAttributesPtrInput interface {
+	pulumi.Input
+
+	ToClusterAwsAttributesPtrOutput() ClusterAwsAttributesPtrOutput
+	ToClusterAwsAttributesPtrOutputWithContext(context.Context) ClusterAwsAttributesPtrOutput
+}
+
+type clusterAwsAttributesPtrType ClusterAwsAttributesArgs
+
+func ClusterAwsAttributesPtr(v *ClusterAwsAttributesArgs) ClusterAwsAttributesPtrInput {
+	return (*clusterAwsAttributesPtrType)(v)
+}
+
+func (*clusterAwsAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAwsAttributes)(nil)).Elem()
+}
+
+func (i *clusterAwsAttributesPtrType) ToClusterAwsAttributesPtrOutput() ClusterAwsAttributesPtrOutput {
+	return i.ToClusterAwsAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterAwsAttributesPtrType) ToClusterAwsAttributesPtrOutputWithContext(ctx context.Context) ClusterAwsAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAwsAttributesPtrOutput)
+}
+
+type ClusterAwsAttributesOutput struct{ *pulumi.OutputState }
+
+func (ClusterAwsAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAwsAttributes)(nil)).Elem()
+}
+
+func (o ClusterAwsAttributesOutput) ToClusterAwsAttributesOutput() ClusterAwsAttributesOutput {
+	return o
+}
+
+func (o ClusterAwsAttributesOutput) ToClusterAwsAttributesOutputWithContext(ctx context.Context) ClusterAwsAttributesOutput {
+	return o
+}
+
+func (o ClusterAwsAttributesOutput) ToClusterAwsAttributesPtrOutput() ClusterAwsAttributesPtrOutput {
+	return o.ToClusterAwsAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAwsAttributesOutput) ToClusterAwsAttributesPtrOutputWithContext(ctx context.Context) ClusterAwsAttributesPtrOutput {
+	return o.ApplyT(func(v ClusterAwsAttributes) *ClusterAwsAttributes {
+		return &v
+	}).(ClusterAwsAttributesPtrOutput)
+}
+func (o ClusterAwsAttributesOutput) Availability() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterAwsAttributes) *string { return v.Availability }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterAwsAttributesOutput) EbsVolumeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterAwsAttributes) *int { return v.EbsVolumeCount }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterAwsAttributesOutput) EbsVolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterAwsAttributes) *int { return v.EbsVolumeSize }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterAwsAttributesOutput) EbsVolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterAwsAttributes) *string { return v.EbsVolumeType }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterAwsAttributesOutput) FirstOnDemand() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterAwsAttributes) *int { return v.FirstOnDemand }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterAwsAttributesOutput) InstanceProfileArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterAwsAttributes) *string { return v.InstanceProfileArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterAwsAttributesOutput) SpotBidPricePercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterAwsAttributes) *int { return v.SpotBidPricePercent }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterAwsAttributesOutput) ZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterAwsAttributes) string { return v.ZoneId }).(pulumi.StringOutput)
+}
+
+type ClusterAwsAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterAwsAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAwsAttributes)(nil)).Elem()
+}
+
+func (o ClusterAwsAttributesPtrOutput) ToClusterAwsAttributesPtrOutput() ClusterAwsAttributesPtrOutput {
+	return o
+}
+
+func (o ClusterAwsAttributesPtrOutput) ToClusterAwsAttributesPtrOutputWithContext(ctx context.Context) ClusterAwsAttributesPtrOutput {
+	return o
+}
+
+func (o ClusterAwsAttributesPtrOutput) Elem() ClusterAwsAttributesOutput {
+	return o.ApplyT(func(v *ClusterAwsAttributes) ClusterAwsAttributes { return *v }).(ClusterAwsAttributesOutput)
+}
+
+func (o ClusterAwsAttributesPtrOutput) Availability() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterAwsAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Availability
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterAwsAttributesPtrOutput) EbsVolumeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterAwsAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EbsVolumeCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterAwsAttributesPtrOutput) EbsVolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterAwsAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EbsVolumeSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterAwsAttributesPtrOutput) EbsVolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterAwsAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EbsVolumeType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterAwsAttributesPtrOutput) FirstOnDemand() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterAwsAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FirstOnDemand
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterAwsAttributesPtrOutput) InstanceProfileArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterAwsAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceProfileArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterAwsAttributesPtrOutput) SpotBidPricePercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterAwsAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpotBidPricePercent
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterAwsAttributesPtrOutput) ZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterAwsAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ZoneId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterClusterLogConf struct {
+	Dbfs *ClusterClusterLogConfDbfs `pulumi:"dbfs"`
+	S3   *ClusterClusterLogConfS3   `pulumi:"s3"`
+}
+
+// ClusterClusterLogConfInput is an input type that accepts ClusterClusterLogConfArgs and ClusterClusterLogConfOutput values.
+// You can construct a concrete instance of `ClusterClusterLogConfInput` via:
+//
+// 		 ClusterClusterLogConfArgs{...}
+//
+type ClusterClusterLogConfInput interface {
+	pulumi.Input
+
+	ToClusterClusterLogConfOutput() ClusterClusterLogConfOutput
+	ToClusterClusterLogConfOutputWithContext(context.Context) ClusterClusterLogConfOutput
+}
+
+type ClusterClusterLogConfArgs struct {
+	Dbfs ClusterClusterLogConfDbfsPtrInput `pulumi:"dbfs"`
+	S3   ClusterClusterLogConfS3PtrInput   `pulumi:"s3"`
+}
+
+func (ClusterClusterLogConfArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterClusterLogConf)(nil)).Elem()
+}
+
+func (i ClusterClusterLogConfArgs) ToClusterClusterLogConfOutput() ClusterClusterLogConfOutput {
+	return i.ToClusterClusterLogConfOutputWithContext(context.Background())
+}
+
+func (i ClusterClusterLogConfArgs) ToClusterClusterLogConfOutputWithContext(ctx context.Context) ClusterClusterLogConfOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterLogConfOutput)
+}
+
+func (i ClusterClusterLogConfArgs) ToClusterClusterLogConfPtrOutput() ClusterClusterLogConfPtrOutput {
+	return i.ToClusterClusterLogConfPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterClusterLogConfArgs) ToClusterClusterLogConfPtrOutputWithContext(ctx context.Context) ClusterClusterLogConfPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterLogConfOutput).ToClusterClusterLogConfPtrOutputWithContext(ctx)
+}
+
+// ClusterClusterLogConfPtrInput is an input type that accepts ClusterClusterLogConfArgs, ClusterClusterLogConfPtr and ClusterClusterLogConfPtrOutput values.
+// You can construct a concrete instance of `ClusterClusterLogConfPtrInput` via:
+//
+// 		 ClusterClusterLogConfArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ClusterClusterLogConfPtrInput interface {
+	pulumi.Input
+
+	ToClusterClusterLogConfPtrOutput() ClusterClusterLogConfPtrOutput
+	ToClusterClusterLogConfPtrOutputWithContext(context.Context) ClusterClusterLogConfPtrOutput
+}
+
+type clusterClusterLogConfPtrType ClusterClusterLogConfArgs
+
+func ClusterClusterLogConfPtr(v *ClusterClusterLogConfArgs) ClusterClusterLogConfPtrInput {
+	return (*clusterClusterLogConfPtrType)(v)
+}
+
+func (*clusterClusterLogConfPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterClusterLogConf)(nil)).Elem()
+}
+
+func (i *clusterClusterLogConfPtrType) ToClusterClusterLogConfPtrOutput() ClusterClusterLogConfPtrOutput {
+	return i.ToClusterClusterLogConfPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterClusterLogConfPtrType) ToClusterClusterLogConfPtrOutputWithContext(ctx context.Context) ClusterClusterLogConfPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterLogConfPtrOutput)
+}
+
+type ClusterClusterLogConfOutput struct{ *pulumi.OutputState }
+
+func (ClusterClusterLogConfOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterClusterLogConf)(nil)).Elem()
+}
+
+func (o ClusterClusterLogConfOutput) ToClusterClusterLogConfOutput() ClusterClusterLogConfOutput {
+	return o
+}
+
+func (o ClusterClusterLogConfOutput) ToClusterClusterLogConfOutputWithContext(ctx context.Context) ClusterClusterLogConfOutput {
+	return o
+}
+
+func (o ClusterClusterLogConfOutput) ToClusterClusterLogConfPtrOutput() ClusterClusterLogConfPtrOutput {
+	return o.ToClusterClusterLogConfPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterClusterLogConfOutput) ToClusterClusterLogConfPtrOutputWithContext(ctx context.Context) ClusterClusterLogConfPtrOutput {
+	return o.ApplyT(func(v ClusterClusterLogConf) *ClusterClusterLogConf {
+		return &v
+	}).(ClusterClusterLogConfPtrOutput)
+}
+func (o ClusterClusterLogConfOutput) Dbfs() ClusterClusterLogConfDbfsPtrOutput {
+	return o.ApplyT(func(v ClusterClusterLogConf) *ClusterClusterLogConfDbfs { return v.Dbfs }).(ClusterClusterLogConfDbfsPtrOutput)
+}
+
+func (o ClusterClusterLogConfOutput) S3() ClusterClusterLogConfS3PtrOutput {
+	return o.ApplyT(func(v ClusterClusterLogConf) *ClusterClusterLogConfS3 { return v.S3 }).(ClusterClusterLogConfS3PtrOutput)
+}
+
+type ClusterClusterLogConfPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterClusterLogConfPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterClusterLogConf)(nil)).Elem()
+}
+
+func (o ClusterClusterLogConfPtrOutput) ToClusterClusterLogConfPtrOutput() ClusterClusterLogConfPtrOutput {
+	return o
+}
+
+func (o ClusterClusterLogConfPtrOutput) ToClusterClusterLogConfPtrOutputWithContext(ctx context.Context) ClusterClusterLogConfPtrOutput {
+	return o
+}
+
+func (o ClusterClusterLogConfPtrOutput) Elem() ClusterClusterLogConfOutput {
+	return o.ApplyT(func(v *ClusterClusterLogConf) ClusterClusterLogConf { return *v }).(ClusterClusterLogConfOutput)
+}
+
+func (o ClusterClusterLogConfPtrOutput) Dbfs() ClusterClusterLogConfDbfsPtrOutput {
+	return o.ApplyT(func(v *ClusterClusterLogConf) *ClusterClusterLogConfDbfs {
+		if v == nil {
+			return nil
+		}
+		return v.Dbfs
+	}).(ClusterClusterLogConfDbfsPtrOutput)
+}
+
+func (o ClusterClusterLogConfPtrOutput) S3() ClusterClusterLogConfS3PtrOutput {
+	return o.ApplyT(func(v *ClusterClusterLogConf) *ClusterClusterLogConfS3 {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(ClusterClusterLogConfS3PtrOutput)
+}
+
+type ClusterClusterLogConfDbfs struct {
+	Destination string `pulumi:"destination"`
+}
+
+// ClusterClusterLogConfDbfsInput is an input type that accepts ClusterClusterLogConfDbfsArgs and ClusterClusterLogConfDbfsOutput values.
+// You can construct a concrete instance of `ClusterClusterLogConfDbfsInput` via:
+//
+// 		 ClusterClusterLogConfDbfsArgs{...}
+//
+type ClusterClusterLogConfDbfsInput interface {
+	pulumi.Input
+
+	ToClusterClusterLogConfDbfsOutput() ClusterClusterLogConfDbfsOutput
+	ToClusterClusterLogConfDbfsOutputWithContext(context.Context) ClusterClusterLogConfDbfsOutput
+}
+
+type ClusterClusterLogConfDbfsArgs struct {
+	Destination pulumi.StringInput `pulumi:"destination"`
+}
+
+func (ClusterClusterLogConfDbfsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterClusterLogConfDbfs)(nil)).Elem()
+}
+
+func (i ClusterClusterLogConfDbfsArgs) ToClusterClusterLogConfDbfsOutput() ClusterClusterLogConfDbfsOutput {
+	return i.ToClusterClusterLogConfDbfsOutputWithContext(context.Background())
+}
+
+func (i ClusterClusterLogConfDbfsArgs) ToClusterClusterLogConfDbfsOutputWithContext(ctx context.Context) ClusterClusterLogConfDbfsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterLogConfDbfsOutput)
+}
+
+func (i ClusterClusterLogConfDbfsArgs) ToClusterClusterLogConfDbfsPtrOutput() ClusterClusterLogConfDbfsPtrOutput {
+	return i.ToClusterClusterLogConfDbfsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterClusterLogConfDbfsArgs) ToClusterClusterLogConfDbfsPtrOutputWithContext(ctx context.Context) ClusterClusterLogConfDbfsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterLogConfDbfsOutput).ToClusterClusterLogConfDbfsPtrOutputWithContext(ctx)
+}
+
+// ClusterClusterLogConfDbfsPtrInput is an input type that accepts ClusterClusterLogConfDbfsArgs, ClusterClusterLogConfDbfsPtr and ClusterClusterLogConfDbfsPtrOutput values.
+// You can construct a concrete instance of `ClusterClusterLogConfDbfsPtrInput` via:
+//
+// 		 ClusterClusterLogConfDbfsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ClusterClusterLogConfDbfsPtrInput interface {
+	pulumi.Input
+
+	ToClusterClusterLogConfDbfsPtrOutput() ClusterClusterLogConfDbfsPtrOutput
+	ToClusterClusterLogConfDbfsPtrOutputWithContext(context.Context) ClusterClusterLogConfDbfsPtrOutput
+}
+
+type clusterClusterLogConfDbfsPtrType ClusterClusterLogConfDbfsArgs
+
+func ClusterClusterLogConfDbfsPtr(v *ClusterClusterLogConfDbfsArgs) ClusterClusterLogConfDbfsPtrInput {
+	return (*clusterClusterLogConfDbfsPtrType)(v)
+}
+
+func (*clusterClusterLogConfDbfsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterClusterLogConfDbfs)(nil)).Elem()
+}
+
+func (i *clusterClusterLogConfDbfsPtrType) ToClusterClusterLogConfDbfsPtrOutput() ClusterClusterLogConfDbfsPtrOutput {
+	return i.ToClusterClusterLogConfDbfsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterClusterLogConfDbfsPtrType) ToClusterClusterLogConfDbfsPtrOutputWithContext(ctx context.Context) ClusterClusterLogConfDbfsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterLogConfDbfsPtrOutput)
+}
+
+type ClusterClusterLogConfDbfsOutput struct{ *pulumi.OutputState }
+
+func (ClusterClusterLogConfDbfsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterClusterLogConfDbfs)(nil)).Elem()
+}
+
+func (o ClusterClusterLogConfDbfsOutput) ToClusterClusterLogConfDbfsOutput() ClusterClusterLogConfDbfsOutput {
+	return o
+}
+
+func (o ClusterClusterLogConfDbfsOutput) ToClusterClusterLogConfDbfsOutputWithContext(ctx context.Context) ClusterClusterLogConfDbfsOutput {
+	return o
+}
+
+func (o ClusterClusterLogConfDbfsOutput) ToClusterClusterLogConfDbfsPtrOutput() ClusterClusterLogConfDbfsPtrOutput {
+	return o.ToClusterClusterLogConfDbfsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterClusterLogConfDbfsOutput) ToClusterClusterLogConfDbfsPtrOutputWithContext(ctx context.Context) ClusterClusterLogConfDbfsPtrOutput {
+	return o.ApplyT(func(v ClusterClusterLogConfDbfs) *ClusterClusterLogConfDbfs {
+		return &v
+	}).(ClusterClusterLogConfDbfsPtrOutput)
+}
+func (o ClusterClusterLogConfDbfsOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterClusterLogConfDbfs) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+type ClusterClusterLogConfDbfsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterClusterLogConfDbfsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterClusterLogConfDbfs)(nil)).Elem()
+}
+
+func (o ClusterClusterLogConfDbfsPtrOutput) ToClusterClusterLogConfDbfsPtrOutput() ClusterClusterLogConfDbfsPtrOutput {
+	return o
+}
+
+func (o ClusterClusterLogConfDbfsPtrOutput) ToClusterClusterLogConfDbfsPtrOutputWithContext(ctx context.Context) ClusterClusterLogConfDbfsPtrOutput {
+	return o
+}
+
+func (o ClusterClusterLogConfDbfsPtrOutput) Elem() ClusterClusterLogConfDbfsOutput {
+	return o.ApplyT(func(v *ClusterClusterLogConfDbfs) ClusterClusterLogConfDbfs { return *v }).(ClusterClusterLogConfDbfsOutput)
+}
+
+func (o ClusterClusterLogConfDbfsPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterClusterLogConfDbfs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterClusterLogConfS3 struct {
+	CannedAcl        *string `pulumi:"cannedAcl"`
+	Destination      string  `pulumi:"destination"`
+	EnableEncryption *bool   `pulumi:"enableEncryption"`
+	EncryptionType   *string `pulumi:"encryptionType"`
+	Endpoint         *string `pulumi:"endpoint"`
+	KmsKey           *string `pulumi:"kmsKey"`
+	Region           *string `pulumi:"region"`
+}
+
+// ClusterClusterLogConfS3Input is an input type that accepts ClusterClusterLogConfS3Args and ClusterClusterLogConfS3Output values.
+// You can construct a concrete instance of `ClusterClusterLogConfS3Input` via:
+//
+// 		 ClusterClusterLogConfS3Args{...}
+//
+type ClusterClusterLogConfS3Input interface {
+	pulumi.Input
+
+	ToClusterClusterLogConfS3Output() ClusterClusterLogConfS3Output
+	ToClusterClusterLogConfS3OutputWithContext(context.Context) ClusterClusterLogConfS3Output
+}
+
+type ClusterClusterLogConfS3Args struct {
+	CannedAcl        pulumi.StringPtrInput `pulumi:"cannedAcl"`
+	Destination      pulumi.StringInput    `pulumi:"destination"`
+	EnableEncryption pulumi.BoolPtrInput   `pulumi:"enableEncryption"`
+	EncryptionType   pulumi.StringPtrInput `pulumi:"encryptionType"`
+	Endpoint         pulumi.StringPtrInput `pulumi:"endpoint"`
+	KmsKey           pulumi.StringPtrInput `pulumi:"kmsKey"`
+	Region           pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (ClusterClusterLogConfS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterClusterLogConfS3)(nil)).Elem()
+}
+
+func (i ClusterClusterLogConfS3Args) ToClusterClusterLogConfS3Output() ClusterClusterLogConfS3Output {
+	return i.ToClusterClusterLogConfS3OutputWithContext(context.Background())
+}
+
+func (i ClusterClusterLogConfS3Args) ToClusterClusterLogConfS3OutputWithContext(ctx context.Context) ClusterClusterLogConfS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterLogConfS3Output)
+}
+
+func (i ClusterClusterLogConfS3Args) ToClusterClusterLogConfS3PtrOutput() ClusterClusterLogConfS3PtrOutput {
+	return i.ToClusterClusterLogConfS3PtrOutputWithContext(context.Background())
+}
+
+func (i ClusterClusterLogConfS3Args) ToClusterClusterLogConfS3PtrOutputWithContext(ctx context.Context) ClusterClusterLogConfS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterLogConfS3Output).ToClusterClusterLogConfS3PtrOutputWithContext(ctx)
+}
+
+// ClusterClusterLogConfS3PtrInput is an input type that accepts ClusterClusterLogConfS3Args, ClusterClusterLogConfS3Ptr and ClusterClusterLogConfS3PtrOutput values.
+// You can construct a concrete instance of `ClusterClusterLogConfS3PtrInput` via:
+//
+// 		 ClusterClusterLogConfS3Args{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ClusterClusterLogConfS3PtrInput interface {
+	pulumi.Input
+
+	ToClusterClusterLogConfS3PtrOutput() ClusterClusterLogConfS3PtrOutput
+	ToClusterClusterLogConfS3PtrOutputWithContext(context.Context) ClusterClusterLogConfS3PtrOutput
+}
+
+type clusterClusterLogConfS3PtrType ClusterClusterLogConfS3Args
+
+func ClusterClusterLogConfS3Ptr(v *ClusterClusterLogConfS3Args) ClusterClusterLogConfS3PtrInput {
+	return (*clusterClusterLogConfS3PtrType)(v)
+}
+
+func (*clusterClusterLogConfS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterClusterLogConfS3)(nil)).Elem()
+}
+
+func (i *clusterClusterLogConfS3PtrType) ToClusterClusterLogConfS3PtrOutput() ClusterClusterLogConfS3PtrOutput {
+	return i.ToClusterClusterLogConfS3PtrOutputWithContext(context.Background())
+}
+
+func (i *clusterClusterLogConfS3PtrType) ToClusterClusterLogConfS3PtrOutputWithContext(ctx context.Context) ClusterClusterLogConfS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterLogConfS3PtrOutput)
+}
+
+type ClusterClusterLogConfS3Output struct{ *pulumi.OutputState }
+
+func (ClusterClusterLogConfS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterClusterLogConfS3)(nil)).Elem()
+}
+
+func (o ClusterClusterLogConfS3Output) ToClusterClusterLogConfS3Output() ClusterClusterLogConfS3Output {
+	return o
+}
+
+func (o ClusterClusterLogConfS3Output) ToClusterClusterLogConfS3OutputWithContext(ctx context.Context) ClusterClusterLogConfS3Output {
+	return o
+}
+
+func (o ClusterClusterLogConfS3Output) ToClusterClusterLogConfS3PtrOutput() ClusterClusterLogConfS3PtrOutput {
+	return o.ToClusterClusterLogConfS3PtrOutputWithContext(context.Background())
+}
+
+func (o ClusterClusterLogConfS3Output) ToClusterClusterLogConfS3PtrOutputWithContext(ctx context.Context) ClusterClusterLogConfS3PtrOutput {
+	return o.ApplyT(func(v ClusterClusterLogConfS3) *ClusterClusterLogConfS3 {
+		return &v
+	}).(ClusterClusterLogConfS3PtrOutput)
+}
+func (o ClusterClusterLogConfS3Output) CannedAcl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterClusterLogConfS3) *string { return v.CannedAcl }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterClusterLogConfS3Output) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterClusterLogConfS3) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+func (o ClusterClusterLogConfS3Output) EnableEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterClusterLogConfS3) *bool { return v.EnableEncryption }).(pulumi.BoolPtrOutput)
+}
+
+func (o ClusterClusterLogConfS3Output) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterClusterLogConfS3) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterClusterLogConfS3Output) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterClusterLogConfS3) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterClusterLogConfS3Output) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterClusterLogConfS3) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterClusterLogConfS3Output) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterClusterLogConfS3) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type ClusterClusterLogConfS3PtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterClusterLogConfS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterClusterLogConfS3)(nil)).Elem()
+}
+
+func (o ClusterClusterLogConfS3PtrOutput) ToClusterClusterLogConfS3PtrOutput() ClusterClusterLogConfS3PtrOutput {
+	return o
+}
+
+func (o ClusterClusterLogConfS3PtrOutput) ToClusterClusterLogConfS3PtrOutputWithContext(ctx context.Context) ClusterClusterLogConfS3PtrOutput {
+	return o
+}
+
+func (o ClusterClusterLogConfS3PtrOutput) Elem() ClusterClusterLogConfS3Output {
+	return o.ApplyT(func(v *ClusterClusterLogConfS3) ClusterClusterLogConfS3 { return *v }).(ClusterClusterLogConfS3Output)
+}
+
+func (o ClusterClusterLogConfS3PtrOutput) CannedAcl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterClusterLogConfS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CannedAcl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterClusterLogConfS3PtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterClusterLogConfS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterClusterLogConfS3PtrOutput) EnableEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterClusterLogConfS3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableEncryption
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ClusterClusterLogConfS3PtrOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterClusterLogConfS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterClusterLogConfS3PtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterClusterLogConfS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterClusterLogConfS3PtrOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterClusterLogConfS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterClusterLogConfS3PtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterClusterLogConfS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterDockerImage struct {
+	BasicAuth *ClusterDockerImageBasicAuth `pulumi:"basicAuth"`
+	Url       string                       `pulumi:"url"`
+}
+
+// ClusterDockerImageInput is an input type that accepts ClusterDockerImageArgs and ClusterDockerImageOutput values.
+// You can construct a concrete instance of `ClusterDockerImageInput` via:
+//
+// 		 ClusterDockerImageArgs{...}
+//
+type ClusterDockerImageInput interface {
+	pulumi.Input
+
+	ToClusterDockerImageOutput() ClusterDockerImageOutput
+	ToClusterDockerImageOutputWithContext(context.Context) ClusterDockerImageOutput
+}
+
+type ClusterDockerImageArgs struct {
+	BasicAuth ClusterDockerImageBasicAuthPtrInput `pulumi:"basicAuth"`
+	Url       pulumi.StringInput                  `pulumi:"url"`
+}
+
+func (ClusterDockerImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterDockerImage)(nil)).Elem()
+}
+
+func (i ClusterDockerImageArgs) ToClusterDockerImageOutput() ClusterDockerImageOutput {
+	return i.ToClusterDockerImageOutputWithContext(context.Background())
+}
+
+func (i ClusterDockerImageArgs) ToClusterDockerImageOutputWithContext(ctx context.Context) ClusterDockerImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterDockerImageOutput)
+}
+
+func (i ClusterDockerImageArgs) ToClusterDockerImagePtrOutput() ClusterDockerImagePtrOutput {
+	return i.ToClusterDockerImagePtrOutputWithContext(context.Background())
+}
+
+func (i ClusterDockerImageArgs) ToClusterDockerImagePtrOutputWithContext(ctx context.Context) ClusterDockerImagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterDockerImageOutput).ToClusterDockerImagePtrOutputWithContext(ctx)
+}
+
+// ClusterDockerImagePtrInput is an input type that accepts ClusterDockerImageArgs, ClusterDockerImagePtr and ClusterDockerImagePtrOutput values.
+// You can construct a concrete instance of `ClusterDockerImagePtrInput` via:
+//
+// 		 ClusterDockerImageArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ClusterDockerImagePtrInput interface {
+	pulumi.Input
+
+	ToClusterDockerImagePtrOutput() ClusterDockerImagePtrOutput
+	ToClusterDockerImagePtrOutputWithContext(context.Context) ClusterDockerImagePtrOutput
+}
+
+type clusterDockerImagePtrType ClusterDockerImageArgs
+
+func ClusterDockerImagePtr(v *ClusterDockerImageArgs) ClusterDockerImagePtrInput {
+	return (*clusterDockerImagePtrType)(v)
+}
+
+func (*clusterDockerImagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterDockerImage)(nil)).Elem()
+}
+
+func (i *clusterDockerImagePtrType) ToClusterDockerImagePtrOutput() ClusterDockerImagePtrOutput {
+	return i.ToClusterDockerImagePtrOutputWithContext(context.Background())
+}
+
+func (i *clusterDockerImagePtrType) ToClusterDockerImagePtrOutputWithContext(ctx context.Context) ClusterDockerImagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterDockerImagePtrOutput)
+}
+
+type ClusterDockerImageOutput struct{ *pulumi.OutputState }
+
+func (ClusterDockerImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterDockerImage)(nil)).Elem()
+}
+
+func (o ClusterDockerImageOutput) ToClusterDockerImageOutput() ClusterDockerImageOutput {
+	return o
+}
+
+func (o ClusterDockerImageOutput) ToClusterDockerImageOutputWithContext(ctx context.Context) ClusterDockerImageOutput {
+	return o
+}
+
+func (o ClusterDockerImageOutput) ToClusterDockerImagePtrOutput() ClusterDockerImagePtrOutput {
+	return o.ToClusterDockerImagePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterDockerImageOutput) ToClusterDockerImagePtrOutputWithContext(ctx context.Context) ClusterDockerImagePtrOutput {
+	return o.ApplyT(func(v ClusterDockerImage) *ClusterDockerImage {
+		return &v
+	}).(ClusterDockerImagePtrOutput)
+}
+func (o ClusterDockerImageOutput) BasicAuth() ClusterDockerImageBasicAuthPtrOutput {
+	return o.ApplyT(func(v ClusterDockerImage) *ClusterDockerImageBasicAuth { return v.BasicAuth }).(ClusterDockerImageBasicAuthPtrOutput)
+}
+
+func (o ClusterDockerImageOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterDockerImage) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type ClusterDockerImagePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterDockerImagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterDockerImage)(nil)).Elem()
+}
+
+func (o ClusterDockerImagePtrOutput) ToClusterDockerImagePtrOutput() ClusterDockerImagePtrOutput {
+	return o
+}
+
+func (o ClusterDockerImagePtrOutput) ToClusterDockerImagePtrOutputWithContext(ctx context.Context) ClusterDockerImagePtrOutput {
+	return o
+}
+
+func (o ClusterDockerImagePtrOutput) Elem() ClusterDockerImageOutput {
+	return o.ApplyT(func(v *ClusterDockerImage) ClusterDockerImage { return *v }).(ClusterDockerImageOutput)
+}
+
+func (o ClusterDockerImagePtrOutput) BasicAuth() ClusterDockerImageBasicAuthPtrOutput {
+	return o.ApplyT(func(v *ClusterDockerImage) *ClusterDockerImageBasicAuth {
+		if v == nil {
+			return nil
+		}
+		return v.BasicAuth
+	}).(ClusterDockerImageBasicAuthPtrOutput)
+}
+
+func (o ClusterDockerImagePtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterDockerImage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterDockerImageBasicAuth struct {
+	Password string `pulumi:"password"`
+	Username string `pulumi:"username"`
+}
+
+// ClusterDockerImageBasicAuthInput is an input type that accepts ClusterDockerImageBasicAuthArgs and ClusterDockerImageBasicAuthOutput values.
+// You can construct a concrete instance of `ClusterDockerImageBasicAuthInput` via:
+//
+// 		 ClusterDockerImageBasicAuthArgs{...}
+//
+type ClusterDockerImageBasicAuthInput interface {
+	pulumi.Input
+
+	ToClusterDockerImageBasicAuthOutput() ClusterDockerImageBasicAuthOutput
+	ToClusterDockerImageBasicAuthOutputWithContext(context.Context) ClusterDockerImageBasicAuthOutput
+}
+
+type ClusterDockerImageBasicAuthArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (ClusterDockerImageBasicAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterDockerImageBasicAuth)(nil)).Elem()
+}
+
+func (i ClusterDockerImageBasicAuthArgs) ToClusterDockerImageBasicAuthOutput() ClusterDockerImageBasicAuthOutput {
+	return i.ToClusterDockerImageBasicAuthOutputWithContext(context.Background())
+}
+
+func (i ClusterDockerImageBasicAuthArgs) ToClusterDockerImageBasicAuthOutputWithContext(ctx context.Context) ClusterDockerImageBasicAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterDockerImageBasicAuthOutput)
+}
+
+func (i ClusterDockerImageBasicAuthArgs) ToClusterDockerImageBasicAuthPtrOutput() ClusterDockerImageBasicAuthPtrOutput {
+	return i.ToClusterDockerImageBasicAuthPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterDockerImageBasicAuthArgs) ToClusterDockerImageBasicAuthPtrOutputWithContext(ctx context.Context) ClusterDockerImageBasicAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterDockerImageBasicAuthOutput).ToClusterDockerImageBasicAuthPtrOutputWithContext(ctx)
+}
+
+// ClusterDockerImageBasicAuthPtrInput is an input type that accepts ClusterDockerImageBasicAuthArgs, ClusterDockerImageBasicAuthPtr and ClusterDockerImageBasicAuthPtrOutput values.
+// You can construct a concrete instance of `ClusterDockerImageBasicAuthPtrInput` via:
+//
+// 		 ClusterDockerImageBasicAuthArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ClusterDockerImageBasicAuthPtrInput interface {
+	pulumi.Input
+
+	ToClusterDockerImageBasicAuthPtrOutput() ClusterDockerImageBasicAuthPtrOutput
+	ToClusterDockerImageBasicAuthPtrOutputWithContext(context.Context) ClusterDockerImageBasicAuthPtrOutput
+}
+
+type clusterDockerImageBasicAuthPtrType ClusterDockerImageBasicAuthArgs
+
+func ClusterDockerImageBasicAuthPtr(v *ClusterDockerImageBasicAuthArgs) ClusterDockerImageBasicAuthPtrInput {
+	return (*clusterDockerImageBasicAuthPtrType)(v)
+}
+
+func (*clusterDockerImageBasicAuthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterDockerImageBasicAuth)(nil)).Elem()
+}
+
+func (i *clusterDockerImageBasicAuthPtrType) ToClusterDockerImageBasicAuthPtrOutput() ClusterDockerImageBasicAuthPtrOutput {
+	return i.ToClusterDockerImageBasicAuthPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterDockerImageBasicAuthPtrType) ToClusterDockerImageBasicAuthPtrOutputWithContext(ctx context.Context) ClusterDockerImageBasicAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterDockerImageBasicAuthPtrOutput)
+}
+
+type ClusterDockerImageBasicAuthOutput struct{ *pulumi.OutputState }
+
+func (ClusterDockerImageBasicAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterDockerImageBasicAuth)(nil)).Elem()
+}
+
+func (o ClusterDockerImageBasicAuthOutput) ToClusterDockerImageBasicAuthOutput() ClusterDockerImageBasicAuthOutput {
+	return o
+}
+
+func (o ClusterDockerImageBasicAuthOutput) ToClusterDockerImageBasicAuthOutputWithContext(ctx context.Context) ClusterDockerImageBasicAuthOutput {
+	return o
+}
+
+func (o ClusterDockerImageBasicAuthOutput) ToClusterDockerImageBasicAuthPtrOutput() ClusterDockerImageBasicAuthPtrOutput {
+	return o.ToClusterDockerImageBasicAuthPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterDockerImageBasicAuthOutput) ToClusterDockerImageBasicAuthPtrOutputWithContext(ctx context.Context) ClusterDockerImageBasicAuthPtrOutput {
+	return o.ApplyT(func(v ClusterDockerImageBasicAuth) *ClusterDockerImageBasicAuth {
+		return &v
+	}).(ClusterDockerImageBasicAuthPtrOutput)
+}
+func (o ClusterDockerImageBasicAuthOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterDockerImageBasicAuth) string { return v.Password }).(pulumi.StringOutput)
+}
+
+func (o ClusterDockerImageBasicAuthOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterDockerImageBasicAuth) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type ClusterDockerImageBasicAuthPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterDockerImageBasicAuthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterDockerImageBasicAuth)(nil)).Elem()
+}
+
+func (o ClusterDockerImageBasicAuthPtrOutput) ToClusterDockerImageBasicAuthPtrOutput() ClusterDockerImageBasicAuthPtrOutput {
+	return o
+}
+
+func (o ClusterDockerImageBasicAuthPtrOutput) ToClusterDockerImageBasicAuthPtrOutputWithContext(ctx context.Context) ClusterDockerImageBasicAuthPtrOutput {
+	return o
+}
+
+func (o ClusterDockerImageBasicAuthPtrOutput) Elem() ClusterDockerImageBasicAuthOutput {
+	return o.ApplyT(func(v *ClusterDockerImageBasicAuth) ClusterDockerImageBasicAuth { return *v }).(ClusterDockerImageBasicAuthOutput)
+}
+
+func (o ClusterDockerImageBasicAuthPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterDockerImageBasicAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterDockerImageBasicAuthPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterDockerImageBasicAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterInitScript struct {
+	Dbfs *ClusterInitScriptDbfs `pulumi:"dbfs"`
+	S3   *ClusterInitScriptS3   `pulumi:"s3"`
+}
+
+// ClusterInitScriptInput is an input type that accepts ClusterInitScriptArgs and ClusterInitScriptOutput values.
+// You can construct a concrete instance of `ClusterInitScriptInput` via:
+//
+// 		 ClusterInitScriptArgs{...}
+//
+type ClusterInitScriptInput interface {
+	pulumi.Input
+
+	ToClusterInitScriptOutput() ClusterInitScriptOutput
+	ToClusterInitScriptOutputWithContext(context.Context) ClusterInitScriptOutput
+}
+
+type ClusterInitScriptArgs struct {
+	Dbfs ClusterInitScriptDbfsPtrInput `pulumi:"dbfs"`
+	S3   ClusterInitScriptS3PtrInput   `pulumi:"s3"`
+}
+
+func (ClusterInitScriptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInitScript)(nil)).Elem()
+}
+
+func (i ClusterInitScriptArgs) ToClusterInitScriptOutput() ClusterInitScriptOutput {
+	return i.ToClusterInitScriptOutputWithContext(context.Background())
+}
+
+func (i ClusterInitScriptArgs) ToClusterInitScriptOutputWithContext(ctx context.Context) ClusterInitScriptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInitScriptOutput)
+}
+
+// ClusterInitScriptArrayInput is an input type that accepts ClusterInitScriptArray and ClusterInitScriptArrayOutput values.
+// You can construct a concrete instance of `ClusterInitScriptArrayInput` via:
+//
+// 		 ClusterInitScriptArray{ ClusterInitScriptArgs{...} }
+//
+type ClusterInitScriptArrayInput interface {
+	pulumi.Input
+
+	ToClusterInitScriptArrayOutput() ClusterInitScriptArrayOutput
+	ToClusterInitScriptArrayOutputWithContext(context.Context) ClusterInitScriptArrayOutput
+}
+
+type ClusterInitScriptArray []ClusterInitScriptInput
+
+func (ClusterInitScriptArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterInitScript)(nil)).Elem()
+}
+
+func (i ClusterInitScriptArray) ToClusterInitScriptArrayOutput() ClusterInitScriptArrayOutput {
+	return i.ToClusterInitScriptArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterInitScriptArray) ToClusterInitScriptArrayOutputWithContext(ctx context.Context) ClusterInitScriptArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInitScriptArrayOutput)
+}
+
+type ClusterInitScriptOutput struct{ *pulumi.OutputState }
+
+func (ClusterInitScriptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInitScript)(nil)).Elem()
+}
+
+func (o ClusterInitScriptOutput) ToClusterInitScriptOutput() ClusterInitScriptOutput {
+	return o
+}
+
+func (o ClusterInitScriptOutput) ToClusterInitScriptOutputWithContext(ctx context.Context) ClusterInitScriptOutput {
+	return o
+}
+
+func (o ClusterInitScriptOutput) Dbfs() ClusterInitScriptDbfsPtrOutput {
+	return o.ApplyT(func(v ClusterInitScript) *ClusterInitScriptDbfs { return v.Dbfs }).(ClusterInitScriptDbfsPtrOutput)
+}
+
+func (o ClusterInitScriptOutput) S3() ClusterInitScriptS3PtrOutput {
+	return o.ApplyT(func(v ClusterInitScript) *ClusterInitScriptS3 { return v.S3 }).(ClusterInitScriptS3PtrOutput)
+}
+
+type ClusterInitScriptArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterInitScriptArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterInitScript)(nil)).Elem()
+}
+
+func (o ClusterInitScriptArrayOutput) ToClusterInitScriptArrayOutput() ClusterInitScriptArrayOutput {
+	return o
+}
+
+func (o ClusterInitScriptArrayOutput) ToClusterInitScriptArrayOutputWithContext(ctx context.Context) ClusterInitScriptArrayOutput {
+	return o
+}
+
+func (o ClusterInitScriptArrayOutput) Index(i pulumi.IntInput) ClusterInitScriptOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterInitScript {
+		return vs[0].([]ClusterInitScript)[vs[1].(int)]
+	}).(ClusterInitScriptOutput)
+}
+
+type ClusterInitScriptDbfs struct {
+	Destination string `pulumi:"destination"`
+}
+
+// ClusterInitScriptDbfsInput is an input type that accepts ClusterInitScriptDbfsArgs and ClusterInitScriptDbfsOutput values.
+// You can construct a concrete instance of `ClusterInitScriptDbfsInput` via:
+//
+// 		 ClusterInitScriptDbfsArgs{...}
+//
+type ClusterInitScriptDbfsInput interface {
+	pulumi.Input
+
+	ToClusterInitScriptDbfsOutput() ClusterInitScriptDbfsOutput
+	ToClusterInitScriptDbfsOutputWithContext(context.Context) ClusterInitScriptDbfsOutput
+}
+
+type ClusterInitScriptDbfsArgs struct {
+	Destination pulumi.StringInput `pulumi:"destination"`
+}
+
+func (ClusterInitScriptDbfsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInitScriptDbfs)(nil)).Elem()
+}
+
+func (i ClusterInitScriptDbfsArgs) ToClusterInitScriptDbfsOutput() ClusterInitScriptDbfsOutput {
+	return i.ToClusterInitScriptDbfsOutputWithContext(context.Background())
+}
+
+func (i ClusterInitScriptDbfsArgs) ToClusterInitScriptDbfsOutputWithContext(ctx context.Context) ClusterInitScriptDbfsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInitScriptDbfsOutput)
+}
+
+func (i ClusterInitScriptDbfsArgs) ToClusterInitScriptDbfsPtrOutput() ClusterInitScriptDbfsPtrOutput {
+	return i.ToClusterInitScriptDbfsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterInitScriptDbfsArgs) ToClusterInitScriptDbfsPtrOutputWithContext(ctx context.Context) ClusterInitScriptDbfsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInitScriptDbfsOutput).ToClusterInitScriptDbfsPtrOutputWithContext(ctx)
+}
+
+// ClusterInitScriptDbfsPtrInput is an input type that accepts ClusterInitScriptDbfsArgs, ClusterInitScriptDbfsPtr and ClusterInitScriptDbfsPtrOutput values.
+// You can construct a concrete instance of `ClusterInitScriptDbfsPtrInput` via:
+//
+// 		 ClusterInitScriptDbfsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ClusterInitScriptDbfsPtrInput interface {
+	pulumi.Input
+
+	ToClusterInitScriptDbfsPtrOutput() ClusterInitScriptDbfsPtrOutput
+	ToClusterInitScriptDbfsPtrOutputWithContext(context.Context) ClusterInitScriptDbfsPtrOutput
+}
+
+type clusterInitScriptDbfsPtrType ClusterInitScriptDbfsArgs
+
+func ClusterInitScriptDbfsPtr(v *ClusterInitScriptDbfsArgs) ClusterInitScriptDbfsPtrInput {
+	return (*clusterInitScriptDbfsPtrType)(v)
+}
+
+func (*clusterInitScriptDbfsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterInitScriptDbfs)(nil)).Elem()
+}
+
+func (i *clusterInitScriptDbfsPtrType) ToClusterInitScriptDbfsPtrOutput() ClusterInitScriptDbfsPtrOutput {
+	return i.ToClusterInitScriptDbfsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterInitScriptDbfsPtrType) ToClusterInitScriptDbfsPtrOutputWithContext(ctx context.Context) ClusterInitScriptDbfsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInitScriptDbfsPtrOutput)
+}
+
+type ClusterInitScriptDbfsOutput struct{ *pulumi.OutputState }
+
+func (ClusterInitScriptDbfsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInitScriptDbfs)(nil)).Elem()
+}
+
+func (o ClusterInitScriptDbfsOutput) ToClusterInitScriptDbfsOutput() ClusterInitScriptDbfsOutput {
+	return o
+}
+
+func (o ClusterInitScriptDbfsOutput) ToClusterInitScriptDbfsOutputWithContext(ctx context.Context) ClusterInitScriptDbfsOutput {
+	return o
+}
+
+func (o ClusterInitScriptDbfsOutput) ToClusterInitScriptDbfsPtrOutput() ClusterInitScriptDbfsPtrOutput {
+	return o.ToClusterInitScriptDbfsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterInitScriptDbfsOutput) ToClusterInitScriptDbfsPtrOutputWithContext(ctx context.Context) ClusterInitScriptDbfsPtrOutput {
+	return o.ApplyT(func(v ClusterInitScriptDbfs) *ClusterInitScriptDbfs {
+		return &v
+	}).(ClusterInitScriptDbfsPtrOutput)
+}
+func (o ClusterInitScriptDbfsOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterInitScriptDbfs) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+type ClusterInitScriptDbfsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterInitScriptDbfsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterInitScriptDbfs)(nil)).Elem()
+}
+
+func (o ClusterInitScriptDbfsPtrOutput) ToClusterInitScriptDbfsPtrOutput() ClusterInitScriptDbfsPtrOutput {
+	return o
+}
+
+func (o ClusterInitScriptDbfsPtrOutput) ToClusterInitScriptDbfsPtrOutputWithContext(ctx context.Context) ClusterInitScriptDbfsPtrOutput {
+	return o
+}
+
+func (o ClusterInitScriptDbfsPtrOutput) Elem() ClusterInitScriptDbfsOutput {
+	return o.ApplyT(func(v *ClusterInitScriptDbfs) ClusterInitScriptDbfs { return *v }).(ClusterInitScriptDbfsOutput)
+}
+
+func (o ClusterInitScriptDbfsPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInitScriptDbfs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterInitScriptS3 struct {
+	CannedAcl        *string `pulumi:"cannedAcl"`
+	Destination      string  `pulumi:"destination"`
+	EnableEncryption *bool   `pulumi:"enableEncryption"`
+	EncryptionType   *string `pulumi:"encryptionType"`
+	Endpoint         *string `pulumi:"endpoint"`
+	KmsKey           *string `pulumi:"kmsKey"`
+	Region           *string `pulumi:"region"`
+}
+
+// ClusterInitScriptS3Input is an input type that accepts ClusterInitScriptS3Args and ClusterInitScriptS3Output values.
+// You can construct a concrete instance of `ClusterInitScriptS3Input` via:
+//
+// 		 ClusterInitScriptS3Args{...}
+//
+type ClusterInitScriptS3Input interface {
+	pulumi.Input
+
+	ToClusterInitScriptS3Output() ClusterInitScriptS3Output
+	ToClusterInitScriptS3OutputWithContext(context.Context) ClusterInitScriptS3Output
+}
+
+type ClusterInitScriptS3Args struct {
+	CannedAcl        pulumi.StringPtrInput `pulumi:"cannedAcl"`
+	Destination      pulumi.StringInput    `pulumi:"destination"`
+	EnableEncryption pulumi.BoolPtrInput   `pulumi:"enableEncryption"`
+	EncryptionType   pulumi.StringPtrInput `pulumi:"encryptionType"`
+	Endpoint         pulumi.StringPtrInput `pulumi:"endpoint"`
+	KmsKey           pulumi.StringPtrInput `pulumi:"kmsKey"`
+	Region           pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (ClusterInitScriptS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInitScriptS3)(nil)).Elem()
+}
+
+func (i ClusterInitScriptS3Args) ToClusterInitScriptS3Output() ClusterInitScriptS3Output {
+	return i.ToClusterInitScriptS3OutputWithContext(context.Background())
+}
+
+func (i ClusterInitScriptS3Args) ToClusterInitScriptS3OutputWithContext(ctx context.Context) ClusterInitScriptS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInitScriptS3Output)
+}
+
+func (i ClusterInitScriptS3Args) ToClusterInitScriptS3PtrOutput() ClusterInitScriptS3PtrOutput {
+	return i.ToClusterInitScriptS3PtrOutputWithContext(context.Background())
+}
+
+func (i ClusterInitScriptS3Args) ToClusterInitScriptS3PtrOutputWithContext(ctx context.Context) ClusterInitScriptS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInitScriptS3Output).ToClusterInitScriptS3PtrOutputWithContext(ctx)
+}
+
+// ClusterInitScriptS3PtrInput is an input type that accepts ClusterInitScriptS3Args, ClusterInitScriptS3Ptr and ClusterInitScriptS3PtrOutput values.
+// You can construct a concrete instance of `ClusterInitScriptS3PtrInput` via:
+//
+// 		 ClusterInitScriptS3Args{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ClusterInitScriptS3PtrInput interface {
+	pulumi.Input
+
+	ToClusterInitScriptS3PtrOutput() ClusterInitScriptS3PtrOutput
+	ToClusterInitScriptS3PtrOutputWithContext(context.Context) ClusterInitScriptS3PtrOutput
+}
+
+type clusterInitScriptS3PtrType ClusterInitScriptS3Args
+
+func ClusterInitScriptS3Ptr(v *ClusterInitScriptS3Args) ClusterInitScriptS3PtrInput {
+	return (*clusterInitScriptS3PtrType)(v)
+}
+
+func (*clusterInitScriptS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterInitScriptS3)(nil)).Elem()
+}
+
+func (i *clusterInitScriptS3PtrType) ToClusterInitScriptS3PtrOutput() ClusterInitScriptS3PtrOutput {
+	return i.ToClusterInitScriptS3PtrOutputWithContext(context.Background())
+}
+
+func (i *clusterInitScriptS3PtrType) ToClusterInitScriptS3PtrOutputWithContext(ctx context.Context) ClusterInitScriptS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInitScriptS3PtrOutput)
+}
+
+type ClusterInitScriptS3Output struct{ *pulumi.OutputState }
+
+func (ClusterInitScriptS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInitScriptS3)(nil)).Elem()
+}
+
+func (o ClusterInitScriptS3Output) ToClusterInitScriptS3Output() ClusterInitScriptS3Output {
+	return o
+}
+
+func (o ClusterInitScriptS3Output) ToClusterInitScriptS3OutputWithContext(ctx context.Context) ClusterInitScriptS3Output {
+	return o
+}
+
+func (o ClusterInitScriptS3Output) ToClusterInitScriptS3PtrOutput() ClusterInitScriptS3PtrOutput {
+	return o.ToClusterInitScriptS3PtrOutputWithContext(context.Background())
+}
+
+func (o ClusterInitScriptS3Output) ToClusterInitScriptS3PtrOutputWithContext(ctx context.Context) ClusterInitScriptS3PtrOutput {
+	return o.ApplyT(func(v ClusterInitScriptS3) *ClusterInitScriptS3 {
+		return &v
+	}).(ClusterInitScriptS3PtrOutput)
+}
+func (o ClusterInitScriptS3Output) CannedAcl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInitScriptS3) *string { return v.CannedAcl }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterInitScriptS3Output) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterInitScriptS3) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+func (o ClusterInitScriptS3Output) EnableEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterInitScriptS3) *bool { return v.EnableEncryption }).(pulumi.BoolPtrOutput)
+}
+
+func (o ClusterInitScriptS3Output) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInitScriptS3) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterInitScriptS3Output) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInitScriptS3) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterInitScriptS3Output) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInitScriptS3) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterInitScriptS3Output) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInitScriptS3) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type ClusterInitScriptS3PtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterInitScriptS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterInitScriptS3)(nil)).Elem()
+}
+
+func (o ClusterInitScriptS3PtrOutput) ToClusterInitScriptS3PtrOutput() ClusterInitScriptS3PtrOutput {
+	return o
+}
+
+func (o ClusterInitScriptS3PtrOutput) ToClusterInitScriptS3PtrOutputWithContext(ctx context.Context) ClusterInitScriptS3PtrOutput {
+	return o
+}
+
+func (o ClusterInitScriptS3PtrOutput) Elem() ClusterInitScriptS3Output {
+	return o.ApplyT(func(v *ClusterInitScriptS3) ClusterInitScriptS3 { return *v }).(ClusterInitScriptS3Output)
+}
+
+func (o ClusterInitScriptS3PtrOutput) CannedAcl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInitScriptS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CannedAcl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterInitScriptS3PtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInitScriptS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterInitScriptS3PtrOutput) EnableEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterInitScriptS3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableEncryption
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ClusterInitScriptS3PtrOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInitScriptS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterInitScriptS3PtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInitScriptS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterInitScriptS3PtrOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInitScriptS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterInitScriptS3PtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInitScriptS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterLibraryCran struct {
+	Messages *string `pulumi:"messages"`
+	Package  *string `pulumi:"package"`
+	Repo     *string `pulumi:"repo"`
+	Status   *string `pulumi:"status"`
+}
+
+// ClusterLibraryCranInput is an input type that accepts ClusterLibraryCranArgs and ClusterLibraryCranOutput values.
+// You can construct a concrete instance of `ClusterLibraryCranInput` via:
+//
+// 		 ClusterLibraryCranArgs{...}
+//
+type ClusterLibraryCranInput interface {
+	pulumi.Input
+
+	ToClusterLibraryCranOutput() ClusterLibraryCranOutput
+	ToClusterLibraryCranOutputWithContext(context.Context) ClusterLibraryCranOutput
+}
+
+type ClusterLibraryCranArgs struct {
+	Messages pulumi.StringPtrInput `pulumi:"messages"`
+	Package  pulumi.StringPtrInput `pulumi:"package"`
+	Repo     pulumi.StringPtrInput `pulumi:"repo"`
+	Status   pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (ClusterLibraryCranArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLibraryCran)(nil)).Elem()
+}
+
+func (i ClusterLibraryCranArgs) ToClusterLibraryCranOutput() ClusterLibraryCranOutput {
+	return i.ToClusterLibraryCranOutputWithContext(context.Background())
+}
+
+func (i ClusterLibraryCranArgs) ToClusterLibraryCranOutputWithContext(ctx context.Context) ClusterLibraryCranOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLibraryCranOutput)
+}
+
+// ClusterLibraryCranArrayInput is an input type that accepts ClusterLibraryCranArray and ClusterLibraryCranArrayOutput values.
+// You can construct a concrete instance of `ClusterLibraryCranArrayInput` via:
+//
+// 		 ClusterLibraryCranArray{ ClusterLibraryCranArgs{...} }
+//
+type ClusterLibraryCranArrayInput interface {
+	pulumi.Input
+
+	ToClusterLibraryCranArrayOutput() ClusterLibraryCranArrayOutput
+	ToClusterLibraryCranArrayOutputWithContext(context.Context) ClusterLibraryCranArrayOutput
+}
+
+type ClusterLibraryCranArray []ClusterLibraryCranInput
+
+func (ClusterLibraryCranArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterLibraryCran)(nil)).Elem()
+}
+
+func (i ClusterLibraryCranArray) ToClusterLibraryCranArrayOutput() ClusterLibraryCranArrayOutput {
+	return i.ToClusterLibraryCranArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterLibraryCranArray) ToClusterLibraryCranArrayOutputWithContext(ctx context.Context) ClusterLibraryCranArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLibraryCranArrayOutput)
+}
+
+type ClusterLibraryCranOutput struct{ *pulumi.OutputState }
+
+func (ClusterLibraryCranOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLibraryCran)(nil)).Elem()
+}
+
+func (o ClusterLibraryCranOutput) ToClusterLibraryCranOutput() ClusterLibraryCranOutput {
+	return o
+}
+
+func (o ClusterLibraryCranOutput) ToClusterLibraryCranOutputWithContext(ctx context.Context) ClusterLibraryCranOutput {
+	return o
+}
+
+func (o ClusterLibraryCranOutput) Messages() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLibraryCran) *string { return v.Messages }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLibraryCranOutput) Package() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLibraryCran) *string { return v.Package }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLibraryCranOutput) Repo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLibraryCran) *string { return v.Repo }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLibraryCranOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLibraryCran) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type ClusterLibraryCranArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterLibraryCranArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterLibraryCran)(nil)).Elem()
+}
+
+func (o ClusterLibraryCranArrayOutput) ToClusterLibraryCranArrayOutput() ClusterLibraryCranArrayOutput {
+	return o
+}
+
+func (o ClusterLibraryCranArrayOutput) ToClusterLibraryCranArrayOutputWithContext(ctx context.Context) ClusterLibraryCranArrayOutput {
+	return o
+}
+
+func (o ClusterLibraryCranArrayOutput) Index(i pulumi.IntInput) ClusterLibraryCranOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterLibraryCran {
+		return vs[0].([]ClusterLibraryCran)[vs[1].(int)]
+	}).(ClusterLibraryCranOutput)
+}
+
+type ClusterLibraryEgg struct {
+	Messages []string `pulumi:"messages"`
+	Path     *string  `pulumi:"path"`
+	Status   *string  `pulumi:"status"`
+}
+
+// ClusterLibraryEggInput is an input type that accepts ClusterLibraryEggArgs and ClusterLibraryEggOutput values.
+// You can construct a concrete instance of `ClusterLibraryEggInput` via:
+//
+// 		 ClusterLibraryEggArgs{...}
+//
+type ClusterLibraryEggInput interface {
+	pulumi.Input
+
+	ToClusterLibraryEggOutput() ClusterLibraryEggOutput
+	ToClusterLibraryEggOutputWithContext(context.Context) ClusterLibraryEggOutput
+}
+
+type ClusterLibraryEggArgs struct {
+	Messages pulumi.StringArrayInput `pulumi:"messages"`
+	Path     pulumi.StringPtrInput   `pulumi:"path"`
+	Status   pulumi.StringPtrInput   `pulumi:"status"`
+}
+
+func (ClusterLibraryEggArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLibraryEgg)(nil)).Elem()
+}
+
+func (i ClusterLibraryEggArgs) ToClusterLibraryEggOutput() ClusterLibraryEggOutput {
+	return i.ToClusterLibraryEggOutputWithContext(context.Background())
+}
+
+func (i ClusterLibraryEggArgs) ToClusterLibraryEggOutputWithContext(ctx context.Context) ClusterLibraryEggOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLibraryEggOutput)
+}
+
+// ClusterLibraryEggArrayInput is an input type that accepts ClusterLibraryEggArray and ClusterLibraryEggArrayOutput values.
+// You can construct a concrete instance of `ClusterLibraryEggArrayInput` via:
+//
+// 		 ClusterLibraryEggArray{ ClusterLibraryEggArgs{...} }
+//
+type ClusterLibraryEggArrayInput interface {
+	pulumi.Input
+
+	ToClusterLibraryEggArrayOutput() ClusterLibraryEggArrayOutput
+	ToClusterLibraryEggArrayOutputWithContext(context.Context) ClusterLibraryEggArrayOutput
+}
+
+type ClusterLibraryEggArray []ClusterLibraryEggInput
+
+func (ClusterLibraryEggArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterLibraryEgg)(nil)).Elem()
+}
+
+func (i ClusterLibraryEggArray) ToClusterLibraryEggArrayOutput() ClusterLibraryEggArrayOutput {
+	return i.ToClusterLibraryEggArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterLibraryEggArray) ToClusterLibraryEggArrayOutputWithContext(ctx context.Context) ClusterLibraryEggArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLibraryEggArrayOutput)
+}
+
+type ClusterLibraryEggOutput struct{ *pulumi.OutputState }
+
+func (ClusterLibraryEggOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLibraryEgg)(nil)).Elem()
+}
+
+func (o ClusterLibraryEggOutput) ToClusterLibraryEggOutput() ClusterLibraryEggOutput {
+	return o
+}
+
+func (o ClusterLibraryEggOutput) ToClusterLibraryEggOutputWithContext(ctx context.Context) ClusterLibraryEggOutput {
+	return o
+}
+
+func (o ClusterLibraryEggOutput) Messages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterLibraryEgg) []string { return v.Messages }).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterLibraryEggOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLibraryEgg) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLibraryEggOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLibraryEgg) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type ClusterLibraryEggArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterLibraryEggArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterLibraryEgg)(nil)).Elem()
+}
+
+func (o ClusterLibraryEggArrayOutput) ToClusterLibraryEggArrayOutput() ClusterLibraryEggArrayOutput {
+	return o
+}
+
+func (o ClusterLibraryEggArrayOutput) ToClusterLibraryEggArrayOutputWithContext(ctx context.Context) ClusterLibraryEggArrayOutput {
+	return o
+}
+
+func (o ClusterLibraryEggArrayOutput) Index(i pulumi.IntInput) ClusterLibraryEggOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterLibraryEgg {
+		return vs[0].([]ClusterLibraryEgg)[vs[1].(int)]
+	}).(ClusterLibraryEggOutput)
+}
+
+type ClusterLibraryJar struct {
+	Messages []string `pulumi:"messages"`
+	Path     *string  `pulumi:"path"`
+	Status   *string  `pulumi:"status"`
+}
+
+// ClusterLibraryJarInput is an input type that accepts ClusterLibraryJarArgs and ClusterLibraryJarOutput values.
+// You can construct a concrete instance of `ClusterLibraryJarInput` via:
+//
+// 		 ClusterLibraryJarArgs{...}
+//
+type ClusterLibraryJarInput interface {
+	pulumi.Input
+
+	ToClusterLibraryJarOutput() ClusterLibraryJarOutput
+	ToClusterLibraryJarOutputWithContext(context.Context) ClusterLibraryJarOutput
+}
+
+type ClusterLibraryJarArgs struct {
+	Messages pulumi.StringArrayInput `pulumi:"messages"`
+	Path     pulumi.StringPtrInput   `pulumi:"path"`
+	Status   pulumi.StringPtrInput   `pulumi:"status"`
+}
+
+func (ClusterLibraryJarArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLibraryJar)(nil)).Elem()
+}
+
+func (i ClusterLibraryJarArgs) ToClusterLibraryJarOutput() ClusterLibraryJarOutput {
+	return i.ToClusterLibraryJarOutputWithContext(context.Background())
+}
+
+func (i ClusterLibraryJarArgs) ToClusterLibraryJarOutputWithContext(ctx context.Context) ClusterLibraryJarOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLibraryJarOutput)
+}
+
+// ClusterLibraryJarArrayInput is an input type that accepts ClusterLibraryJarArray and ClusterLibraryJarArrayOutput values.
+// You can construct a concrete instance of `ClusterLibraryJarArrayInput` via:
+//
+// 		 ClusterLibraryJarArray{ ClusterLibraryJarArgs{...} }
+//
+type ClusterLibraryJarArrayInput interface {
+	pulumi.Input
+
+	ToClusterLibraryJarArrayOutput() ClusterLibraryJarArrayOutput
+	ToClusterLibraryJarArrayOutputWithContext(context.Context) ClusterLibraryJarArrayOutput
+}
+
+type ClusterLibraryJarArray []ClusterLibraryJarInput
+
+func (ClusterLibraryJarArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterLibraryJar)(nil)).Elem()
+}
+
+func (i ClusterLibraryJarArray) ToClusterLibraryJarArrayOutput() ClusterLibraryJarArrayOutput {
+	return i.ToClusterLibraryJarArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterLibraryJarArray) ToClusterLibraryJarArrayOutputWithContext(ctx context.Context) ClusterLibraryJarArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLibraryJarArrayOutput)
+}
+
+type ClusterLibraryJarOutput struct{ *pulumi.OutputState }
+
+func (ClusterLibraryJarOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLibraryJar)(nil)).Elem()
+}
+
+func (o ClusterLibraryJarOutput) ToClusterLibraryJarOutput() ClusterLibraryJarOutput {
+	return o
+}
+
+func (o ClusterLibraryJarOutput) ToClusterLibraryJarOutputWithContext(ctx context.Context) ClusterLibraryJarOutput {
+	return o
+}
+
+func (o ClusterLibraryJarOutput) Messages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterLibraryJar) []string { return v.Messages }).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterLibraryJarOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLibraryJar) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLibraryJarOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLibraryJar) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type ClusterLibraryJarArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterLibraryJarArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterLibraryJar)(nil)).Elem()
+}
+
+func (o ClusterLibraryJarArrayOutput) ToClusterLibraryJarArrayOutput() ClusterLibraryJarArrayOutput {
+	return o
+}
+
+func (o ClusterLibraryJarArrayOutput) ToClusterLibraryJarArrayOutputWithContext(ctx context.Context) ClusterLibraryJarArrayOutput {
+	return o
+}
+
+func (o ClusterLibraryJarArrayOutput) Index(i pulumi.IntInput) ClusterLibraryJarOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterLibraryJar {
+		return vs[0].([]ClusterLibraryJar)[vs[1].(int)]
+	}).(ClusterLibraryJarOutput)
+}
+
+type ClusterLibraryMaven struct {
+	Coordinates *string  `pulumi:"coordinates"`
+	Exclusions  []string `pulumi:"exclusions"`
+	Messages    []string `pulumi:"messages"`
+	Repo        *string  `pulumi:"repo"`
+	Status      *string  `pulumi:"status"`
+}
+
+// ClusterLibraryMavenInput is an input type that accepts ClusterLibraryMavenArgs and ClusterLibraryMavenOutput values.
+// You can construct a concrete instance of `ClusterLibraryMavenInput` via:
+//
+// 		 ClusterLibraryMavenArgs{...}
+//
+type ClusterLibraryMavenInput interface {
+	pulumi.Input
+
+	ToClusterLibraryMavenOutput() ClusterLibraryMavenOutput
+	ToClusterLibraryMavenOutputWithContext(context.Context) ClusterLibraryMavenOutput
+}
+
+type ClusterLibraryMavenArgs struct {
+	Coordinates pulumi.StringPtrInput   `pulumi:"coordinates"`
+	Exclusions  pulumi.StringArrayInput `pulumi:"exclusions"`
+	Messages    pulumi.StringArrayInput `pulumi:"messages"`
+	Repo        pulumi.StringPtrInput   `pulumi:"repo"`
+	Status      pulumi.StringPtrInput   `pulumi:"status"`
+}
+
+func (ClusterLibraryMavenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLibraryMaven)(nil)).Elem()
+}
+
+func (i ClusterLibraryMavenArgs) ToClusterLibraryMavenOutput() ClusterLibraryMavenOutput {
+	return i.ToClusterLibraryMavenOutputWithContext(context.Background())
+}
+
+func (i ClusterLibraryMavenArgs) ToClusterLibraryMavenOutputWithContext(ctx context.Context) ClusterLibraryMavenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLibraryMavenOutput)
+}
+
+// ClusterLibraryMavenArrayInput is an input type that accepts ClusterLibraryMavenArray and ClusterLibraryMavenArrayOutput values.
+// You can construct a concrete instance of `ClusterLibraryMavenArrayInput` via:
+//
+// 		 ClusterLibraryMavenArray{ ClusterLibraryMavenArgs{...} }
+//
+type ClusterLibraryMavenArrayInput interface {
+	pulumi.Input
+
+	ToClusterLibraryMavenArrayOutput() ClusterLibraryMavenArrayOutput
+	ToClusterLibraryMavenArrayOutputWithContext(context.Context) ClusterLibraryMavenArrayOutput
+}
+
+type ClusterLibraryMavenArray []ClusterLibraryMavenInput
+
+func (ClusterLibraryMavenArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterLibraryMaven)(nil)).Elem()
+}
+
+func (i ClusterLibraryMavenArray) ToClusterLibraryMavenArrayOutput() ClusterLibraryMavenArrayOutput {
+	return i.ToClusterLibraryMavenArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterLibraryMavenArray) ToClusterLibraryMavenArrayOutputWithContext(ctx context.Context) ClusterLibraryMavenArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLibraryMavenArrayOutput)
+}
+
+type ClusterLibraryMavenOutput struct{ *pulumi.OutputState }
+
+func (ClusterLibraryMavenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLibraryMaven)(nil)).Elem()
+}
+
+func (o ClusterLibraryMavenOutput) ToClusterLibraryMavenOutput() ClusterLibraryMavenOutput {
+	return o
+}
+
+func (o ClusterLibraryMavenOutput) ToClusterLibraryMavenOutputWithContext(ctx context.Context) ClusterLibraryMavenOutput {
+	return o
+}
+
+func (o ClusterLibraryMavenOutput) Coordinates() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLibraryMaven) *string { return v.Coordinates }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLibraryMavenOutput) Exclusions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterLibraryMaven) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterLibraryMavenOutput) Messages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterLibraryMaven) []string { return v.Messages }).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterLibraryMavenOutput) Repo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLibraryMaven) *string { return v.Repo }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLibraryMavenOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLibraryMaven) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type ClusterLibraryMavenArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterLibraryMavenArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterLibraryMaven)(nil)).Elem()
+}
+
+func (o ClusterLibraryMavenArrayOutput) ToClusterLibraryMavenArrayOutput() ClusterLibraryMavenArrayOutput {
+	return o
+}
+
+func (o ClusterLibraryMavenArrayOutput) ToClusterLibraryMavenArrayOutputWithContext(ctx context.Context) ClusterLibraryMavenArrayOutput {
+	return o
+}
+
+func (o ClusterLibraryMavenArrayOutput) Index(i pulumi.IntInput) ClusterLibraryMavenOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterLibraryMaven {
+		return vs[0].([]ClusterLibraryMaven)[vs[1].(int)]
+	}).(ClusterLibraryMavenOutput)
+}
+
+type ClusterLibraryPypi struct {
+	Messages []string `pulumi:"messages"`
+	Package  string   `pulumi:"package"`
+	Repo     *string  `pulumi:"repo"`
+	Status   *string  `pulumi:"status"`
+}
+
+// ClusterLibraryPypiInput is an input type that accepts ClusterLibraryPypiArgs and ClusterLibraryPypiOutput values.
+// You can construct a concrete instance of `ClusterLibraryPypiInput` via:
+//
+// 		 ClusterLibraryPypiArgs{...}
+//
+type ClusterLibraryPypiInput interface {
+	pulumi.Input
+
+	ToClusterLibraryPypiOutput() ClusterLibraryPypiOutput
+	ToClusterLibraryPypiOutputWithContext(context.Context) ClusterLibraryPypiOutput
+}
+
+type ClusterLibraryPypiArgs struct {
+	Messages pulumi.StringArrayInput `pulumi:"messages"`
+	Package  pulumi.StringInput      `pulumi:"package"`
+	Repo     pulumi.StringPtrInput   `pulumi:"repo"`
+	Status   pulumi.StringPtrInput   `pulumi:"status"`
+}
+
+func (ClusterLibraryPypiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLibraryPypi)(nil)).Elem()
+}
+
+func (i ClusterLibraryPypiArgs) ToClusterLibraryPypiOutput() ClusterLibraryPypiOutput {
+	return i.ToClusterLibraryPypiOutputWithContext(context.Background())
+}
+
+func (i ClusterLibraryPypiArgs) ToClusterLibraryPypiOutputWithContext(ctx context.Context) ClusterLibraryPypiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLibraryPypiOutput)
+}
+
+// ClusterLibraryPypiArrayInput is an input type that accepts ClusterLibraryPypiArray and ClusterLibraryPypiArrayOutput values.
+// You can construct a concrete instance of `ClusterLibraryPypiArrayInput` via:
+//
+// 		 ClusterLibraryPypiArray{ ClusterLibraryPypiArgs{...} }
+//
+type ClusterLibraryPypiArrayInput interface {
+	pulumi.Input
+
+	ToClusterLibraryPypiArrayOutput() ClusterLibraryPypiArrayOutput
+	ToClusterLibraryPypiArrayOutputWithContext(context.Context) ClusterLibraryPypiArrayOutput
+}
+
+type ClusterLibraryPypiArray []ClusterLibraryPypiInput
+
+func (ClusterLibraryPypiArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterLibraryPypi)(nil)).Elem()
+}
+
+func (i ClusterLibraryPypiArray) ToClusterLibraryPypiArrayOutput() ClusterLibraryPypiArrayOutput {
+	return i.ToClusterLibraryPypiArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterLibraryPypiArray) ToClusterLibraryPypiArrayOutputWithContext(ctx context.Context) ClusterLibraryPypiArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLibraryPypiArrayOutput)
+}
+
+type ClusterLibraryPypiOutput struct{ *pulumi.OutputState }
+
+func (ClusterLibraryPypiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLibraryPypi)(nil)).Elem()
+}
+
+func (o ClusterLibraryPypiOutput) ToClusterLibraryPypiOutput() ClusterLibraryPypiOutput {
+	return o
+}
+
+func (o ClusterLibraryPypiOutput) ToClusterLibraryPypiOutputWithContext(ctx context.Context) ClusterLibraryPypiOutput {
+	return o
+}
+
+func (o ClusterLibraryPypiOutput) Messages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterLibraryPypi) []string { return v.Messages }).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterLibraryPypiOutput) Package() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLibraryPypi) string { return v.Package }).(pulumi.StringOutput)
+}
+
+func (o ClusterLibraryPypiOutput) Repo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLibraryPypi) *string { return v.Repo }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLibraryPypiOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLibraryPypi) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type ClusterLibraryPypiArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterLibraryPypiArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterLibraryPypi)(nil)).Elem()
+}
+
+func (o ClusterLibraryPypiArrayOutput) ToClusterLibraryPypiArrayOutput() ClusterLibraryPypiArrayOutput {
+	return o
+}
+
+func (o ClusterLibraryPypiArrayOutput) ToClusterLibraryPypiArrayOutputWithContext(ctx context.Context) ClusterLibraryPypiArrayOutput {
+	return o
+}
+
+func (o ClusterLibraryPypiArrayOutput) Index(i pulumi.IntInput) ClusterLibraryPypiOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterLibraryPypi {
+		return vs[0].([]ClusterLibraryPypi)[vs[1].(int)]
+	}).(ClusterLibraryPypiOutput)
+}
+
+type ClusterLibraryWhl struct {
+	Messages []string `pulumi:"messages"`
+	Path     *string  `pulumi:"path"`
+	Status   *string  `pulumi:"status"`
+}
+
+// ClusterLibraryWhlInput is an input type that accepts ClusterLibraryWhlArgs and ClusterLibraryWhlOutput values.
+// You can construct a concrete instance of `ClusterLibraryWhlInput` via:
+//
+// 		 ClusterLibraryWhlArgs{...}
+//
+type ClusterLibraryWhlInput interface {
+	pulumi.Input
+
+	ToClusterLibraryWhlOutput() ClusterLibraryWhlOutput
+	ToClusterLibraryWhlOutputWithContext(context.Context) ClusterLibraryWhlOutput
+}
+
+type ClusterLibraryWhlArgs struct {
+	Messages pulumi.StringArrayInput `pulumi:"messages"`
+	Path     pulumi.StringPtrInput   `pulumi:"path"`
+	Status   pulumi.StringPtrInput   `pulumi:"status"`
+}
+
+func (ClusterLibraryWhlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLibraryWhl)(nil)).Elem()
+}
+
+func (i ClusterLibraryWhlArgs) ToClusterLibraryWhlOutput() ClusterLibraryWhlOutput {
+	return i.ToClusterLibraryWhlOutputWithContext(context.Background())
+}
+
+func (i ClusterLibraryWhlArgs) ToClusterLibraryWhlOutputWithContext(ctx context.Context) ClusterLibraryWhlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLibraryWhlOutput)
+}
+
+// ClusterLibraryWhlArrayInput is an input type that accepts ClusterLibraryWhlArray and ClusterLibraryWhlArrayOutput values.
+// You can construct a concrete instance of `ClusterLibraryWhlArrayInput` via:
+//
+// 		 ClusterLibraryWhlArray{ ClusterLibraryWhlArgs{...} }
+//
+type ClusterLibraryWhlArrayInput interface {
+	pulumi.Input
+
+	ToClusterLibraryWhlArrayOutput() ClusterLibraryWhlArrayOutput
+	ToClusterLibraryWhlArrayOutputWithContext(context.Context) ClusterLibraryWhlArrayOutput
+}
+
+type ClusterLibraryWhlArray []ClusterLibraryWhlInput
+
+func (ClusterLibraryWhlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterLibraryWhl)(nil)).Elem()
+}
+
+func (i ClusterLibraryWhlArray) ToClusterLibraryWhlArrayOutput() ClusterLibraryWhlArrayOutput {
+	return i.ToClusterLibraryWhlArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterLibraryWhlArray) ToClusterLibraryWhlArrayOutputWithContext(ctx context.Context) ClusterLibraryWhlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLibraryWhlArrayOutput)
+}
+
+type ClusterLibraryWhlOutput struct{ *pulumi.OutputState }
+
+func (ClusterLibraryWhlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLibraryWhl)(nil)).Elem()
+}
+
+func (o ClusterLibraryWhlOutput) ToClusterLibraryWhlOutput() ClusterLibraryWhlOutput {
+	return o
+}
+
+func (o ClusterLibraryWhlOutput) ToClusterLibraryWhlOutputWithContext(ctx context.Context) ClusterLibraryWhlOutput {
+	return o
+}
+
+func (o ClusterLibraryWhlOutput) Messages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterLibraryWhl) []string { return v.Messages }).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterLibraryWhlOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLibraryWhl) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLibraryWhlOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLibraryWhl) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type ClusterLibraryWhlArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterLibraryWhlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterLibraryWhl)(nil)).Elem()
+}
+
+func (o ClusterLibraryWhlArrayOutput) ToClusterLibraryWhlArrayOutput() ClusterLibraryWhlArrayOutput {
+	return o
+}
+
+func (o ClusterLibraryWhlArrayOutput) ToClusterLibraryWhlArrayOutputWithContext(ctx context.Context) ClusterLibraryWhlArrayOutput {
+	return o
+}
+
+func (o ClusterLibraryWhlArrayOutput) Index(i pulumi.IntInput) ClusterLibraryWhlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterLibraryWhl {
+		return vs[0].([]ClusterLibraryWhl)[vs[1].(int)]
+	}).(ClusterLibraryWhlOutput)
+}
+
+type InstancePoolAwsAttributes struct {
+	Availability        *string `pulumi:"availability"`
+	SpotBidPricePercent *int    `pulumi:"spotBidPricePercent"`
+	ZoneId              string  `pulumi:"zoneId"`
+}
+
+// InstancePoolAwsAttributesInput is an input type that accepts InstancePoolAwsAttributesArgs and InstancePoolAwsAttributesOutput values.
+// You can construct a concrete instance of `InstancePoolAwsAttributesInput` via:
+//
+// 		 InstancePoolAwsAttributesArgs{...}
+//
+type InstancePoolAwsAttributesInput interface {
+	pulumi.Input
+
+	ToInstancePoolAwsAttributesOutput() InstancePoolAwsAttributesOutput
+	ToInstancePoolAwsAttributesOutputWithContext(context.Context) InstancePoolAwsAttributesOutput
+}
+
+type InstancePoolAwsAttributesArgs struct {
+	Availability        pulumi.StringPtrInput `pulumi:"availability"`
+	SpotBidPricePercent pulumi.IntPtrInput    `pulumi:"spotBidPricePercent"`
+	ZoneId              pulumi.StringInput    `pulumi:"zoneId"`
+}
+
+func (InstancePoolAwsAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstancePoolAwsAttributes)(nil)).Elem()
+}
+
+func (i InstancePoolAwsAttributesArgs) ToInstancePoolAwsAttributesOutput() InstancePoolAwsAttributesOutput {
+	return i.ToInstancePoolAwsAttributesOutputWithContext(context.Background())
+}
+
+func (i InstancePoolAwsAttributesArgs) ToInstancePoolAwsAttributesOutputWithContext(ctx context.Context) InstancePoolAwsAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstancePoolAwsAttributesOutput)
+}
+
+func (i InstancePoolAwsAttributesArgs) ToInstancePoolAwsAttributesPtrOutput() InstancePoolAwsAttributesPtrOutput {
+	return i.ToInstancePoolAwsAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i InstancePoolAwsAttributesArgs) ToInstancePoolAwsAttributesPtrOutputWithContext(ctx context.Context) InstancePoolAwsAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstancePoolAwsAttributesOutput).ToInstancePoolAwsAttributesPtrOutputWithContext(ctx)
+}
+
+// InstancePoolAwsAttributesPtrInput is an input type that accepts InstancePoolAwsAttributesArgs, InstancePoolAwsAttributesPtr and InstancePoolAwsAttributesPtrOutput values.
+// You can construct a concrete instance of `InstancePoolAwsAttributesPtrInput` via:
+//
+// 		 InstancePoolAwsAttributesArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type InstancePoolAwsAttributesPtrInput interface {
+	pulumi.Input
+
+	ToInstancePoolAwsAttributesPtrOutput() InstancePoolAwsAttributesPtrOutput
+	ToInstancePoolAwsAttributesPtrOutputWithContext(context.Context) InstancePoolAwsAttributesPtrOutput
+}
+
+type instancePoolAwsAttributesPtrType InstancePoolAwsAttributesArgs
+
+func InstancePoolAwsAttributesPtr(v *InstancePoolAwsAttributesArgs) InstancePoolAwsAttributesPtrInput {
+	return (*instancePoolAwsAttributesPtrType)(v)
+}
+
+func (*instancePoolAwsAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstancePoolAwsAttributes)(nil)).Elem()
+}
+
+func (i *instancePoolAwsAttributesPtrType) ToInstancePoolAwsAttributesPtrOutput() InstancePoolAwsAttributesPtrOutput {
+	return i.ToInstancePoolAwsAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *instancePoolAwsAttributesPtrType) ToInstancePoolAwsAttributesPtrOutputWithContext(ctx context.Context) InstancePoolAwsAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstancePoolAwsAttributesPtrOutput)
+}
+
+type InstancePoolAwsAttributesOutput struct{ *pulumi.OutputState }
+
+func (InstancePoolAwsAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstancePoolAwsAttributes)(nil)).Elem()
+}
+
+func (o InstancePoolAwsAttributesOutput) ToInstancePoolAwsAttributesOutput() InstancePoolAwsAttributesOutput {
+	return o
+}
+
+func (o InstancePoolAwsAttributesOutput) ToInstancePoolAwsAttributesOutputWithContext(ctx context.Context) InstancePoolAwsAttributesOutput {
+	return o
+}
+
+func (o InstancePoolAwsAttributesOutput) ToInstancePoolAwsAttributesPtrOutput() InstancePoolAwsAttributesPtrOutput {
+	return o.ToInstancePoolAwsAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o InstancePoolAwsAttributesOutput) ToInstancePoolAwsAttributesPtrOutputWithContext(ctx context.Context) InstancePoolAwsAttributesPtrOutput {
+	return o.ApplyT(func(v InstancePoolAwsAttributes) *InstancePoolAwsAttributes {
+		return &v
+	}).(InstancePoolAwsAttributesPtrOutput)
+}
+func (o InstancePoolAwsAttributesOutput) Availability() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstancePoolAwsAttributes) *string { return v.Availability }).(pulumi.StringPtrOutput)
+}
+
+func (o InstancePoolAwsAttributesOutput) SpotBidPricePercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstancePoolAwsAttributes) *int { return v.SpotBidPricePercent }).(pulumi.IntPtrOutput)
+}
+
+func (o InstancePoolAwsAttributesOutput) ZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v InstancePoolAwsAttributes) string { return v.ZoneId }).(pulumi.StringOutput)
+}
+
+type InstancePoolAwsAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (InstancePoolAwsAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstancePoolAwsAttributes)(nil)).Elem()
+}
+
+func (o InstancePoolAwsAttributesPtrOutput) ToInstancePoolAwsAttributesPtrOutput() InstancePoolAwsAttributesPtrOutput {
+	return o
+}
+
+func (o InstancePoolAwsAttributesPtrOutput) ToInstancePoolAwsAttributesPtrOutputWithContext(ctx context.Context) InstancePoolAwsAttributesPtrOutput {
+	return o
+}
+
+func (o InstancePoolAwsAttributesPtrOutput) Elem() InstancePoolAwsAttributesOutput {
+	return o.ApplyT(func(v *InstancePoolAwsAttributes) InstancePoolAwsAttributes { return *v }).(InstancePoolAwsAttributesOutput)
+}
+
+func (o InstancePoolAwsAttributesPtrOutput) Availability() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstancePoolAwsAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Availability
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InstancePoolAwsAttributesPtrOutput) SpotBidPricePercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstancePoolAwsAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpotBidPricePercent
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o InstancePoolAwsAttributesPtrOutput) ZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstancePoolAwsAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ZoneId
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstancePoolDiskSpec struct {
+	AzureDiskVolumeType *string `pulumi:"azureDiskVolumeType"`
+	DiskCount           *int    `pulumi:"diskCount"`
+	DiskSize            *int    `pulumi:"diskSize"`
+	EbsVolumeType       *string `pulumi:"ebsVolumeType"`
+}
+
+// InstancePoolDiskSpecInput is an input type that accepts InstancePoolDiskSpecArgs and InstancePoolDiskSpecOutput values.
+// You can construct a concrete instance of `InstancePoolDiskSpecInput` via:
+//
+// 		 InstancePoolDiskSpecArgs{...}
+//
+type InstancePoolDiskSpecInput interface {
+	pulumi.Input
+
+	ToInstancePoolDiskSpecOutput() InstancePoolDiskSpecOutput
+	ToInstancePoolDiskSpecOutputWithContext(context.Context) InstancePoolDiskSpecOutput
+}
+
+type InstancePoolDiskSpecArgs struct {
+	AzureDiskVolumeType pulumi.StringPtrInput `pulumi:"azureDiskVolumeType"`
+	DiskCount           pulumi.IntPtrInput    `pulumi:"diskCount"`
+	DiskSize            pulumi.IntPtrInput    `pulumi:"diskSize"`
+	EbsVolumeType       pulumi.StringPtrInput `pulumi:"ebsVolumeType"`
+}
+
+func (InstancePoolDiskSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstancePoolDiskSpec)(nil)).Elem()
+}
+
+func (i InstancePoolDiskSpecArgs) ToInstancePoolDiskSpecOutput() InstancePoolDiskSpecOutput {
+	return i.ToInstancePoolDiskSpecOutputWithContext(context.Background())
+}
+
+func (i InstancePoolDiskSpecArgs) ToInstancePoolDiskSpecOutputWithContext(ctx context.Context) InstancePoolDiskSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstancePoolDiskSpecOutput)
+}
+
+func (i InstancePoolDiskSpecArgs) ToInstancePoolDiskSpecPtrOutput() InstancePoolDiskSpecPtrOutput {
+	return i.ToInstancePoolDiskSpecPtrOutputWithContext(context.Background())
+}
+
+func (i InstancePoolDiskSpecArgs) ToInstancePoolDiskSpecPtrOutputWithContext(ctx context.Context) InstancePoolDiskSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstancePoolDiskSpecOutput).ToInstancePoolDiskSpecPtrOutputWithContext(ctx)
+}
+
+// InstancePoolDiskSpecPtrInput is an input type that accepts InstancePoolDiskSpecArgs, InstancePoolDiskSpecPtr and InstancePoolDiskSpecPtrOutput values.
+// You can construct a concrete instance of `InstancePoolDiskSpecPtrInput` via:
+//
+// 		 InstancePoolDiskSpecArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type InstancePoolDiskSpecPtrInput interface {
+	pulumi.Input
+
+	ToInstancePoolDiskSpecPtrOutput() InstancePoolDiskSpecPtrOutput
+	ToInstancePoolDiskSpecPtrOutputWithContext(context.Context) InstancePoolDiskSpecPtrOutput
+}
+
+type instancePoolDiskSpecPtrType InstancePoolDiskSpecArgs
+
+func InstancePoolDiskSpecPtr(v *InstancePoolDiskSpecArgs) InstancePoolDiskSpecPtrInput {
+	return (*instancePoolDiskSpecPtrType)(v)
+}
+
+func (*instancePoolDiskSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstancePoolDiskSpec)(nil)).Elem()
+}
+
+func (i *instancePoolDiskSpecPtrType) ToInstancePoolDiskSpecPtrOutput() InstancePoolDiskSpecPtrOutput {
+	return i.ToInstancePoolDiskSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *instancePoolDiskSpecPtrType) ToInstancePoolDiskSpecPtrOutputWithContext(ctx context.Context) InstancePoolDiskSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstancePoolDiskSpecPtrOutput)
+}
+
+type InstancePoolDiskSpecOutput struct{ *pulumi.OutputState }
+
+func (InstancePoolDiskSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstancePoolDiskSpec)(nil)).Elem()
+}
+
+func (o InstancePoolDiskSpecOutput) ToInstancePoolDiskSpecOutput() InstancePoolDiskSpecOutput {
+	return o
+}
+
+func (o InstancePoolDiskSpecOutput) ToInstancePoolDiskSpecOutputWithContext(ctx context.Context) InstancePoolDiskSpecOutput {
+	return o
+}
+
+func (o InstancePoolDiskSpecOutput) ToInstancePoolDiskSpecPtrOutput() InstancePoolDiskSpecPtrOutput {
+	return o.ToInstancePoolDiskSpecPtrOutputWithContext(context.Background())
+}
+
+func (o InstancePoolDiskSpecOutput) ToInstancePoolDiskSpecPtrOutputWithContext(ctx context.Context) InstancePoolDiskSpecPtrOutput {
+	return o.ApplyT(func(v InstancePoolDiskSpec) *InstancePoolDiskSpec {
+		return &v
+	}).(InstancePoolDiskSpecPtrOutput)
+}
+func (o InstancePoolDiskSpecOutput) AzureDiskVolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstancePoolDiskSpec) *string { return v.AzureDiskVolumeType }).(pulumi.StringPtrOutput)
+}
+
+func (o InstancePoolDiskSpecOutput) DiskCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstancePoolDiskSpec) *int { return v.DiskCount }).(pulumi.IntPtrOutput)
+}
+
+func (o InstancePoolDiskSpecOutput) DiskSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstancePoolDiskSpec) *int { return v.DiskSize }).(pulumi.IntPtrOutput)
+}
+
+func (o InstancePoolDiskSpecOutput) EbsVolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstancePoolDiskSpec) *string { return v.EbsVolumeType }).(pulumi.StringPtrOutput)
+}
+
+type InstancePoolDiskSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (InstancePoolDiskSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstancePoolDiskSpec)(nil)).Elem()
+}
+
+func (o InstancePoolDiskSpecPtrOutput) ToInstancePoolDiskSpecPtrOutput() InstancePoolDiskSpecPtrOutput {
+	return o
+}
+
+func (o InstancePoolDiskSpecPtrOutput) ToInstancePoolDiskSpecPtrOutputWithContext(ctx context.Context) InstancePoolDiskSpecPtrOutput {
+	return o
+}
+
+func (o InstancePoolDiskSpecPtrOutput) Elem() InstancePoolDiskSpecOutput {
+	return o.ApplyT(func(v *InstancePoolDiskSpec) InstancePoolDiskSpec { return *v }).(InstancePoolDiskSpecOutput)
+}
+
+func (o InstancePoolDiskSpecPtrOutput) AzureDiskVolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstancePoolDiskSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureDiskVolumeType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InstancePoolDiskSpecPtrOutput) DiskCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstancePoolDiskSpec) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DiskCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o InstancePoolDiskSpecPtrOutput) DiskSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstancePoolDiskSpec) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DiskSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o InstancePoolDiskSpecPtrOutput) EbsVolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstancePoolDiskSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EbsVolumeType
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobEmailNotifications struct {
+	NoAlertForSkippedRuns *bool    `pulumi:"noAlertForSkippedRuns"`
+	OnFailures            []string `pulumi:"onFailures"`
+	OnStarts              []string `pulumi:"onStarts"`
+	OnSuccesses           []string `pulumi:"onSuccesses"`
+}
+
+// JobEmailNotificationsInput is an input type that accepts JobEmailNotificationsArgs and JobEmailNotificationsOutput values.
+// You can construct a concrete instance of `JobEmailNotificationsInput` via:
+//
+// 		 JobEmailNotificationsArgs{...}
+//
+type JobEmailNotificationsInput interface {
+	pulumi.Input
+
+	ToJobEmailNotificationsOutput() JobEmailNotificationsOutput
+	ToJobEmailNotificationsOutputWithContext(context.Context) JobEmailNotificationsOutput
+}
+
+type JobEmailNotificationsArgs struct {
+	NoAlertForSkippedRuns pulumi.BoolPtrInput     `pulumi:"noAlertForSkippedRuns"`
+	OnFailures            pulumi.StringArrayInput `pulumi:"onFailures"`
+	OnStarts              pulumi.StringArrayInput `pulumi:"onStarts"`
+	OnSuccesses           pulumi.StringArrayInput `pulumi:"onSuccesses"`
+}
+
+func (JobEmailNotificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobEmailNotifications)(nil)).Elem()
+}
+
+func (i JobEmailNotificationsArgs) ToJobEmailNotificationsOutput() JobEmailNotificationsOutput {
+	return i.ToJobEmailNotificationsOutputWithContext(context.Background())
+}
+
+func (i JobEmailNotificationsArgs) ToJobEmailNotificationsOutputWithContext(ctx context.Context) JobEmailNotificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobEmailNotificationsOutput)
+}
+
+func (i JobEmailNotificationsArgs) ToJobEmailNotificationsPtrOutput() JobEmailNotificationsPtrOutput {
+	return i.ToJobEmailNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i JobEmailNotificationsArgs) ToJobEmailNotificationsPtrOutputWithContext(ctx context.Context) JobEmailNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobEmailNotificationsOutput).ToJobEmailNotificationsPtrOutputWithContext(ctx)
+}
+
+// JobEmailNotificationsPtrInput is an input type that accepts JobEmailNotificationsArgs, JobEmailNotificationsPtr and JobEmailNotificationsPtrOutput values.
+// You can construct a concrete instance of `JobEmailNotificationsPtrInput` via:
+//
+// 		 JobEmailNotificationsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type JobEmailNotificationsPtrInput interface {
+	pulumi.Input
+
+	ToJobEmailNotificationsPtrOutput() JobEmailNotificationsPtrOutput
+	ToJobEmailNotificationsPtrOutputWithContext(context.Context) JobEmailNotificationsPtrOutput
+}
+
+type jobEmailNotificationsPtrType JobEmailNotificationsArgs
+
+func JobEmailNotificationsPtr(v *JobEmailNotificationsArgs) JobEmailNotificationsPtrInput {
+	return (*jobEmailNotificationsPtrType)(v)
+}
+
+func (*jobEmailNotificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobEmailNotifications)(nil)).Elem()
+}
+
+func (i *jobEmailNotificationsPtrType) ToJobEmailNotificationsPtrOutput() JobEmailNotificationsPtrOutput {
+	return i.ToJobEmailNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *jobEmailNotificationsPtrType) ToJobEmailNotificationsPtrOutputWithContext(ctx context.Context) JobEmailNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobEmailNotificationsPtrOutput)
+}
+
+type JobEmailNotificationsOutput struct{ *pulumi.OutputState }
+
+func (JobEmailNotificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobEmailNotifications)(nil)).Elem()
+}
+
+func (o JobEmailNotificationsOutput) ToJobEmailNotificationsOutput() JobEmailNotificationsOutput {
+	return o
+}
+
+func (o JobEmailNotificationsOutput) ToJobEmailNotificationsOutputWithContext(ctx context.Context) JobEmailNotificationsOutput {
+	return o
+}
+
+func (o JobEmailNotificationsOutput) ToJobEmailNotificationsPtrOutput() JobEmailNotificationsPtrOutput {
+	return o.ToJobEmailNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (o JobEmailNotificationsOutput) ToJobEmailNotificationsPtrOutputWithContext(ctx context.Context) JobEmailNotificationsPtrOutput {
+	return o.ApplyT(func(v JobEmailNotifications) *JobEmailNotifications {
+		return &v
+	}).(JobEmailNotificationsPtrOutput)
+}
+func (o JobEmailNotificationsOutput) NoAlertForSkippedRuns() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobEmailNotifications) *bool { return v.NoAlertForSkippedRuns }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobEmailNotificationsOutput) OnFailures() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobEmailNotifications) []string { return v.OnFailures }).(pulumi.StringArrayOutput)
+}
+
+func (o JobEmailNotificationsOutput) OnStarts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobEmailNotifications) []string { return v.OnStarts }).(pulumi.StringArrayOutput)
+}
+
+func (o JobEmailNotificationsOutput) OnSuccesses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobEmailNotifications) []string { return v.OnSuccesses }).(pulumi.StringArrayOutput)
+}
+
+type JobEmailNotificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (JobEmailNotificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobEmailNotifications)(nil)).Elem()
+}
+
+func (o JobEmailNotificationsPtrOutput) ToJobEmailNotificationsPtrOutput() JobEmailNotificationsPtrOutput {
+	return o
+}
+
+func (o JobEmailNotificationsPtrOutput) ToJobEmailNotificationsPtrOutputWithContext(ctx context.Context) JobEmailNotificationsPtrOutput {
+	return o
+}
+
+func (o JobEmailNotificationsPtrOutput) Elem() JobEmailNotificationsOutput {
+	return o.ApplyT(func(v *JobEmailNotifications) JobEmailNotifications { return *v }).(JobEmailNotificationsOutput)
+}
+
+func (o JobEmailNotificationsPtrOutput) NoAlertForSkippedRuns() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobEmailNotifications) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NoAlertForSkippedRuns
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobEmailNotificationsPtrOutput) OnFailures() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobEmailNotifications) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OnFailures
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o JobEmailNotificationsPtrOutput) OnStarts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobEmailNotifications) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OnStarts
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o JobEmailNotificationsPtrOutput) OnSuccesses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobEmailNotifications) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OnSuccesses
+	}).(pulumi.StringArrayOutput)
+}
+
+type JobLibraryCran struct {
+	Package string  `pulumi:"package"`
+	Repo    *string `pulumi:"repo"`
+}
+
+// JobLibraryCranInput is an input type that accepts JobLibraryCranArgs and JobLibraryCranOutput values.
+// You can construct a concrete instance of `JobLibraryCranInput` via:
+//
+// 		 JobLibraryCranArgs{...}
+//
+type JobLibraryCranInput interface {
+	pulumi.Input
+
+	ToJobLibraryCranOutput() JobLibraryCranOutput
+	ToJobLibraryCranOutputWithContext(context.Context) JobLibraryCranOutput
+}
+
+type JobLibraryCranArgs struct {
+	Package pulumi.StringInput    `pulumi:"package"`
+	Repo    pulumi.StringPtrInput `pulumi:"repo"`
+}
+
+func (JobLibraryCranArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobLibraryCran)(nil)).Elem()
+}
+
+func (i JobLibraryCranArgs) ToJobLibraryCranOutput() JobLibraryCranOutput {
+	return i.ToJobLibraryCranOutputWithContext(context.Background())
+}
+
+func (i JobLibraryCranArgs) ToJobLibraryCranOutputWithContext(ctx context.Context) JobLibraryCranOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobLibraryCranOutput)
+}
+
+// JobLibraryCranArrayInput is an input type that accepts JobLibraryCranArray and JobLibraryCranArrayOutput values.
+// You can construct a concrete instance of `JobLibraryCranArrayInput` via:
+//
+// 		 JobLibraryCranArray{ JobLibraryCranArgs{...} }
+//
+type JobLibraryCranArrayInput interface {
+	pulumi.Input
+
+	ToJobLibraryCranArrayOutput() JobLibraryCranArrayOutput
+	ToJobLibraryCranArrayOutputWithContext(context.Context) JobLibraryCranArrayOutput
+}
+
+type JobLibraryCranArray []JobLibraryCranInput
+
+func (JobLibraryCranArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobLibraryCran)(nil)).Elem()
+}
+
+func (i JobLibraryCranArray) ToJobLibraryCranArrayOutput() JobLibraryCranArrayOutput {
+	return i.ToJobLibraryCranArrayOutputWithContext(context.Background())
+}
+
+func (i JobLibraryCranArray) ToJobLibraryCranArrayOutputWithContext(ctx context.Context) JobLibraryCranArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobLibraryCranArrayOutput)
+}
+
+type JobLibraryCranOutput struct{ *pulumi.OutputState }
+
+func (JobLibraryCranOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobLibraryCran)(nil)).Elem()
+}
+
+func (o JobLibraryCranOutput) ToJobLibraryCranOutput() JobLibraryCranOutput {
+	return o
+}
+
+func (o JobLibraryCranOutput) ToJobLibraryCranOutputWithContext(ctx context.Context) JobLibraryCranOutput {
+	return o
+}
+
+func (o JobLibraryCranOutput) Package() pulumi.StringOutput {
+	return o.ApplyT(func(v JobLibraryCran) string { return v.Package }).(pulumi.StringOutput)
+}
+
+func (o JobLibraryCranOutput) Repo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobLibraryCran) *string { return v.Repo }).(pulumi.StringPtrOutput)
+}
+
+type JobLibraryCranArrayOutput struct{ *pulumi.OutputState }
+
+func (JobLibraryCranArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobLibraryCran)(nil)).Elem()
+}
+
+func (o JobLibraryCranArrayOutput) ToJobLibraryCranArrayOutput() JobLibraryCranArrayOutput {
+	return o
+}
+
+func (o JobLibraryCranArrayOutput) ToJobLibraryCranArrayOutputWithContext(ctx context.Context) JobLibraryCranArrayOutput {
+	return o
+}
+
+func (o JobLibraryCranArrayOutput) Index(i pulumi.IntInput) JobLibraryCranOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobLibraryCran {
+		return vs[0].([]JobLibraryCran)[vs[1].(int)]
+	}).(JobLibraryCranOutput)
+}
+
+type JobLibraryMaven struct {
+	Coordinates string   `pulumi:"coordinates"`
+	Exclusions  []string `pulumi:"exclusions"`
+	Repo        *string  `pulumi:"repo"`
+}
+
+// JobLibraryMavenInput is an input type that accepts JobLibraryMavenArgs and JobLibraryMavenOutput values.
+// You can construct a concrete instance of `JobLibraryMavenInput` via:
+//
+// 		 JobLibraryMavenArgs{...}
+//
+type JobLibraryMavenInput interface {
+	pulumi.Input
+
+	ToJobLibraryMavenOutput() JobLibraryMavenOutput
+	ToJobLibraryMavenOutputWithContext(context.Context) JobLibraryMavenOutput
+}
+
+type JobLibraryMavenArgs struct {
+	Coordinates pulumi.StringInput      `pulumi:"coordinates"`
+	Exclusions  pulumi.StringArrayInput `pulumi:"exclusions"`
+	Repo        pulumi.StringPtrInput   `pulumi:"repo"`
+}
+
+func (JobLibraryMavenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobLibraryMaven)(nil)).Elem()
+}
+
+func (i JobLibraryMavenArgs) ToJobLibraryMavenOutput() JobLibraryMavenOutput {
+	return i.ToJobLibraryMavenOutputWithContext(context.Background())
+}
+
+func (i JobLibraryMavenArgs) ToJobLibraryMavenOutputWithContext(ctx context.Context) JobLibraryMavenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobLibraryMavenOutput)
+}
+
+// JobLibraryMavenArrayInput is an input type that accepts JobLibraryMavenArray and JobLibraryMavenArrayOutput values.
+// You can construct a concrete instance of `JobLibraryMavenArrayInput` via:
+//
+// 		 JobLibraryMavenArray{ JobLibraryMavenArgs{...} }
+//
+type JobLibraryMavenArrayInput interface {
+	pulumi.Input
+
+	ToJobLibraryMavenArrayOutput() JobLibraryMavenArrayOutput
+	ToJobLibraryMavenArrayOutputWithContext(context.Context) JobLibraryMavenArrayOutput
+}
+
+type JobLibraryMavenArray []JobLibraryMavenInput
+
+func (JobLibraryMavenArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobLibraryMaven)(nil)).Elem()
+}
+
+func (i JobLibraryMavenArray) ToJobLibraryMavenArrayOutput() JobLibraryMavenArrayOutput {
+	return i.ToJobLibraryMavenArrayOutputWithContext(context.Background())
+}
+
+func (i JobLibraryMavenArray) ToJobLibraryMavenArrayOutputWithContext(ctx context.Context) JobLibraryMavenArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobLibraryMavenArrayOutput)
+}
+
+type JobLibraryMavenOutput struct{ *pulumi.OutputState }
+
+func (JobLibraryMavenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobLibraryMaven)(nil)).Elem()
+}
+
+func (o JobLibraryMavenOutput) ToJobLibraryMavenOutput() JobLibraryMavenOutput {
+	return o
+}
+
+func (o JobLibraryMavenOutput) ToJobLibraryMavenOutputWithContext(ctx context.Context) JobLibraryMavenOutput {
+	return o
+}
+
+func (o JobLibraryMavenOutput) Coordinates() pulumi.StringOutput {
+	return o.ApplyT(func(v JobLibraryMaven) string { return v.Coordinates }).(pulumi.StringOutput)
+}
+
+func (o JobLibraryMavenOutput) Exclusions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobLibraryMaven) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
+}
+
+func (o JobLibraryMavenOutput) Repo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobLibraryMaven) *string { return v.Repo }).(pulumi.StringPtrOutput)
+}
+
+type JobLibraryMavenArrayOutput struct{ *pulumi.OutputState }
+
+func (JobLibraryMavenArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobLibraryMaven)(nil)).Elem()
+}
+
+func (o JobLibraryMavenArrayOutput) ToJobLibraryMavenArrayOutput() JobLibraryMavenArrayOutput {
+	return o
+}
+
+func (o JobLibraryMavenArrayOutput) ToJobLibraryMavenArrayOutputWithContext(ctx context.Context) JobLibraryMavenArrayOutput {
+	return o
+}
+
+func (o JobLibraryMavenArrayOutput) Index(i pulumi.IntInput) JobLibraryMavenOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobLibraryMaven {
+		return vs[0].([]JobLibraryMaven)[vs[1].(int)]
+	}).(JobLibraryMavenOutput)
+}
+
+type JobLibraryPypi struct {
+	Package string  `pulumi:"package"`
+	Repo    *string `pulumi:"repo"`
+}
+
+// JobLibraryPypiInput is an input type that accepts JobLibraryPypiArgs and JobLibraryPypiOutput values.
+// You can construct a concrete instance of `JobLibraryPypiInput` via:
+//
+// 		 JobLibraryPypiArgs{...}
+//
+type JobLibraryPypiInput interface {
+	pulumi.Input
+
+	ToJobLibraryPypiOutput() JobLibraryPypiOutput
+	ToJobLibraryPypiOutputWithContext(context.Context) JobLibraryPypiOutput
+}
+
+type JobLibraryPypiArgs struct {
+	Package pulumi.StringInput    `pulumi:"package"`
+	Repo    pulumi.StringPtrInput `pulumi:"repo"`
+}
+
+func (JobLibraryPypiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobLibraryPypi)(nil)).Elem()
+}
+
+func (i JobLibraryPypiArgs) ToJobLibraryPypiOutput() JobLibraryPypiOutput {
+	return i.ToJobLibraryPypiOutputWithContext(context.Background())
+}
+
+func (i JobLibraryPypiArgs) ToJobLibraryPypiOutputWithContext(ctx context.Context) JobLibraryPypiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobLibraryPypiOutput)
+}
+
+// JobLibraryPypiArrayInput is an input type that accepts JobLibraryPypiArray and JobLibraryPypiArrayOutput values.
+// You can construct a concrete instance of `JobLibraryPypiArrayInput` via:
+//
+// 		 JobLibraryPypiArray{ JobLibraryPypiArgs{...} }
+//
+type JobLibraryPypiArrayInput interface {
+	pulumi.Input
+
+	ToJobLibraryPypiArrayOutput() JobLibraryPypiArrayOutput
+	ToJobLibraryPypiArrayOutputWithContext(context.Context) JobLibraryPypiArrayOutput
+}
+
+type JobLibraryPypiArray []JobLibraryPypiInput
+
+func (JobLibraryPypiArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobLibraryPypi)(nil)).Elem()
+}
+
+func (i JobLibraryPypiArray) ToJobLibraryPypiArrayOutput() JobLibraryPypiArrayOutput {
+	return i.ToJobLibraryPypiArrayOutputWithContext(context.Background())
+}
+
+func (i JobLibraryPypiArray) ToJobLibraryPypiArrayOutputWithContext(ctx context.Context) JobLibraryPypiArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobLibraryPypiArrayOutput)
+}
+
+type JobLibraryPypiOutput struct{ *pulumi.OutputState }
+
+func (JobLibraryPypiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobLibraryPypi)(nil)).Elem()
+}
+
+func (o JobLibraryPypiOutput) ToJobLibraryPypiOutput() JobLibraryPypiOutput {
+	return o
+}
+
+func (o JobLibraryPypiOutput) ToJobLibraryPypiOutputWithContext(ctx context.Context) JobLibraryPypiOutput {
+	return o
+}
+
+func (o JobLibraryPypiOutput) Package() pulumi.StringOutput {
+	return o.ApplyT(func(v JobLibraryPypi) string { return v.Package }).(pulumi.StringOutput)
+}
+
+func (o JobLibraryPypiOutput) Repo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobLibraryPypi) *string { return v.Repo }).(pulumi.StringPtrOutput)
+}
+
+type JobLibraryPypiArrayOutput struct{ *pulumi.OutputState }
+
+func (JobLibraryPypiArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobLibraryPypi)(nil)).Elem()
+}
+
+func (o JobLibraryPypiArrayOutput) ToJobLibraryPypiArrayOutput() JobLibraryPypiArrayOutput {
+	return o
+}
+
+func (o JobLibraryPypiArrayOutput) ToJobLibraryPypiArrayOutputWithContext(ctx context.Context) JobLibraryPypiArrayOutput {
+	return o
+}
+
+func (o JobLibraryPypiArrayOutput) Index(i pulumi.IntInput) JobLibraryPypiOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobLibraryPypi {
+		return vs[0].([]JobLibraryPypi)[vs[1].(int)]
+	}).(JobLibraryPypiOutput)
+}
+
+type JobNewCluster struct {
+	Autoscale              *JobNewClusterAutoscale      `pulumi:"autoscale"`
+	AutoterminationMinutes *int                         `pulumi:"autoterminationMinutes"`
+	AwsAttributes          *JobNewClusterAwsAttributes  `pulumi:"awsAttributes"`
+	ClusterLogConf         *JobNewClusterClusterLogConf `pulumi:"clusterLogConf"`
+	ClusterName            *string                      `pulumi:"clusterName"`
+	CustomTags             map[string]interface{}       `pulumi:"customTags"`
+	DockerImage            *JobNewClusterDockerImage    `pulumi:"dockerImage"`
+	DriverNodeTypeId       *string                      `pulumi:"driverNodeTypeId"`
+	EnableElasticDisk      *bool                        `pulumi:"enableElasticDisk"`
+	InitScripts            []JobNewClusterInitScript    `pulumi:"initScripts"`
+	InstancePoolId         *string                      `pulumi:"instancePoolId"`
+	NodeTypeId             *string                      `pulumi:"nodeTypeId"`
+	NumWorkers             *int                         `pulumi:"numWorkers"`
+	SparkConf              map[string]interface{}       `pulumi:"sparkConf"`
+	SparkEnvVars           map[string]interface{}       `pulumi:"sparkEnvVars"`
+	SparkVersion           *string                      `pulumi:"sparkVersion"`
+	SshPublicKeys          []string                     `pulumi:"sshPublicKeys"`
+}
+
+// JobNewClusterInput is an input type that accepts JobNewClusterArgs and JobNewClusterOutput values.
+// You can construct a concrete instance of `JobNewClusterInput` via:
+//
+// 		 JobNewClusterArgs{...}
+//
+type JobNewClusterInput interface {
+	pulumi.Input
+
+	ToJobNewClusterOutput() JobNewClusterOutput
+	ToJobNewClusterOutputWithContext(context.Context) JobNewClusterOutput
+}
+
+type JobNewClusterArgs struct {
+	Autoscale              JobNewClusterAutoscalePtrInput      `pulumi:"autoscale"`
+	AutoterminationMinutes pulumi.IntPtrInput                  `pulumi:"autoterminationMinutes"`
+	AwsAttributes          JobNewClusterAwsAttributesPtrInput  `pulumi:"awsAttributes"`
+	ClusterLogConf         JobNewClusterClusterLogConfPtrInput `pulumi:"clusterLogConf"`
+	ClusterName            pulumi.StringPtrInput               `pulumi:"clusterName"`
+	CustomTags             pulumi.MapInput                     `pulumi:"customTags"`
+	DockerImage            JobNewClusterDockerImagePtrInput    `pulumi:"dockerImage"`
+	DriverNodeTypeId       pulumi.StringPtrInput               `pulumi:"driverNodeTypeId"`
+	EnableElasticDisk      pulumi.BoolPtrInput                 `pulumi:"enableElasticDisk"`
+	InitScripts            JobNewClusterInitScriptArrayInput   `pulumi:"initScripts"`
+	InstancePoolId         pulumi.StringPtrInput               `pulumi:"instancePoolId"`
+	NodeTypeId             pulumi.StringPtrInput               `pulumi:"nodeTypeId"`
+	NumWorkers             pulumi.IntPtrInput                  `pulumi:"numWorkers"`
+	SparkConf              pulumi.MapInput                     `pulumi:"sparkConf"`
+	SparkEnvVars           pulumi.MapInput                     `pulumi:"sparkEnvVars"`
+	SparkVersion           pulumi.StringPtrInput               `pulumi:"sparkVersion"`
+	SshPublicKeys          pulumi.StringArrayInput             `pulumi:"sshPublicKeys"`
+}
+
+func (JobNewClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewCluster)(nil)).Elem()
+}
+
+func (i JobNewClusterArgs) ToJobNewClusterOutput() JobNewClusterOutput {
+	return i.ToJobNewClusterOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterArgs) ToJobNewClusterOutputWithContext(ctx context.Context) JobNewClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterOutput)
+}
+
+func (i JobNewClusterArgs) ToJobNewClusterPtrOutput() JobNewClusterPtrOutput {
+	return i.ToJobNewClusterPtrOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterArgs) ToJobNewClusterPtrOutputWithContext(ctx context.Context) JobNewClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterOutput).ToJobNewClusterPtrOutputWithContext(ctx)
+}
+
+// JobNewClusterPtrInput is an input type that accepts JobNewClusterArgs, JobNewClusterPtr and JobNewClusterPtrOutput values.
+// You can construct a concrete instance of `JobNewClusterPtrInput` via:
+//
+// 		 JobNewClusterArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type JobNewClusterPtrInput interface {
+	pulumi.Input
+
+	ToJobNewClusterPtrOutput() JobNewClusterPtrOutput
+	ToJobNewClusterPtrOutputWithContext(context.Context) JobNewClusterPtrOutput
+}
+
+type jobNewClusterPtrType JobNewClusterArgs
+
+func JobNewClusterPtr(v *JobNewClusterArgs) JobNewClusterPtrInput {
+	return (*jobNewClusterPtrType)(v)
+}
+
+func (*jobNewClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewCluster)(nil)).Elem()
+}
+
+func (i *jobNewClusterPtrType) ToJobNewClusterPtrOutput() JobNewClusterPtrOutput {
+	return i.ToJobNewClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *jobNewClusterPtrType) ToJobNewClusterPtrOutputWithContext(ctx context.Context) JobNewClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterPtrOutput)
+}
+
+type JobNewClusterOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewCluster)(nil)).Elem()
+}
+
+func (o JobNewClusterOutput) ToJobNewClusterOutput() JobNewClusterOutput {
+	return o
+}
+
+func (o JobNewClusterOutput) ToJobNewClusterOutputWithContext(ctx context.Context) JobNewClusterOutput {
+	return o
+}
+
+func (o JobNewClusterOutput) ToJobNewClusterPtrOutput() JobNewClusterPtrOutput {
+	return o.ToJobNewClusterPtrOutputWithContext(context.Background())
+}
+
+func (o JobNewClusterOutput) ToJobNewClusterPtrOutputWithContext(ctx context.Context) JobNewClusterPtrOutput {
+	return o.ApplyT(func(v JobNewCluster) *JobNewCluster {
+		return &v
+	}).(JobNewClusterPtrOutput)
+}
+func (o JobNewClusterOutput) Autoscale() JobNewClusterAutoscalePtrOutput {
+	return o.ApplyT(func(v JobNewCluster) *JobNewClusterAutoscale { return v.Autoscale }).(JobNewClusterAutoscalePtrOutput)
+}
+
+func (o JobNewClusterOutput) AutoterminationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobNewCluster) *int { return v.AutoterminationMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o JobNewClusterOutput) AwsAttributes() JobNewClusterAwsAttributesPtrOutput {
+	return o.ApplyT(func(v JobNewCluster) *JobNewClusterAwsAttributes { return v.AwsAttributes }).(JobNewClusterAwsAttributesPtrOutput)
+}
+
+func (o JobNewClusterOutput) ClusterLogConf() JobNewClusterClusterLogConfPtrOutput {
+	return o.ApplyT(func(v JobNewCluster) *JobNewClusterClusterLogConf { return v.ClusterLogConf }).(JobNewClusterClusterLogConfPtrOutput)
+}
+
+func (o JobNewClusterOutput) ClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobNewCluster) *string { return v.ClusterName }).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterOutput) CustomTags() pulumi.MapOutput {
+	return o.ApplyT(func(v JobNewCluster) map[string]interface{} { return v.CustomTags }).(pulumi.MapOutput)
+}
+
+func (o JobNewClusterOutput) DockerImage() JobNewClusterDockerImagePtrOutput {
+	return o.ApplyT(func(v JobNewCluster) *JobNewClusterDockerImage { return v.DockerImage }).(JobNewClusterDockerImagePtrOutput)
+}
+
+func (o JobNewClusterOutput) DriverNodeTypeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobNewCluster) *string { return v.DriverNodeTypeId }).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterOutput) EnableElasticDisk() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobNewCluster) *bool { return v.EnableElasticDisk }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobNewClusterOutput) InitScripts() JobNewClusterInitScriptArrayOutput {
+	return o.ApplyT(func(v JobNewCluster) []JobNewClusterInitScript { return v.InitScripts }).(JobNewClusterInitScriptArrayOutput)
+}
+
+func (o JobNewClusterOutput) InstancePoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobNewCluster) *string { return v.InstancePoolId }).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterOutput) NodeTypeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobNewCluster) *string { return v.NodeTypeId }).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterOutput) NumWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobNewCluster) *int { return v.NumWorkers }).(pulumi.IntPtrOutput)
+}
+
+func (o JobNewClusterOutput) SparkConf() pulumi.MapOutput {
+	return o.ApplyT(func(v JobNewCluster) map[string]interface{} { return v.SparkConf }).(pulumi.MapOutput)
+}
+
+func (o JobNewClusterOutput) SparkEnvVars() pulumi.MapOutput {
+	return o.ApplyT(func(v JobNewCluster) map[string]interface{} { return v.SparkEnvVars }).(pulumi.MapOutput)
+}
+
+func (o JobNewClusterOutput) SparkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobNewCluster) *string { return v.SparkVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterOutput) SshPublicKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobNewCluster) []string { return v.SshPublicKeys }).(pulumi.StringArrayOutput)
+}
+
+type JobNewClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewCluster)(nil)).Elem()
+}
+
+func (o JobNewClusterPtrOutput) ToJobNewClusterPtrOutput() JobNewClusterPtrOutput {
+	return o
+}
+
+func (o JobNewClusterPtrOutput) ToJobNewClusterPtrOutputWithContext(ctx context.Context) JobNewClusterPtrOutput {
+	return o
+}
+
+func (o JobNewClusterPtrOutput) Elem() JobNewClusterOutput {
+	return o.ApplyT(func(v *JobNewCluster) JobNewCluster { return *v }).(JobNewClusterOutput)
+}
+
+func (o JobNewClusterPtrOutput) Autoscale() JobNewClusterAutoscalePtrOutput {
+	return o.ApplyT(func(v *JobNewCluster) *JobNewClusterAutoscale {
+		if v == nil {
+			return nil
+		}
+		return v.Autoscale
+	}).(JobNewClusterAutoscalePtrOutput)
+}
+
+func (o JobNewClusterPtrOutput) AutoterminationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobNewCluster) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AutoterminationMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JobNewClusterPtrOutput) AwsAttributes() JobNewClusterAwsAttributesPtrOutput {
+	return o.ApplyT(func(v *JobNewCluster) *JobNewClusterAwsAttributes {
+		if v == nil {
+			return nil
+		}
+		return v.AwsAttributes
+	}).(JobNewClusterAwsAttributesPtrOutput)
+}
+
+func (o JobNewClusterPtrOutput) ClusterLogConf() JobNewClusterClusterLogConfPtrOutput {
+	return o.ApplyT(func(v *JobNewCluster) *JobNewClusterClusterLogConf {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterLogConf
+	}).(JobNewClusterClusterLogConfPtrOutput)
+}
+
+func (o JobNewClusterPtrOutput) ClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterPtrOutput) CustomTags() pulumi.MapOutput {
+	return o.ApplyT(func(v *JobNewCluster) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.CustomTags
+	}).(pulumi.MapOutput)
+}
+
+func (o JobNewClusterPtrOutput) DockerImage() JobNewClusterDockerImagePtrOutput {
+	return o.ApplyT(func(v *JobNewCluster) *JobNewClusterDockerImage {
+		if v == nil {
+			return nil
+		}
+		return v.DockerImage
+	}).(JobNewClusterDockerImagePtrOutput)
+}
+
+func (o JobNewClusterPtrOutput) DriverNodeTypeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DriverNodeTypeId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterPtrOutput) EnableElasticDisk() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobNewCluster) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableElasticDisk
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobNewClusterPtrOutput) InitScripts() JobNewClusterInitScriptArrayOutput {
+	return o.ApplyT(func(v *JobNewCluster) []JobNewClusterInitScript {
+		if v == nil {
+			return nil
+		}
+		return v.InitScripts
+	}).(JobNewClusterInitScriptArrayOutput)
+}
+
+func (o JobNewClusterPtrOutput) InstancePoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstancePoolId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterPtrOutput) NodeTypeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NodeTypeId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterPtrOutput) NumWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobNewCluster) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumWorkers
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JobNewClusterPtrOutput) SparkConf() pulumi.MapOutput {
+	return o.ApplyT(func(v *JobNewCluster) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.SparkConf
+	}).(pulumi.MapOutput)
+}
+
+func (o JobNewClusterPtrOutput) SparkEnvVars() pulumi.MapOutput {
+	return o.ApplyT(func(v *JobNewCluster) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.SparkEnvVars
+	}).(pulumi.MapOutput)
+}
+
+func (o JobNewClusterPtrOutput) SparkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SparkVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterPtrOutput) SshPublicKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobNewCluster) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SshPublicKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+type JobNewClusterAutoscale struct {
+	MaxWorkers *int `pulumi:"maxWorkers"`
+	MinWorkers *int `pulumi:"minWorkers"`
+}
+
+// JobNewClusterAutoscaleInput is an input type that accepts JobNewClusterAutoscaleArgs and JobNewClusterAutoscaleOutput values.
+// You can construct a concrete instance of `JobNewClusterAutoscaleInput` via:
+//
+// 		 JobNewClusterAutoscaleArgs{...}
+//
+type JobNewClusterAutoscaleInput interface {
+	pulumi.Input
+
+	ToJobNewClusterAutoscaleOutput() JobNewClusterAutoscaleOutput
+	ToJobNewClusterAutoscaleOutputWithContext(context.Context) JobNewClusterAutoscaleOutput
+}
+
+type JobNewClusterAutoscaleArgs struct {
+	MaxWorkers pulumi.IntPtrInput `pulumi:"maxWorkers"`
+	MinWorkers pulumi.IntPtrInput `pulumi:"minWorkers"`
+}
+
+func (JobNewClusterAutoscaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterAutoscale)(nil)).Elem()
+}
+
+func (i JobNewClusterAutoscaleArgs) ToJobNewClusterAutoscaleOutput() JobNewClusterAutoscaleOutput {
+	return i.ToJobNewClusterAutoscaleOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterAutoscaleArgs) ToJobNewClusterAutoscaleOutputWithContext(ctx context.Context) JobNewClusterAutoscaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterAutoscaleOutput)
+}
+
+func (i JobNewClusterAutoscaleArgs) ToJobNewClusterAutoscalePtrOutput() JobNewClusterAutoscalePtrOutput {
+	return i.ToJobNewClusterAutoscalePtrOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterAutoscaleArgs) ToJobNewClusterAutoscalePtrOutputWithContext(ctx context.Context) JobNewClusterAutoscalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterAutoscaleOutput).ToJobNewClusterAutoscalePtrOutputWithContext(ctx)
+}
+
+// JobNewClusterAutoscalePtrInput is an input type that accepts JobNewClusterAutoscaleArgs, JobNewClusterAutoscalePtr and JobNewClusterAutoscalePtrOutput values.
+// You can construct a concrete instance of `JobNewClusterAutoscalePtrInput` via:
+//
+// 		 JobNewClusterAutoscaleArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type JobNewClusterAutoscalePtrInput interface {
+	pulumi.Input
+
+	ToJobNewClusterAutoscalePtrOutput() JobNewClusterAutoscalePtrOutput
+	ToJobNewClusterAutoscalePtrOutputWithContext(context.Context) JobNewClusterAutoscalePtrOutput
+}
+
+type jobNewClusterAutoscalePtrType JobNewClusterAutoscaleArgs
+
+func JobNewClusterAutoscalePtr(v *JobNewClusterAutoscaleArgs) JobNewClusterAutoscalePtrInput {
+	return (*jobNewClusterAutoscalePtrType)(v)
+}
+
+func (*jobNewClusterAutoscalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewClusterAutoscale)(nil)).Elem()
+}
+
+func (i *jobNewClusterAutoscalePtrType) ToJobNewClusterAutoscalePtrOutput() JobNewClusterAutoscalePtrOutput {
+	return i.ToJobNewClusterAutoscalePtrOutputWithContext(context.Background())
+}
+
+func (i *jobNewClusterAutoscalePtrType) ToJobNewClusterAutoscalePtrOutputWithContext(ctx context.Context) JobNewClusterAutoscalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterAutoscalePtrOutput)
+}
+
+type JobNewClusterAutoscaleOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterAutoscaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterAutoscale)(nil)).Elem()
+}
+
+func (o JobNewClusterAutoscaleOutput) ToJobNewClusterAutoscaleOutput() JobNewClusterAutoscaleOutput {
+	return o
+}
+
+func (o JobNewClusterAutoscaleOutput) ToJobNewClusterAutoscaleOutputWithContext(ctx context.Context) JobNewClusterAutoscaleOutput {
+	return o
+}
+
+func (o JobNewClusterAutoscaleOutput) ToJobNewClusterAutoscalePtrOutput() JobNewClusterAutoscalePtrOutput {
+	return o.ToJobNewClusterAutoscalePtrOutputWithContext(context.Background())
+}
+
+func (o JobNewClusterAutoscaleOutput) ToJobNewClusterAutoscalePtrOutputWithContext(ctx context.Context) JobNewClusterAutoscalePtrOutput {
+	return o.ApplyT(func(v JobNewClusterAutoscale) *JobNewClusterAutoscale {
+		return &v
+	}).(JobNewClusterAutoscalePtrOutput)
+}
+func (o JobNewClusterAutoscaleOutput) MaxWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobNewClusterAutoscale) *int { return v.MaxWorkers }).(pulumi.IntPtrOutput)
+}
+
+func (o JobNewClusterAutoscaleOutput) MinWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobNewClusterAutoscale) *int { return v.MinWorkers }).(pulumi.IntPtrOutput)
+}
+
+type JobNewClusterAutoscalePtrOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterAutoscalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewClusterAutoscale)(nil)).Elem()
+}
+
+func (o JobNewClusterAutoscalePtrOutput) ToJobNewClusterAutoscalePtrOutput() JobNewClusterAutoscalePtrOutput {
+	return o
+}
+
+func (o JobNewClusterAutoscalePtrOutput) ToJobNewClusterAutoscalePtrOutputWithContext(ctx context.Context) JobNewClusterAutoscalePtrOutput {
+	return o
+}
+
+func (o JobNewClusterAutoscalePtrOutput) Elem() JobNewClusterAutoscaleOutput {
+	return o.ApplyT(func(v *JobNewClusterAutoscale) JobNewClusterAutoscale { return *v }).(JobNewClusterAutoscaleOutput)
+}
+
+func (o JobNewClusterAutoscalePtrOutput) MaxWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterAutoscale) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxWorkers
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JobNewClusterAutoscalePtrOutput) MinWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterAutoscale) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinWorkers
+	}).(pulumi.IntPtrOutput)
+}
+
+type JobNewClusterAwsAttributes struct {
+	Availability        *string `pulumi:"availability"`
+	EbsVolumeCount      *int    `pulumi:"ebsVolumeCount"`
+	EbsVolumeSize       *int    `pulumi:"ebsVolumeSize"`
+	EbsVolumeType       *string `pulumi:"ebsVolumeType"`
+	FirstOnDemand       *int    `pulumi:"firstOnDemand"`
+	InstanceProfileArn  *string `pulumi:"instanceProfileArn"`
+	SpotBidPricePercent *int    `pulumi:"spotBidPricePercent"`
+	ZoneId              string  `pulumi:"zoneId"`
+}
+
+// JobNewClusterAwsAttributesInput is an input type that accepts JobNewClusterAwsAttributesArgs and JobNewClusterAwsAttributesOutput values.
+// You can construct a concrete instance of `JobNewClusterAwsAttributesInput` via:
+//
+// 		 JobNewClusterAwsAttributesArgs{...}
+//
+type JobNewClusterAwsAttributesInput interface {
+	pulumi.Input
+
+	ToJobNewClusterAwsAttributesOutput() JobNewClusterAwsAttributesOutput
+	ToJobNewClusterAwsAttributesOutputWithContext(context.Context) JobNewClusterAwsAttributesOutput
+}
+
+type JobNewClusterAwsAttributesArgs struct {
+	Availability        pulumi.StringPtrInput `pulumi:"availability"`
+	EbsVolumeCount      pulumi.IntPtrInput    `pulumi:"ebsVolumeCount"`
+	EbsVolumeSize       pulumi.IntPtrInput    `pulumi:"ebsVolumeSize"`
+	EbsVolumeType       pulumi.StringPtrInput `pulumi:"ebsVolumeType"`
+	FirstOnDemand       pulumi.IntPtrInput    `pulumi:"firstOnDemand"`
+	InstanceProfileArn  pulumi.StringPtrInput `pulumi:"instanceProfileArn"`
+	SpotBidPricePercent pulumi.IntPtrInput    `pulumi:"spotBidPricePercent"`
+	ZoneId              pulumi.StringInput    `pulumi:"zoneId"`
+}
+
+func (JobNewClusterAwsAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterAwsAttributes)(nil)).Elem()
+}
+
+func (i JobNewClusterAwsAttributesArgs) ToJobNewClusterAwsAttributesOutput() JobNewClusterAwsAttributesOutput {
+	return i.ToJobNewClusterAwsAttributesOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterAwsAttributesArgs) ToJobNewClusterAwsAttributesOutputWithContext(ctx context.Context) JobNewClusterAwsAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterAwsAttributesOutput)
+}
+
+func (i JobNewClusterAwsAttributesArgs) ToJobNewClusterAwsAttributesPtrOutput() JobNewClusterAwsAttributesPtrOutput {
+	return i.ToJobNewClusterAwsAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterAwsAttributesArgs) ToJobNewClusterAwsAttributesPtrOutputWithContext(ctx context.Context) JobNewClusterAwsAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterAwsAttributesOutput).ToJobNewClusterAwsAttributesPtrOutputWithContext(ctx)
+}
+
+// JobNewClusterAwsAttributesPtrInput is an input type that accepts JobNewClusterAwsAttributesArgs, JobNewClusterAwsAttributesPtr and JobNewClusterAwsAttributesPtrOutput values.
+// You can construct a concrete instance of `JobNewClusterAwsAttributesPtrInput` via:
+//
+// 		 JobNewClusterAwsAttributesArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type JobNewClusterAwsAttributesPtrInput interface {
+	pulumi.Input
+
+	ToJobNewClusterAwsAttributesPtrOutput() JobNewClusterAwsAttributesPtrOutput
+	ToJobNewClusterAwsAttributesPtrOutputWithContext(context.Context) JobNewClusterAwsAttributesPtrOutput
+}
+
+type jobNewClusterAwsAttributesPtrType JobNewClusterAwsAttributesArgs
+
+func JobNewClusterAwsAttributesPtr(v *JobNewClusterAwsAttributesArgs) JobNewClusterAwsAttributesPtrInput {
+	return (*jobNewClusterAwsAttributesPtrType)(v)
+}
+
+func (*jobNewClusterAwsAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewClusterAwsAttributes)(nil)).Elem()
+}
+
+func (i *jobNewClusterAwsAttributesPtrType) ToJobNewClusterAwsAttributesPtrOutput() JobNewClusterAwsAttributesPtrOutput {
+	return i.ToJobNewClusterAwsAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *jobNewClusterAwsAttributesPtrType) ToJobNewClusterAwsAttributesPtrOutputWithContext(ctx context.Context) JobNewClusterAwsAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterAwsAttributesPtrOutput)
+}
+
+type JobNewClusterAwsAttributesOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterAwsAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterAwsAttributes)(nil)).Elem()
+}
+
+func (o JobNewClusterAwsAttributesOutput) ToJobNewClusterAwsAttributesOutput() JobNewClusterAwsAttributesOutput {
+	return o
+}
+
+func (o JobNewClusterAwsAttributesOutput) ToJobNewClusterAwsAttributesOutputWithContext(ctx context.Context) JobNewClusterAwsAttributesOutput {
+	return o
+}
+
+func (o JobNewClusterAwsAttributesOutput) ToJobNewClusterAwsAttributesPtrOutput() JobNewClusterAwsAttributesPtrOutput {
+	return o.ToJobNewClusterAwsAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o JobNewClusterAwsAttributesOutput) ToJobNewClusterAwsAttributesPtrOutputWithContext(ctx context.Context) JobNewClusterAwsAttributesPtrOutput {
+	return o.ApplyT(func(v JobNewClusterAwsAttributes) *JobNewClusterAwsAttributes {
+		return &v
+	}).(JobNewClusterAwsAttributesPtrOutput)
+}
+func (o JobNewClusterAwsAttributesOutput) Availability() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobNewClusterAwsAttributes) *string { return v.Availability }).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterAwsAttributesOutput) EbsVolumeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobNewClusterAwsAttributes) *int { return v.EbsVolumeCount }).(pulumi.IntPtrOutput)
+}
+
+func (o JobNewClusterAwsAttributesOutput) EbsVolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobNewClusterAwsAttributes) *int { return v.EbsVolumeSize }).(pulumi.IntPtrOutput)
+}
+
+func (o JobNewClusterAwsAttributesOutput) EbsVolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobNewClusterAwsAttributes) *string { return v.EbsVolumeType }).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterAwsAttributesOutput) FirstOnDemand() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobNewClusterAwsAttributes) *int { return v.FirstOnDemand }).(pulumi.IntPtrOutput)
+}
+
+func (o JobNewClusterAwsAttributesOutput) InstanceProfileArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobNewClusterAwsAttributes) *string { return v.InstanceProfileArn }).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterAwsAttributesOutput) SpotBidPricePercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobNewClusterAwsAttributes) *int { return v.SpotBidPricePercent }).(pulumi.IntPtrOutput)
+}
+
+func (o JobNewClusterAwsAttributesOutput) ZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v JobNewClusterAwsAttributes) string { return v.ZoneId }).(pulumi.StringOutput)
+}
+
+type JobNewClusterAwsAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterAwsAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewClusterAwsAttributes)(nil)).Elem()
+}
+
+func (o JobNewClusterAwsAttributesPtrOutput) ToJobNewClusterAwsAttributesPtrOutput() JobNewClusterAwsAttributesPtrOutput {
+	return o
+}
+
+func (o JobNewClusterAwsAttributesPtrOutput) ToJobNewClusterAwsAttributesPtrOutputWithContext(ctx context.Context) JobNewClusterAwsAttributesPtrOutput {
+	return o
+}
+
+func (o JobNewClusterAwsAttributesPtrOutput) Elem() JobNewClusterAwsAttributesOutput {
+	return o.ApplyT(func(v *JobNewClusterAwsAttributes) JobNewClusterAwsAttributes { return *v }).(JobNewClusterAwsAttributesOutput)
+}
+
+func (o JobNewClusterAwsAttributesPtrOutput) Availability() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterAwsAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Availability
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterAwsAttributesPtrOutput) EbsVolumeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterAwsAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EbsVolumeCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JobNewClusterAwsAttributesPtrOutput) EbsVolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterAwsAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EbsVolumeSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JobNewClusterAwsAttributesPtrOutput) EbsVolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterAwsAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EbsVolumeType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterAwsAttributesPtrOutput) FirstOnDemand() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterAwsAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FirstOnDemand
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JobNewClusterAwsAttributesPtrOutput) InstanceProfileArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterAwsAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceProfileArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterAwsAttributesPtrOutput) SpotBidPricePercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterAwsAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpotBidPricePercent
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JobNewClusterAwsAttributesPtrOutput) ZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterAwsAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ZoneId
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobNewClusterClusterLogConf struct {
+	Dbfs *JobNewClusterClusterLogConfDbfs `pulumi:"dbfs"`
+	S3   *JobNewClusterClusterLogConfS3   `pulumi:"s3"`
+}
+
+// JobNewClusterClusterLogConfInput is an input type that accepts JobNewClusterClusterLogConfArgs and JobNewClusterClusterLogConfOutput values.
+// You can construct a concrete instance of `JobNewClusterClusterLogConfInput` via:
+//
+// 		 JobNewClusterClusterLogConfArgs{...}
+//
+type JobNewClusterClusterLogConfInput interface {
+	pulumi.Input
+
+	ToJobNewClusterClusterLogConfOutput() JobNewClusterClusterLogConfOutput
+	ToJobNewClusterClusterLogConfOutputWithContext(context.Context) JobNewClusterClusterLogConfOutput
+}
+
+type JobNewClusterClusterLogConfArgs struct {
+	Dbfs JobNewClusterClusterLogConfDbfsPtrInput `pulumi:"dbfs"`
+	S3   JobNewClusterClusterLogConfS3PtrInput   `pulumi:"s3"`
+}
+
+func (JobNewClusterClusterLogConfArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterClusterLogConf)(nil)).Elem()
+}
+
+func (i JobNewClusterClusterLogConfArgs) ToJobNewClusterClusterLogConfOutput() JobNewClusterClusterLogConfOutput {
+	return i.ToJobNewClusterClusterLogConfOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterClusterLogConfArgs) ToJobNewClusterClusterLogConfOutputWithContext(ctx context.Context) JobNewClusterClusterLogConfOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterClusterLogConfOutput)
+}
+
+func (i JobNewClusterClusterLogConfArgs) ToJobNewClusterClusterLogConfPtrOutput() JobNewClusterClusterLogConfPtrOutput {
+	return i.ToJobNewClusterClusterLogConfPtrOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterClusterLogConfArgs) ToJobNewClusterClusterLogConfPtrOutputWithContext(ctx context.Context) JobNewClusterClusterLogConfPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterClusterLogConfOutput).ToJobNewClusterClusterLogConfPtrOutputWithContext(ctx)
+}
+
+// JobNewClusterClusterLogConfPtrInput is an input type that accepts JobNewClusterClusterLogConfArgs, JobNewClusterClusterLogConfPtr and JobNewClusterClusterLogConfPtrOutput values.
+// You can construct a concrete instance of `JobNewClusterClusterLogConfPtrInput` via:
+//
+// 		 JobNewClusterClusterLogConfArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type JobNewClusterClusterLogConfPtrInput interface {
+	pulumi.Input
+
+	ToJobNewClusterClusterLogConfPtrOutput() JobNewClusterClusterLogConfPtrOutput
+	ToJobNewClusterClusterLogConfPtrOutputWithContext(context.Context) JobNewClusterClusterLogConfPtrOutput
+}
+
+type jobNewClusterClusterLogConfPtrType JobNewClusterClusterLogConfArgs
+
+func JobNewClusterClusterLogConfPtr(v *JobNewClusterClusterLogConfArgs) JobNewClusterClusterLogConfPtrInput {
+	return (*jobNewClusterClusterLogConfPtrType)(v)
+}
+
+func (*jobNewClusterClusterLogConfPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewClusterClusterLogConf)(nil)).Elem()
+}
+
+func (i *jobNewClusterClusterLogConfPtrType) ToJobNewClusterClusterLogConfPtrOutput() JobNewClusterClusterLogConfPtrOutput {
+	return i.ToJobNewClusterClusterLogConfPtrOutputWithContext(context.Background())
+}
+
+func (i *jobNewClusterClusterLogConfPtrType) ToJobNewClusterClusterLogConfPtrOutputWithContext(ctx context.Context) JobNewClusterClusterLogConfPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterClusterLogConfPtrOutput)
+}
+
+type JobNewClusterClusterLogConfOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterClusterLogConfOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterClusterLogConf)(nil)).Elem()
+}
+
+func (o JobNewClusterClusterLogConfOutput) ToJobNewClusterClusterLogConfOutput() JobNewClusterClusterLogConfOutput {
+	return o
+}
+
+func (o JobNewClusterClusterLogConfOutput) ToJobNewClusterClusterLogConfOutputWithContext(ctx context.Context) JobNewClusterClusterLogConfOutput {
+	return o
+}
+
+func (o JobNewClusterClusterLogConfOutput) ToJobNewClusterClusterLogConfPtrOutput() JobNewClusterClusterLogConfPtrOutput {
+	return o.ToJobNewClusterClusterLogConfPtrOutputWithContext(context.Background())
+}
+
+func (o JobNewClusterClusterLogConfOutput) ToJobNewClusterClusterLogConfPtrOutputWithContext(ctx context.Context) JobNewClusterClusterLogConfPtrOutput {
+	return o.ApplyT(func(v JobNewClusterClusterLogConf) *JobNewClusterClusterLogConf {
+		return &v
+	}).(JobNewClusterClusterLogConfPtrOutput)
+}
+func (o JobNewClusterClusterLogConfOutput) Dbfs() JobNewClusterClusterLogConfDbfsPtrOutput {
+	return o.ApplyT(func(v JobNewClusterClusterLogConf) *JobNewClusterClusterLogConfDbfs { return v.Dbfs }).(JobNewClusterClusterLogConfDbfsPtrOutput)
+}
+
+func (o JobNewClusterClusterLogConfOutput) S3() JobNewClusterClusterLogConfS3PtrOutput {
+	return o.ApplyT(func(v JobNewClusterClusterLogConf) *JobNewClusterClusterLogConfS3 { return v.S3 }).(JobNewClusterClusterLogConfS3PtrOutput)
+}
+
+type JobNewClusterClusterLogConfPtrOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterClusterLogConfPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewClusterClusterLogConf)(nil)).Elem()
+}
+
+func (o JobNewClusterClusterLogConfPtrOutput) ToJobNewClusterClusterLogConfPtrOutput() JobNewClusterClusterLogConfPtrOutput {
+	return o
+}
+
+func (o JobNewClusterClusterLogConfPtrOutput) ToJobNewClusterClusterLogConfPtrOutputWithContext(ctx context.Context) JobNewClusterClusterLogConfPtrOutput {
+	return o
+}
+
+func (o JobNewClusterClusterLogConfPtrOutput) Elem() JobNewClusterClusterLogConfOutput {
+	return o.ApplyT(func(v *JobNewClusterClusterLogConf) JobNewClusterClusterLogConf { return *v }).(JobNewClusterClusterLogConfOutput)
+}
+
+func (o JobNewClusterClusterLogConfPtrOutput) Dbfs() JobNewClusterClusterLogConfDbfsPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterClusterLogConf) *JobNewClusterClusterLogConfDbfs {
+		if v == nil {
+			return nil
+		}
+		return v.Dbfs
+	}).(JobNewClusterClusterLogConfDbfsPtrOutput)
+}
+
+func (o JobNewClusterClusterLogConfPtrOutput) S3() JobNewClusterClusterLogConfS3PtrOutput {
+	return o.ApplyT(func(v *JobNewClusterClusterLogConf) *JobNewClusterClusterLogConfS3 {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(JobNewClusterClusterLogConfS3PtrOutput)
+}
+
+type JobNewClusterClusterLogConfDbfs struct {
+	Destination string `pulumi:"destination"`
+}
+
+// JobNewClusterClusterLogConfDbfsInput is an input type that accepts JobNewClusterClusterLogConfDbfsArgs and JobNewClusterClusterLogConfDbfsOutput values.
+// You can construct a concrete instance of `JobNewClusterClusterLogConfDbfsInput` via:
+//
+// 		 JobNewClusterClusterLogConfDbfsArgs{...}
+//
+type JobNewClusterClusterLogConfDbfsInput interface {
+	pulumi.Input
+
+	ToJobNewClusterClusterLogConfDbfsOutput() JobNewClusterClusterLogConfDbfsOutput
+	ToJobNewClusterClusterLogConfDbfsOutputWithContext(context.Context) JobNewClusterClusterLogConfDbfsOutput
+}
+
+type JobNewClusterClusterLogConfDbfsArgs struct {
+	Destination pulumi.StringInput `pulumi:"destination"`
+}
+
+func (JobNewClusterClusterLogConfDbfsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterClusterLogConfDbfs)(nil)).Elem()
+}
+
+func (i JobNewClusterClusterLogConfDbfsArgs) ToJobNewClusterClusterLogConfDbfsOutput() JobNewClusterClusterLogConfDbfsOutput {
+	return i.ToJobNewClusterClusterLogConfDbfsOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterClusterLogConfDbfsArgs) ToJobNewClusterClusterLogConfDbfsOutputWithContext(ctx context.Context) JobNewClusterClusterLogConfDbfsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterClusterLogConfDbfsOutput)
+}
+
+func (i JobNewClusterClusterLogConfDbfsArgs) ToJobNewClusterClusterLogConfDbfsPtrOutput() JobNewClusterClusterLogConfDbfsPtrOutput {
+	return i.ToJobNewClusterClusterLogConfDbfsPtrOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterClusterLogConfDbfsArgs) ToJobNewClusterClusterLogConfDbfsPtrOutputWithContext(ctx context.Context) JobNewClusterClusterLogConfDbfsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterClusterLogConfDbfsOutput).ToJobNewClusterClusterLogConfDbfsPtrOutputWithContext(ctx)
+}
+
+// JobNewClusterClusterLogConfDbfsPtrInput is an input type that accepts JobNewClusterClusterLogConfDbfsArgs, JobNewClusterClusterLogConfDbfsPtr and JobNewClusterClusterLogConfDbfsPtrOutput values.
+// You can construct a concrete instance of `JobNewClusterClusterLogConfDbfsPtrInput` via:
+//
+// 		 JobNewClusterClusterLogConfDbfsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type JobNewClusterClusterLogConfDbfsPtrInput interface {
+	pulumi.Input
+
+	ToJobNewClusterClusterLogConfDbfsPtrOutput() JobNewClusterClusterLogConfDbfsPtrOutput
+	ToJobNewClusterClusterLogConfDbfsPtrOutputWithContext(context.Context) JobNewClusterClusterLogConfDbfsPtrOutput
+}
+
+type jobNewClusterClusterLogConfDbfsPtrType JobNewClusterClusterLogConfDbfsArgs
+
+func JobNewClusterClusterLogConfDbfsPtr(v *JobNewClusterClusterLogConfDbfsArgs) JobNewClusterClusterLogConfDbfsPtrInput {
+	return (*jobNewClusterClusterLogConfDbfsPtrType)(v)
+}
+
+func (*jobNewClusterClusterLogConfDbfsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewClusterClusterLogConfDbfs)(nil)).Elem()
+}
+
+func (i *jobNewClusterClusterLogConfDbfsPtrType) ToJobNewClusterClusterLogConfDbfsPtrOutput() JobNewClusterClusterLogConfDbfsPtrOutput {
+	return i.ToJobNewClusterClusterLogConfDbfsPtrOutputWithContext(context.Background())
+}
+
+func (i *jobNewClusterClusterLogConfDbfsPtrType) ToJobNewClusterClusterLogConfDbfsPtrOutputWithContext(ctx context.Context) JobNewClusterClusterLogConfDbfsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterClusterLogConfDbfsPtrOutput)
+}
+
+type JobNewClusterClusterLogConfDbfsOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterClusterLogConfDbfsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterClusterLogConfDbfs)(nil)).Elem()
+}
+
+func (o JobNewClusterClusterLogConfDbfsOutput) ToJobNewClusterClusterLogConfDbfsOutput() JobNewClusterClusterLogConfDbfsOutput {
+	return o
+}
+
+func (o JobNewClusterClusterLogConfDbfsOutput) ToJobNewClusterClusterLogConfDbfsOutputWithContext(ctx context.Context) JobNewClusterClusterLogConfDbfsOutput {
+	return o
+}
+
+func (o JobNewClusterClusterLogConfDbfsOutput) ToJobNewClusterClusterLogConfDbfsPtrOutput() JobNewClusterClusterLogConfDbfsPtrOutput {
+	return o.ToJobNewClusterClusterLogConfDbfsPtrOutputWithContext(context.Background())
+}
+
+func (o JobNewClusterClusterLogConfDbfsOutput) ToJobNewClusterClusterLogConfDbfsPtrOutputWithContext(ctx context.Context) JobNewClusterClusterLogConfDbfsPtrOutput {
+	return o.ApplyT(func(v JobNewClusterClusterLogConfDbfs) *JobNewClusterClusterLogConfDbfs {
+		return &v
+	}).(JobNewClusterClusterLogConfDbfsPtrOutput)
+}
+func (o JobNewClusterClusterLogConfDbfsOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v JobNewClusterClusterLogConfDbfs) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+type JobNewClusterClusterLogConfDbfsPtrOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterClusterLogConfDbfsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewClusterClusterLogConfDbfs)(nil)).Elem()
+}
+
+func (o JobNewClusterClusterLogConfDbfsPtrOutput) ToJobNewClusterClusterLogConfDbfsPtrOutput() JobNewClusterClusterLogConfDbfsPtrOutput {
+	return o
+}
+
+func (o JobNewClusterClusterLogConfDbfsPtrOutput) ToJobNewClusterClusterLogConfDbfsPtrOutputWithContext(ctx context.Context) JobNewClusterClusterLogConfDbfsPtrOutput {
+	return o
+}
+
+func (o JobNewClusterClusterLogConfDbfsPtrOutput) Elem() JobNewClusterClusterLogConfDbfsOutput {
+	return o.ApplyT(func(v *JobNewClusterClusterLogConfDbfs) JobNewClusterClusterLogConfDbfs { return *v }).(JobNewClusterClusterLogConfDbfsOutput)
+}
+
+func (o JobNewClusterClusterLogConfDbfsPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterClusterLogConfDbfs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobNewClusterClusterLogConfS3 struct {
+	CannedAcl        *string `pulumi:"cannedAcl"`
+	Destination      string  `pulumi:"destination"`
+	EnableEncryption *bool   `pulumi:"enableEncryption"`
+	EncryptionType   *string `pulumi:"encryptionType"`
+	Endpoint         *string `pulumi:"endpoint"`
+	KmsKey           *string `pulumi:"kmsKey"`
+	Region           *string `pulumi:"region"`
+}
+
+// JobNewClusterClusterLogConfS3Input is an input type that accepts JobNewClusterClusterLogConfS3Args and JobNewClusterClusterLogConfS3Output values.
+// You can construct a concrete instance of `JobNewClusterClusterLogConfS3Input` via:
+//
+// 		 JobNewClusterClusterLogConfS3Args{...}
+//
+type JobNewClusterClusterLogConfS3Input interface {
+	pulumi.Input
+
+	ToJobNewClusterClusterLogConfS3Output() JobNewClusterClusterLogConfS3Output
+	ToJobNewClusterClusterLogConfS3OutputWithContext(context.Context) JobNewClusterClusterLogConfS3Output
+}
+
+type JobNewClusterClusterLogConfS3Args struct {
+	CannedAcl        pulumi.StringPtrInput `pulumi:"cannedAcl"`
+	Destination      pulumi.StringInput    `pulumi:"destination"`
+	EnableEncryption pulumi.BoolPtrInput   `pulumi:"enableEncryption"`
+	EncryptionType   pulumi.StringPtrInput `pulumi:"encryptionType"`
+	Endpoint         pulumi.StringPtrInput `pulumi:"endpoint"`
+	KmsKey           pulumi.StringPtrInput `pulumi:"kmsKey"`
+	Region           pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (JobNewClusterClusterLogConfS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterClusterLogConfS3)(nil)).Elem()
+}
+
+func (i JobNewClusterClusterLogConfS3Args) ToJobNewClusterClusterLogConfS3Output() JobNewClusterClusterLogConfS3Output {
+	return i.ToJobNewClusterClusterLogConfS3OutputWithContext(context.Background())
+}
+
+func (i JobNewClusterClusterLogConfS3Args) ToJobNewClusterClusterLogConfS3OutputWithContext(ctx context.Context) JobNewClusterClusterLogConfS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterClusterLogConfS3Output)
+}
+
+func (i JobNewClusterClusterLogConfS3Args) ToJobNewClusterClusterLogConfS3PtrOutput() JobNewClusterClusterLogConfS3PtrOutput {
+	return i.ToJobNewClusterClusterLogConfS3PtrOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterClusterLogConfS3Args) ToJobNewClusterClusterLogConfS3PtrOutputWithContext(ctx context.Context) JobNewClusterClusterLogConfS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterClusterLogConfS3Output).ToJobNewClusterClusterLogConfS3PtrOutputWithContext(ctx)
+}
+
+// JobNewClusterClusterLogConfS3PtrInput is an input type that accepts JobNewClusterClusterLogConfS3Args, JobNewClusterClusterLogConfS3Ptr and JobNewClusterClusterLogConfS3PtrOutput values.
+// You can construct a concrete instance of `JobNewClusterClusterLogConfS3PtrInput` via:
+//
+// 		 JobNewClusterClusterLogConfS3Args{...}
+//
+//  or:
+//
+// 		 nil
+//
+type JobNewClusterClusterLogConfS3PtrInput interface {
+	pulumi.Input
+
+	ToJobNewClusterClusterLogConfS3PtrOutput() JobNewClusterClusterLogConfS3PtrOutput
+	ToJobNewClusterClusterLogConfS3PtrOutputWithContext(context.Context) JobNewClusterClusterLogConfS3PtrOutput
+}
+
+type jobNewClusterClusterLogConfS3PtrType JobNewClusterClusterLogConfS3Args
+
+func JobNewClusterClusterLogConfS3Ptr(v *JobNewClusterClusterLogConfS3Args) JobNewClusterClusterLogConfS3PtrInput {
+	return (*jobNewClusterClusterLogConfS3PtrType)(v)
+}
+
+func (*jobNewClusterClusterLogConfS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewClusterClusterLogConfS3)(nil)).Elem()
+}
+
+func (i *jobNewClusterClusterLogConfS3PtrType) ToJobNewClusterClusterLogConfS3PtrOutput() JobNewClusterClusterLogConfS3PtrOutput {
+	return i.ToJobNewClusterClusterLogConfS3PtrOutputWithContext(context.Background())
+}
+
+func (i *jobNewClusterClusterLogConfS3PtrType) ToJobNewClusterClusterLogConfS3PtrOutputWithContext(ctx context.Context) JobNewClusterClusterLogConfS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterClusterLogConfS3PtrOutput)
+}
+
+type JobNewClusterClusterLogConfS3Output struct{ *pulumi.OutputState }
+
+func (JobNewClusterClusterLogConfS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterClusterLogConfS3)(nil)).Elem()
+}
+
+func (o JobNewClusterClusterLogConfS3Output) ToJobNewClusterClusterLogConfS3Output() JobNewClusterClusterLogConfS3Output {
+	return o
+}
+
+func (o JobNewClusterClusterLogConfS3Output) ToJobNewClusterClusterLogConfS3OutputWithContext(ctx context.Context) JobNewClusterClusterLogConfS3Output {
+	return o
+}
+
+func (o JobNewClusterClusterLogConfS3Output) ToJobNewClusterClusterLogConfS3PtrOutput() JobNewClusterClusterLogConfS3PtrOutput {
+	return o.ToJobNewClusterClusterLogConfS3PtrOutputWithContext(context.Background())
+}
+
+func (o JobNewClusterClusterLogConfS3Output) ToJobNewClusterClusterLogConfS3PtrOutputWithContext(ctx context.Context) JobNewClusterClusterLogConfS3PtrOutput {
+	return o.ApplyT(func(v JobNewClusterClusterLogConfS3) *JobNewClusterClusterLogConfS3 {
+		return &v
+	}).(JobNewClusterClusterLogConfS3PtrOutput)
+}
+func (o JobNewClusterClusterLogConfS3Output) CannedAcl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobNewClusterClusterLogConfS3) *string { return v.CannedAcl }).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterClusterLogConfS3Output) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v JobNewClusterClusterLogConfS3) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+func (o JobNewClusterClusterLogConfS3Output) EnableEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobNewClusterClusterLogConfS3) *bool { return v.EnableEncryption }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobNewClusterClusterLogConfS3Output) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobNewClusterClusterLogConfS3) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterClusterLogConfS3Output) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobNewClusterClusterLogConfS3) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterClusterLogConfS3Output) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobNewClusterClusterLogConfS3) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterClusterLogConfS3Output) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobNewClusterClusterLogConfS3) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type JobNewClusterClusterLogConfS3PtrOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterClusterLogConfS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewClusterClusterLogConfS3)(nil)).Elem()
+}
+
+func (o JobNewClusterClusterLogConfS3PtrOutput) ToJobNewClusterClusterLogConfS3PtrOutput() JobNewClusterClusterLogConfS3PtrOutput {
+	return o
+}
+
+func (o JobNewClusterClusterLogConfS3PtrOutput) ToJobNewClusterClusterLogConfS3PtrOutputWithContext(ctx context.Context) JobNewClusterClusterLogConfS3PtrOutput {
+	return o
+}
+
+func (o JobNewClusterClusterLogConfS3PtrOutput) Elem() JobNewClusterClusterLogConfS3Output {
+	return o.ApplyT(func(v *JobNewClusterClusterLogConfS3) JobNewClusterClusterLogConfS3 { return *v }).(JobNewClusterClusterLogConfS3Output)
+}
+
+func (o JobNewClusterClusterLogConfS3PtrOutput) CannedAcl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterClusterLogConfS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CannedAcl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterClusterLogConfS3PtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterClusterLogConfS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterClusterLogConfS3PtrOutput) EnableEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterClusterLogConfS3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableEncryption
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobNewClusterClusterLogConfS3PtrOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterClusterLogConfS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterClusterLogConfS3PtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterClusterLogConfS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterClusterLogConfS3PtrOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterClusterLogConfS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterClusterLogConfS3PtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterClusterLogConfS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobNewClusterDockerImage struct {
+	BasicAuth *JobNewClusterDockerImageBasicAuth `pulumi:"basicAuth"`
+	Url       string                             `pulumi:"url"`
+}
+
+// JobNewClusterDockerImageInput is an input type that accepts JobNewClusterDockerImageArgs and JobNewClusterDockerImageOutput values.
+// You can construct a concrete instance of `JobNewClusterDockerImageInput` via:
+//
+// 		 JobNewClusterDockerImageArgs{...}
+//
+type JobNewClusterDockerImageInput interface {
+	pulumi.Input
+
+	ToJobNewClusterDockerImageOutput() JobNewClusterDockerImageOutput
+	ToJobNewClusterDockerImageOutputWithContext(context.Context) JobNewClusterDockerImageOutput
+}
+
+type JobNewClusterDockerImageArgs struct {
+	BasicAuth JobNewClusterDockerImageBasicAuthPtrInput `pulumi:"basicAuth"`
+	Url       pulumi.StringInput                        `pulumi:"url"`
+}
+
+func (JobNewClusterDockerImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterDockerImage)(nil)).Elem()
+}
+
+func (i JobNewClusterDockerImageArgs) ToJobNewClusterDockerImageOutput() JobNewClusterDockerImageOutput {
+	return i.ToJobNewClusterDockerImageOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterDockerImageArgs) ToJobNewClusterDockerImageOutputWithContext(ctx context.Context) JobNewClusterDockerImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterDockerImageOutput)
+}
+
+func (i JobNewClusterDockerImageArgs) ToJobNewClusterDockerImagePtrOutput() JobNewClusterDockerImagePtrOutput {
+	return i.ToJobNewClusterDockerImagePtrOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterDockerImageArgs) ToJobNewClusterDockerImagePtrOutputWithContext(ctx context.Context) JobNewClusterDockerImagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterDockerImageOutput).ToJobNewClusterDockerImagePtrOutputWithContext(ctx)
+}
+
+// JobNewClusterDockerImagePtrInput is an input type that accepts JobNewClusterDockerImageArgs, JobNewClusterDockerImagePtr and JobNewClusterDockerImagePtrOutput values.
+// You can construct a concrete instance of `JobNewClusterDockerImagePtrInput` via:
+//
+// 		 JobNewClusterDockerImageArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type JobNewClusterDockerImagePtrInput interface {
+	pulumi.Input
+
+	ToJobNewClusterDockerImagePtrOutput() JobNewClusterDockerImagePtrOutput
+	ToJobNewClusterDockerImagePtrOutputWithContext(context.Context) JobNewClusterDockerImagePtrOutput
+}
+
+type jobNewClusterDockerImagePtrType JobNewClusterDockerImageArgs
+
+func JobNewClusterDockerImagePtr(v *JobNewClusterDockerImageArgs) JobNewClusterDockerImagePtrInput {
+	return (*jobNewClusterDockerImagePtrType)(v)
+}
+
+func (*jobNewClusterDockerImagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewClusterDockerImage)(nil)).Elem()
+}
+
+func (i *jobNewClusterDockerImagePtrType) ToJobNewClusterDockerImagePtrOutput() JobNewClusterDockerImagePtrOutput {
+	return i.ToJobNewClusterDockerImagePtrOutputWithContext(context.Background())
+}
+
+func (i *jobNewClusterDockerImagePtrType) ToJobNewClusterDockerImagePtrOutputWithContext(ctx context.Context) JobNewClusterDockerImagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterDockerImagePtrOutput)
+}
+
+type JobNewClusterDockerImageOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterDockerImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterDockerImage)(nil)).Elem()
+}
+
+func (o JobNewClusterDockerImageOutput) ToJobNewClusterDockerImageOutput() JobNewClusterDockerImageOutput {
+	return o
+}
+
+func (o JobNewClusterDockerImageOutput) ToJobNewClusterDockerImageOutputWithContext(ctx context.Context) JobNewClusterDockerImageOutput {
+	return o
+}
+
+func (o JobNewClusterDockerImageOutput) ToJobNewClusterDockerImagePtrOutput() JobNewClusterDockerImagePtrOutput {
+	return o.ToJobNewClusterDockerImagePtrOutputWithContext(context.Background())
+}
+
+func (o JobNewClusterDockerImageOutput) ToJobNewClusterDockerImagePtrOutputWithContext(ctx context.Context) JobNewClusterDockerImagePtrOutput {
+	return o.ApplyT(func(v JobNewClusterDockerImage) *JobNewClusterDockerImage {
+		return &v
+	}).(JobNewClusterDockerImagePtrOutput)
+}
+func (o JobNewClusterDockerImageOutput) BasicAuth() JobNewClusterDockerImageBasicAuthPtrOutput {
+	return o.ApplyT(func(v JobNewClusterDockerImage) *JobNewClusterDockerImageBasicAuth { return v.BasicAuth }).(JobNewClusterDockerImageBasicAuthPtrOutput)
+}
+
+func (o JobNewClusterDockerImageOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v JobNewClusterDockerImage) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type JobNewClusterDockerImagePtrOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterDockerImagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewClusterDockerImage)(nil)).Elem()
+}
+
+func (o JobNewClusterDockerImagePtrOutput) ToJobNewClusterDockerImagePtrOutput() JobNewClusterDockerImagePtrOutput {
+	return o
+}
+
+func (o JobNewClusterDockerImagePtrOutput) ToJobNewClusterDockerImagePtrOutputWithContext(ctx context.Context) JobNewClusterDockerImagePtrOutput {
+	return o
+}
+
+func (o JobNewClusterDockerImagePtrOutput) Elem() JobNewClusterDockerImageOutput {
+	return o.ApplyT(func(v *JobNewClusterDockerImage) JobNewClusterDockerImage { return *v }).(JobNewClusterDockerImageOutput)
+}
+
+func (o JobNewClusterDockerImagePtrOutput) BasicAuth() JobNewClusterDockerImageBasicAuthPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterDockerImage) *JobNewClusterDockerImageBasicAuth {
+		if v == nil {
+			return nil
+		}
+		return v.BasicAuth
+	}).(JobNewClusterDockerImageBasicAuthPtrOutput)
+}
+
+func (o JobNewClusterDockerImagePtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterDockerImage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobNewClusterDockerImageBasicAuth struct {
+	Password string `pulumi:"password"`
+	Username string `pulumi:"username"`
+}
+
+// JobNewClusterDockerImageBasicAuthInput is an input type that accepts JobNewClusterDockerImageBasicAuthArgs and JobNewClusterDockerImageBasicAuthOutput values.
+// You can construct a concrete instance of `JobNewClusterDockerImageBasicAuthInput` via:
+//
+// 		 JobNewClusterDockerImageBasicAuthArgs{...}
+//
+type JobNewClusterDockerImageBasicAuthInput interface {
+	pulumi.Input
+
+	ToJobNewClusterDockerImageBasicAuthOutput() JobNewClusterDockerImageBasicAuthOutput
+	ToJobNewClusterDockerImageBasicAuthOutputWithContext(context.Context) JobNewClusterDockerImageBasicAuthOutput
+}
+
+type JobNewClusterDockerImageBasicAuthArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (JobNewClusterDockerImageBasicAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterDockerImageBasicAuth)(nil)).Elem()
+}
+
+func (i JobNewClusterDockerImageBasicAuthArgs) ToJobNewClusterDockerImageBasicAuthOutput() JobNewClusterDockerImageBasicAuthOutput {
+	return i.ToJobNewClusterDockerImageBasicAuthOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterDockerImageBasicAuthArgs) ToJobNewClusterDockerImageBasicAuthOutputWithContext(ctx context.Context) JobNewClusterDockerImageBasicAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterDockerImageBasicAuthOutput)
+}
+
+func (i JobNewClusterDockerImageBasicAuthArgs) ToJobNewClusterDockerImageBasicAuthPtrOutput() JobNewClusterDockerImageBasicAuthPtrOutput {
+	return i.ToJobNewClusterDockerImageBasicAuthPtrOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterDockerImageBasicAuthArgs) ToJobNewClusterDockerImageBasicAuthPtrOutputWithContext(ctx context.Context) JobNewClusterDockerImageBasicAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterDockerImageBasicAuthOutput).ToJobNewClusterDockerImageBasicAuthPtrOutputWithContext(ctx)
+}
+
+// JobNewClusterDockerImageBasicAuthPtrInput is an input type that accepts JobNewClusterDockerImageBasicAuthArgs, JobNewClusterDockerImageBasicAuthPtr and JobNewClusterDockerImageBasicAuthPtrOutput values.
+// You can construct a concrete instance of `JobNewClusterDockerImageBasicAuthPtrInput` via:
+//
+// 		 JobNewClusterDockerImageBasicAuthArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type JobNewClusterDockerImageBasicAuthPtrInput interface {
+	pulumi.Input
+
+	ToJobNewClusterDockerImageBasicAuthPtrOutput() JobNewClusterDockerImageBasicAuthPtrOutput
+	ToJobNewClusterDockerImageBasicAuthPtrOutputWithContext(context.Context) JobNewClusterDockerImageBasicAuthPtrOutput
+}
+
+type jobNewClusterDockerImageBasicAuthPtrType JobNewClusterDockerImageBasicAuthArgs
+
+func JobNewClusterDockerImageBasicAuthPtr(v *JobNewClusterDockerImageBasicAuthArgs) JobNewClusterDockerImageBasicAuthPtrInput {
+	return (*jobNewClusterDockerImageBasicAuthPtrType)(v)
+}
+
+func (*jobNewClusterDockerImageBasicAuthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewClusterDockerImageBasicAuth)(nil)).Elem()
+}
+
+func (i *jobNewClusterDockerImageBasicAuthPtrType) ToJobNewClusterDockerImageBasicAuthPtrOutput() JobNewClusterDockerImageBasicAuthPtrOutput {
+	return i.ToJobNewClusterDockerImageBasicAuthPtrOutputWithContext(context.Background())
+}
+
+func (i *jobNewClusterDockerImageBasicAuthPtrType) ToJobNewClusterDockerImageBasicAuthPtrOutputWithContext(ctx context.Context) JobNewClusterDockerImageBasicAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterDockerImageBasicAuthPtrOutput)
+}
+
+type JobNewClusterDockerImageBasicAuthOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterDockerImageBasicAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterDockerImageBasicAuth)(nil)).Elem()
+}
+
+func (o JobNewClusterDockerImageBasicAuthOutput) ToJobNewClusterDockerImageBasicAuthOutput() JobNewClusterDockerImageBasicAuthOutput {
+	return o
+}
+
+func (o JobNewClusterDockerImageBasicAuthOutput) ToJobNewClusterDockerImageBasicAuthOutputWithContext(ctx context.Context) JobNewClusterDockerImageBasicAuthOutput {
+	return o
+}
+
+func (o JobNewClusterDockerImageBasicAuthOutput) ToJobNewClusterDockerImageBasicAuthPtrOutput() JobNewClusterDockerImageBasicAuthPtrOutput {
+	return o.ToJobNewClusterDockerImageBasicAuthPtrOutputWithContext(context.Background())
+}
+
+func (o JobNewClusterDockerImageBasicAuthOutput) ToJobNewClusterDockerImageBasicAuthPtrOutputWithContext(ctx context.Context) JobNewClusterDockerImageBasicAuthPtrOutput {
+	return o.ApplyT(func(v JobNewClusterDockerImageBasicAuth) *JobNewClusterDockerImageBasicAuth {
+		return &v
+	}).(JobNewClusterDockerImageBasicAuthPtrOutput)
+}
+func (o JobNewClusterDockerImageBasicAuthOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v JobNewClusterDockerImageBasicAuth) string { return v.Password }).(pulumi.StringOutput)
+}
+
+func (o JobNewClusterDockerImageBasicAuthOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v JobNewClusterDockerImageBasicAuth) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type JobNewClusterDockerImageBasicAuthPtrOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterDockerImageBasicAuthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewClusterDockerImageBasicAuth)(nil)).Elem()
+}
+
+func (o JobNewClusterDockerImageBasicAuthPtrOutput) ToJobNewClusterDockerImageBasicAuthPtrOutput() JobNewClusterDockerImageBasicAuthPtrOutput {
+	return o
+}
+
+func (o JobNewClusterDockerImageBasicAuthPtrOutput) ToJobNewClusterDockerImageBasicAuthPtrOutputWithContext(ctx context.Context) JobNewClusterDockerImageBasicAuthPtrOutput {
+	return o
+}
+
+func (o JobNewClusterDockerImageBasicAuthPtrOutput) Elem() JobNewClusterDockerImageBasicAuthOutput {
+	return o.ApplyT(func(v *JobNewClusterDockerImageBasicAuth) JobNewClusterDockerImageBasicAuth { return *v }).(JobNewClusterDockerImageBasicAuthOutput)
+}
+
+func (o JobNewClusterDockerImageBasicAuthPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterDockerImageBasicAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterDockerImageBasicAuthPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterDockerImageBasicAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobNewClusterInitScript struct {
+	Dbfs *JobNewClusterInitScriptDbfs `pulumi:"dbfs"`
+	S3   *JobNewClusterInitScriptS3   `pulumi:"s3"`
+}
+
+// JobNewClusterInitScriptInput is an input type that accepts JobNewClusterInitScriptArgs and JobNewClusterInitScriptOutput values.
+// You can construct a concrete instance of `JobNewClusterInitScriptInput` via:
+//
+// 		 JobNewClusterInitScriptArgs{...}
+//
+type JobNewClusterInitScriptInput interface {
+	pulumi.Input
+
+	ToJobNewClusterInitScriptOutput() JobNewClusterInitScriptOutput
+	ToJobNewClusterInitScriptOutputWithContext(context.Context) JobNewClusterInitScriptOutput
+}
+
+type JobNewClusterInitScriptArgs struct {
+	Dbfs JobNewClusterInitScriptDbfsPtrInput `pulumi:"dbfs"`
+	S3   JobNewClusterInitScriptS3PtrInput   `pulumi:"s3"`
+}
+
+func (JobNewClusterInitScriptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterInitScript)(nil)).Elem()
+}
+
+func (i JobNewClusterInitScriptArgs) ToJobNewClusterInitScriptOutput() JobNewClusterInitScriptOutput {
+	return i.ToJobNewClusterInitScriptOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterInitScriptArgs) ToJobNewClusterInitScriptOutputWithContext(ctx context.Context) JobNewClusterInitScriptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterInitScriptOutput)
+}
+
+// JobNewClusterInitScriptArrayInput is an input type that accepts JobNewClusterInitScriptArray and JobNewClusterInitScriptArrayOutput values.
+// You can construct a concrete instance of `JobNewClusterInitScriptArrayInput` via:
+//
+// 		 JobNewClusterInitScriptArray{ JobNewClusterInitScriptArgs{...} }
+//
+type JobNewClusterInitScriptArrayInput interface {
+	pulumi.Input
+
+	ToJobNewClusterInitScriptArrayOutput() JobNewClusterInitScriptArrayOutput
+	ToJobNewClusterInitScriptArrayOutputWithContext(context.Context) JobNewClusterInitScriptArrayOutput
+}
+
+type JobNewClusterInitScriptArray []JobNewClusterInitScriptInput
+
+func (JobNewClusterInitScriptArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobNewClusterInitScript)(nil)).Elem()
+}
+
+func (i JobNewClusterInitScriptArray) ToJobNewClusterInitScriptArrayOutput() JobNewClusterInitScriptArrayOutput {
+	return i.ToJobNewClusterInitScriptArrayOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterInitScriptArray) ToJobNewClusterInitScriptArrayOutputWithContext(ctx context.Context) JobNewClusterInitScriptArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterInitScriptArrayOutput)
+}
+
+type JobNewClusterInitScriptOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterInitScriptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterInitScript)(nil)).Elem()
+}
+
+func (o JobNewClusterInitScriptOutput) ToJobNewClusterInitScriptOutput() JobNewClusterInitScriptOutput {
+	return o
+}
+
+func (o JobNewClusterInitScriptOutput) ToJobNewClusterInitScriptOutputWithContext(ctx context.Context) JobNewClusterInitScriptOutput {
+	return o
+}
+
+func (o JobNewClusterInitScriptOutput) Dbfs() JobNewClusterInitScriptDbfsPtrOutput {
+	return o.ApplyT(func(v JobNewClusterInitScript) *JobNewClusterInitScriptDbfs { return v.Dbfs }).(JobNewClusterInitScriptDbfsPtrOutput)
+}
+
+func (o JobNewClusterInitScriptOutput) S3() JobNewClusterInitScriptS3PtrOutput {
+	return o.ApplyT(func(v JobNewClusterInitScript) *JobNewClusterInitScriptS3 { return v.S3 }).(JobNewClusterInitScriptS3PtrOutput)
+}
+
+type JobNewClusterInitScriptArrayOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterInitScriptArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobNewClusterInitScript)(nil)).Elem()
+}
+
+func (o JobNewClusterInitScriptArrayOutput) ToJobNewClusterInitScriptArrayOutput() JobNewClusterInitScriptArrayOutput {
+	return o
+}
+
+func (o JobNewClusterInitScriptArrayOutput) ToJobNewClusterInitScriptArrayOutputWithContext(ctx context.Context) JobNewClusterInitScriptArrayOutput {
+	return o
+}
+
+func (o JobNewClusterInitScriptArrayOutput) Index(i pulumi.IntInput) JobNewClusterInitScriptOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobNewClusterInitScript {
+		return vs[0].([]JobNewClusterInitScript)[vs[1].(int)]
+	}).(JobNewClusterInitScriptOutput)
+}
+
+type JobNewClusterInitScriptDbfs struct {
+	Destination string `pulumi:"destination"`
+}
+
+// JobNewClusterInitScriptDbfsInput is an input type that accepts JobNewClusterInitScriptDbfsArgs and JobNewClusterInitScriptDbfsOutput values.
+// You can construct a concrete instance of `JobNewClusterInitScriptDbfsInput` via:
+//
+// 		 JobNewClusterInitScriptDbfsArgs{...}
+//
+type JobNewClusterInitScriptDbfsInput interface {
+	pulumi.Input
+
+	ToJobNewClusterInitScriptDbfsOutput() JobNewClusterInitScriptDbfsOutput
+	ToJobNewClusterInitScriptDbfsOutputWithContext(context.Context) JobNewClusterInitScriptDbfsOutput
+}
+
+type JobNewClusterInitScriptDbfsArgs struct {
+	Destination pulumi.StringInput `pulumi:"destination"`
+}
+
+func (JobNewClusterInitScriptDbfsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterInitScriptDbfs)(nil)).Elem()
+}
+
+func (i JobNewClusterInitScriptDbfsArgs) ToJobNewClusterInitScriptDbfsOutput() JobNewClusterInitScriptDbfsOutput {
+	return i.ToJobNewClusterInitScriptDbfsOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterInitScriptDbfsArgs) ToJobNewClusterInitScriptDbfsOutputWithContext(ctx context.Context) JobNewClusterInitScriptDbfsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterInitScriptDbfsOutput)
+}
+
+func (i JobNewClusterInitScriptDbfsArgs) ToJobNewClusterInitScriptDbfsPtrOutput() JobNewClusterInitScriptDbfsPtrOutput {
+	return i.ToJobNewClusterInitScriptDbfsPtrOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterInitScriptDbfsArgs) ToJobNewClusterInitScriptDbfsPtrOutputWithContext(ctx context.Context) JobNewClusterInitScriptDbfsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterInitScriptDbfsOutput).ToJobNewClusterInitScriptDbfsPtrOutputWithContext(ctx)
+}
+
+// JobNewClusterInitScriptDbfsPtrInput is an input type that accepts JobNewClusterInitScriptDbfsArgs, JobNewClusterInitScriptDbfsPtr and JobNewClusterInitScriptDbfsPtrOutput values.
+// You can construct a concrete instance of `JobNewClusterInitScriptDbfsPtrInput` via:
+//
+// 		 JobNewClusterInitScriptDbfsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type JobNewClusterInitScriptDbfsPtrInput interface {
+	pulumi.Input
+
+	ToJobNewClusterInitScriptDbfsPtrOutput() JobNewClusterInitScriptDbfsPtrOutput
+	ToJobNewClusterInitScriptDbfsPtrOutputWithContext(context.Context) JobNewClusterInitScriptDbfsPtrOutput
+}
+
+type jobNewClusterInitScriptDbfsPtrType JobNewClusterInitScriptDbfsArgs
+
+func JobNewClusterInitScriptDbfsPtr(v *JobNewClusterInitScriptDbfsArgs) JobNewClusterInitScriptDbfsPtrInput {
+	return (*jobNewClusterInitScriptDbfsPtrType)(v)
+}
+
+func (*jobNewClusterInitScriptDbfsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewClusterInitScriptDbfs)(nil)).Elem()
+}
+
+func (i *jobNewClusterInitScriptDbfsPtrType) ToJobNewClusterInitScriptDbfsPtrOutput() JobNewClusterInitScriptDbfsPtrOutput {
+	return i.ToJobNewClusterInitScriptDbfsPtrOutputWithContext(context.Background())
+}
+
+func (i *jobNewClusterInitScriptDbfsPtrType) ToJobNewClusterInitScriptDbfsPtrOutputWithContext(ctx context.Context) JobNewClusterInitScriptDbfsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterInitScriptDbfsPtrOutput)
+}
+
+type JobNewClusterInitScriptDbfsOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterInitScriptDbfsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterInitScriptDbfs)(nil)).Elem()
+}
+
+func (o JobNewClusterInitScriptDbfsOutput) ToJobNewClusterInitScriptDbfsOutput() JobNewClusterInitScriptDbfsOutput {
+	return o
+}
+
+func (o JobNewClusterInitScriptDbfsOutput) ToJobNewClusterInitScriptDbfsOutputWithContext(ctx context.Context) JobNewClusterInitScriptDbfsOutput {
+	return o
+}
+
+func (o JobNewClusterInitScriptDbfsOutput) ToJobNewClusterInitScriptDbfsPtrOutput() JobNewClusterInitScriptDbfsPtrOutput {
+	return o.ToJobNewClusterInitScriptDbfsPtrOutputWithContext(context.Background())
+}
+
+func (o JobNewClusterInitScriptDbfsOutput) ToJobNewClusterInitScriptDbfsPtrOutputWithContext(ctx context.Context) JobNewClusterInitScriptDbfsPtrOutput {
+	return o.ApplyT(func(v JobNewClusterInitScriptDbfs) *JobNewClusterInitScriptDbfs {
+		return &v
+	}).(JobNewClusterInitScriptDbfsPtrOutput)
+}
+func (o JobNewClusterInitScriptDbfsOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v JobNewClusterInitScriptDbfs) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+type JobNewClusterInitScriptDbfsPtrOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterInitScriptDbfsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewClusterInitScriptDbfs)(nil)).Elem()
+}
+
+func (o JobNewClusterInitScriptDbfsPtrOutput) ToJobNewClusterInitScriptDbfsPtrOutput() JobNewClusterInitScriptDbfsPtrOutput {
+	return o
+}
+
+func (o JobNewClusterInitScriptDbfsPtrOutput) ToJobNewClusterInitScriptDbfsPtrOutputWithContext(ctx context.Context) JobNewClusterInitScriptDbfsPtrOutput {
+	return o
+}
+
+func (o JobNewClusterInitScriptDbfsPtrOutput) Elem() JobNewClusterInitScriptDbfsOutput {
+	return o.ApplyT(func(v *JobNewClusterInitScriptDbfs) JobNewClusterInitScriptDbfs { return *v }).(JobNewClusterInitScriptDbfsOutput)
+}
+
+func (o JobNewClusterInitScriptDbfsPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterInitScriptDbfs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobNewClusterInitScriptS3 struct {
+	CannedAcl        *string `pulumi:"cannedAcl"`
+	Destination      string  `pulumi:"destination"`
+	EnableEncryption *bool   `pulumi:"enableEncryption"`
+	EncryptionType   *string `pulumi:"encryptionType"`
+	Endpoint         *string `pulumi:"endpoint"`
+	KmsKey           *string `pulumi:"kmsKey"`
+	Region           *string `pulumi:"region"`
+}
+
+// JobNewClusterInitScriptS3Input is an input type that accepts JobNewClusterInitScriptS3Args and JobNewClusterInitScriptS3Output values.
+// You can construct a concrete instance of `JobNewClusterInitScriptS3Input` via:
+//
+// 		 JobNewClusterInitScriptS3Args{...}
+//
+type JobNewClusterInitScriptS3Input interface {
+	pulumi.Input
+
+	ToJobNewClusterInitScriptS3Output() JobNewClusterInitScriptS3Output
+	ToJobNewClusterInitScriptS3OutputWithContext(context.Context) JobNewClusterInitScriptS3Output
+}
+
+type JobNewClusterInitScriptS3Args struct {
+	CannedAcl        pulumi.StringPtrInput `pulumi:"cannedAcl"`
+	Destination      pulumi.StringInput    `pulumi:"destination"`
+	EnableEncryption pulumi.BoolPtrInput   `pulumi:"enableEncryption"`
+	EncryptionType   pulumi.StringPtrInput `pulumi:"encryptionType"`
+	Endpoint         pulumi.StringPtrInput `pulumi:"endpoint"`
+	KmsKey           pulumi.StringPtrInput `pulumi:"kmsKey"`
+	Region           pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (JobNewClusterInitScriptS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterInitScriptS3)(nil)).Elem()
+}
+
+func (i JobNewClusterInitScriptS3Args) ToJobNewClusterInitScriptS3Output() JobNewClusterInitScriptS3Output {
+	return i.ToJobNewClusterInitScriptS3OutputWithContext(context.Background())
+}
+
+func (i JobNewClusterInitScriptS3Args) ToJobNewClusterInitScriptS3OutputWithContext(ctx context.Context) JobNewClusterInitScriptS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterInitScriptS3Output)
+}
+
+func (i JobNewClusterInitScriptS3Args) ToJobNewClusterInitScriptS3PtrOutput() JobNewClusterInitScriptS3PtrOutput {
+	return i.ToJobNewClusterInitScriptS3PtrOutputWithContext(context.Background())
+}
+
+func (i JobNewClusterInitScriptS3Args) ToJobNewClusterInitScriptS3PtrOutputWithContext(ctx context.Context) JobNewClusterInitScriptS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterInitScriptS3Output).ToJobNewClusterInitScriptS3PtrOutputWithContext(ctx)
+}
+
+// JobNewClusterInitScriptS3PtrInput is an input type that accepts JobNewClusterInitScriptS3Args, JobNewClusterInitScriptS3Ptr and JobNewClusterInitScriptS3PtrOutput values.
+// You can construct a concrete instance of `JobNewClusterInitScriptS3PtrInput` via:
+//
+// 		 JobNewClusterInitScriptS3Args{...}
+//
+//  or:
+//
+// 		 nil
+//
+type JobNewClusterInitScriptS3PtrInput interface {
+	pulumi.Input
+
+	ToJobNewClusterInitScriptS3PtrOutput() JobNewClusterInitScriptS3PtrOutput
+	ToJobNewClusterInitScriptS3PtrOutputWithContext(context.Context) JobNewClusterInitScriptS3PtrOutput
+}
+
+type jobNewClusterInitScriptS3PtrType JobNewClusterInitScriptS3Args
+
+func JobNewClusterInitScriptS3Ptr(v *JobNewClusterInitScriptS3Args) JobNewClusterInitScriptS3PtrInput {
+	return (*jobNewClusterInitScriptS3PtrType)(v)
+}
+
+func (*jobNewClusterInitScriptS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewClusterInitScriptS3)(nil)).Elem()
+}
+
+func (i *jobNewClusterInitScriptS3PtrType) ToJobNewClusterInitScriptS3PtrOutput() JobNewClusterInitScriptS3PtrOutput {
+	return i.ToJobNewClusterInitScriptS3PtrOutputWithContext(context.Background())
+}
+
+func (i *jobNewClusterInitScriptS3PtrType) ToJobNewClusterInitScriptS3PtrOutputWithContext(ctx context.Context) JobNewClusterInitScriptS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNewClusterInitScriptS3PtrOutput)
+}
+
+type JobNewClusterInitScriptS3Output struct{ *pulumi.OutputState }
+
+func (JobNewClusterInitScriptS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNewClusterInitScriptS3)(nil)).Elem()
+}
+
+func (o JobNewClusterInitScriptS3Output) ToJobNewClusterInitScriptS3Output() JobNewClusterInitScriptS3Output {
+	return o
+}
+
+func (o JobNewClusterInitScriptS3Output) ToJobNewClusterInitScriptS3OutputWithContext(ctx context.Context) JobNewClusterInitScriptS3Output {
+	return o
+}
+
+func (o JobNewClusterInitScriptS3Output) ToJobNewClusterInitScriptS3PtrOutput() JobNewClusterInitScriptS3PtrOutput {
+	return o.ToJobNewClusterInitScriptS3PtrOutputWithContext(context.Background())
+}
+
+func (o JobNewClusterInitScriptS3Output) ToJobNewClusterInitScriptS3PtrOutputWithContext(ctx context.Context) JobNewClusterInitScriptS3PtrOutput {
+	return o.ApplyT(func(v JobNewClusterInitScriptS3) *JobNewClusterInitScriptS3 {
+		return &v
+	}).(JobNewClusterInitScriptS3PtrOutput)
+}
+func (o JobNewClusterInitScriptS3Output) CannedAcl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobNewClusterInitScriptS3) *string { return v.CannedAcl }).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterInitScriptS3Output) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v JobNewClusterInitScriptS3) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+func (o JobNewClusterInitScriptS3Output) EnableEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobNewClusterInitScriptS3) *bool { return v.EnableEncryption }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobNewClusterInitScriptS3Output) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobNewClusterInitScriptS3) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterInitScriptS3Output) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobNewClusterInitScriptS3) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterInitScriptS3Output) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobNewClusterInitScriptS3) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterInitScriptS3Output) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobNewClusterInitScriptS3) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type JobNewClusterInitScriptS3PtrOutput struct{ *pulumi.OutputState }
+
+func (JobNewClusterInitScriptS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNewClusterInitScriptS3)(nil)).Elem()
+}
+
+func (o JobNewClusterInitScriptS3PtrOutput) ToJobNewClusterInitScriptS3PtrOutput() JobNewClusterInitScriptS3PtrOutput {
+	return o
+}
+
+func (o JobNewClusterInitScriptS3PtrOutput) ToJobNewClusterInitScriptS3PtrOutputWithContext(ctx context.Context) JobNewClusterInitScriptS3PtrOutput {
+	return o
+}
+
+func (o JobNewClusterInitScriptS3PtrOutput) Elem() JobNewClusterInitScriptS3Output {
+	return o.ApplyT(func(v *JobNewClusterInitScriptS3) JobNewClusterInitScriptS3 { return *v }).(JobNewClusterInitScriptS3Output)
+}
+
+func (o JobNewClusterInitScriptS3PtrOutput) CannedAcl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterInitScriptS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CannedAcl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterInitScriptS3PtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterInitScriptS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterInitScriptS3PtrOutput) EnableEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterInitScriptS3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableEncryption
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobNewClusterInitScriptS3PtrOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterInitScriptS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterInitScriptS3PtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterInitScriptS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterInitScriptS3PtrOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterInitScriptS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobNewClusterInitScriptS3PtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobNewClusterInitScriptS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobSchedule struct {
+	QuartzCronExpression string `pulumi:"quartzCronExpression"`
+	TimezoneId           string `pulumi:"timezoneId"`
+}
+
+// JobScheduleInput is an input type that accepts JobScheduleArgs and JobScheduleOutput values.
+// You can construct a concrete instance of `JobScheduleInput` via:
+//
+// 		 JobScheduleArgs{...}
+//
+type JobScheduleInput interface {
+	pulumi.Input
+
+	ToJobScheduleOutput() JobScheduleOutput
+	ToJobScheduleOutputWithContext(context.Context) JobScheduleOutput
+}
+
+type JobScheduleArgs struct {
+	QuartzCronExpression pulumi.StringInput `pulumi:"quartzCronExpression"`
+	TimezoneId           pulumi.StringInput `pulumi:"timezoneId"`
+}
+
+func (JobScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobSchedule)(nil)).Elem()
+}
+
+func (i JobScheduleArgs) ToJobScheduleOutput() JobScheduleOutput {
+	return i.ToJobScheduleOutputWithContext(context.Background())
+}
+
+func (i JobScheduleArgs) ToJobScheduleOutputWithContext(ctx context.Context) JobScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleOutput)
+}
+
+func (i JobScheduleArgs) ToJobSchedulePtrOutput() JobSchedulePtrOutput {
+	return i.ToJobSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i JobScheduleArgs) ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleOutput).ToJobSchedulePtrOutputWithContext(ctx)
+}
+
+// JobSchedulePtrInput is an input type that accepts JobScheduleArgs, JobSchedulePtr and JobSchedulePtrOutput values.
+// You can construct a concrete instance of `JobSchedulePtrInput` via:
+//
+// 		 JobScheduleArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type JobSchedulePtrInput interface {
+	pulumi.Input
+
+	ToJobSchedulePtrOutput() JobSchedulePtrOutput
+	ToJobSchedulePtrOutputWithContext(context.Context) JobSchedulePtrOutput
+}
+
+type jobSchedulePtrType JobScheduleArgs
+
+func JobSchedulePtr(v *JobScheduleArgs) JobSchedulePtrInput {
+	return (*jobSchedulePtrType)(v)
+}
+
+func (*jobSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobSchedule)(nil)).Elem()
+}
+
+func (i *jobSchedulePtrType) ToJobSchedulePtrOutput() JobSchedulePtrOutput {
+	return i.ToJobSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *jobSchedulePtrType) ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobSchedulePtrOutput)
+}
+
+type JobScheduleOutput struct{ *pulumi.OutputState }
+
+func (JobScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobSchedule)(nil)).Elem()
+}
+
+func (o JobScheduleOutput) ToJobScheduleOutput() JobScheduleOutput {
+	return o
+}
+
+func (o JobScheduleOutput) ToJobScheduleOutputWithContext(ctx context.Context) JobScheduleOutput {
+	return o
+}
+
+func (o JobScheduleOutput) ToJobSchedulePtrOutput() JobSchedulePtrOutput {
+	return o.ToJobSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o JobScheduleOutput) ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput {
+	return o.ApplyT(func(v JobSchedule) *JobSchedule {
+		return &v
+	}).(JobSchedulePtrOutput)
+}
+func (o JobScheduleOutput) QuartzCronExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v JobSchedule) string { return v.QuartzCronExpression }).(pulumi.StringOutput)
+}
+
+func (o JobScheduleOutput) TimezoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v JobSchedule) string { return v.TimezoneId }).(pulumi.StringOutput)
+}
+
+type JobSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (JobSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobSchedule)(nil)).Elem()
+}
+
+func (o JobSchedulePtrOutput) ToJobSchedulePtrOutput() JobSchedulePtrOutput {
+	return o
+}
+
+func (o JobSchedulePtrOutput) ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput {
+	return o
+}
+
+func (o JobSchedulePtrOutput) Elem() JobScheduleOutput {
+	return o.ApplyT(func(v *JobSchedule) JobSchedule { return *v }).(JobScheduleOutput)
+}
+
+func (o JobSchedulePtrOutput) QuartzCronExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QuartzCronExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobSchedulePtrOutput) TimezoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimezoneId
+	}).(pulumi.StringPtrOutput)
+}
+
+type MwsNetworksErrorMessage struct {
+	ErrorMessage *string `pulumi:"errorMessage"`
+	ErrorType    *string `pulumi:"errorType"`
+}
+
+// MwsNetworksErrorMessageInput is an input type that accepts MwsNetworksErrorMessageArgs and MwsNetworksErrorMessageOutput values.
+// You can construct a concrete instance of `MwsNetworksErrorMessageInput` via:
+//
+// 		 MwsNetworksErrorMessageArgs{...}
+//
+type MwsNetworksErrorMessageInput interface {
+	pulumi.Input
+
+	ToMwsNetworksErrorMessageOutput() MwsNetworksErrorMessageOutput
+	ToMwsNetworksErrorMessageOutputWithContext(context.Context) MwsNetworksErrorMessageOutput
+}
+
+type MwsNetworksErrorMessageArgs struct {
+	ErrorMessage pulumi.StringPtrInput `pulumi:"errorMessage"`
+	ErrorType    pulumi.StringPtrInput `pulumi:"errorType"`
+}
+
+func (MwsNetworksErrorMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MwsNetworksErrorMessage)(nil)).Elem()
+}
+
+func (i MwsNetworksErrorMessageArgs) ToMwsNetworksErrorMessageOutput() MwsNetworksErrorMessageOutput {
+	return i.ToMwsNetworksErrorMessageOutputWithContext(context.Background())
+}
+
+func (i MwsNetworksErrorMessageArgs) ToMwsNetworksErrorMessageOutputWithContext(ctx context.Context) MwsNetworksErrorMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MwsNetworksErrorMessageOutput)
+}
+
+// MwsNetworksErrorMessageArrayInput is an input type that accepts MwsNetworksErrorMessageArray and MwsNetworksErrorMessageArrayOutput values.
+// You can construct a concrete instance of `MwsNetworksErrorMessageArrayInput` via:
+//
+// 		 MwsNetworksErrorMessageArray{ MwsNetworksErrorMessageArgs{...} }
+//
+type MwsNetworksErrorMessageArrayInput interface {
+	pulumi.Input
+
+	ToMwsNetworksErrorMessageArrayOutput() MwsNetworksErrorMessageArrayOutput
+	ToMwsNetworksErrorMessageArrayOutputWithContext(context.Context) MwsNetworksErrorMessageArrayOutput
+}
+
+type MwsNetworksErrorMessageArray []MwsNetworksErrorMessageInput
+
+func (MwsNetworksErrorMessageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MwsNetworksErrorMessage)(nil)).Elem()
+}
+
+func (i MwsNetworksErrorMessageArray) ToMwsNetworksErrorMessageArrayOutput() MwsNetworksErrorMessageArrayOutput {
+	return i.ToMwsNetworksErrorMessageArrayOutputWithContext(context.Background())
+}
+
+func (i MwsNetworksErrorMessageArray) ToMwsNetworksErrorMessageArrayOutputWithContext(ctx context.Context) MwsNetworksErrorMessageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MwsNetworksErrorMessageArrayOutput)
+}
+
+type MwsNetworksErrorMessageOutput struct{ *pulumi.OutputState }
+
+func (MwsNetworksErrorMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MwsNetworksErrorMessage)(nil)).Elem()
+}
+
+func (o MwsNetworksErrorMessageOutput) ToMwsNetworksErrorMessageOutput() MwsNetworksErrorMessageOutput {
+	return o
+}
+
+func (o MwsNetworksErrorMessageOutput) ToMwsNetworksErrorMessageOutputWithContext(ctx context.Context) MwsNetworksErrorMessageOutput {
+	return o
+}
+
+func (o MwsNetworksErrorMessageOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MwsNetworksErrorMessage) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o MwsNetworksErrorMessageOutput) ErrorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MwsNetworksErrorMessage) *string { return v.ErrorType }).(pulumi.StringPtrOutput)
+}
+
+type MwsNetworksErrorMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (MwsNetworksErrorMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MwsNetworksErrorMessage)(nil)).Elem()
+}
+
+func (o MwsNetworksErrorMessageArrayOutput) ToMwsNetworksErrorMessageArrayOutput() MwsNetworksErrorMessageArrayOutput {
+	return o
+}
+
+func (o MwsNetworksErrorMessageArrayOutput) ToMwsNetworksErrorMessageArrayOutputWithContext(ctx context.Context) MwsNetworksErrorMessageArrayOutput {
+	return o
+}
+
+func (o MwsNetworksErrorMessageArrayOutput) Index(i pulumi.IntInput) MwsNetworksErrorMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MwsNetworksErrorMessage {
+		return vs[0].([]MwsNetworksErrorMessage)[vs[1].(int)]
+	}).(MwsNetworksErrorMessageOutput)
+}
+
+type MwsWorkspacesNetworkErrorMessage struct {
+	ErrorMessage *string `pulumi:"errorMessage"`
+	ErrorType    *string `pulumi:"errorType"`
+}
+
+// MwsWorkspacesNetworkErrorMessageInput is an input type that accepts MwsWorkspacesNetworkErrorMessageArgs and MwsWorkspacesNetworkErrorMessageOutput values.
+// You can construct a concrete instance of `MwsWorkspacesNetworkErrorMessageInput` via:
+//
+// 		 MwsWorkspacesNetworkErrorMessageArgs{...}
+//
+type MwsWorkspacesNetworkErrorMessageInput interface {
+	pulumi.Input
+
+	ToMwsWorkspacesNetworkErrorMessageOutput() MwsWorkspacesNetworkErrorMessageOutput
+	ToMwsWorkspacesNetworkErrorMessageOutputWithContext(context.Context) MwsWorkspacesNetworkErrorMessageOutput
+}
+
+type MwsWorkspacesNetworkErrorMessageArgs struct {
+	ErrorMessage pulumi.StringPtrInput `pulumi:"errorMessage"`
+	ErrorType    pulumi.StringPtrInput `pulumi:"errorType"`
+}
+
+func (MwsWorkspacesNetworkErrorMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MwsWorkspacesNetworkErrorMessage)(nil)).Elem()
+}
+
+func (i MwsWorkspacesNetworkErrorMessageArgs) ToMwsWorkspacesNetworkErrorMessageOutput() MwsWorkspacesNetworkErrorMessageOutput {
+	return i.ToMwsWorkspacesNetworkErrorMessageOutputWithContext(context.Background())
+}
+
+func (i MwsWorkspacesNetworkErrorMessageArgs) ToMwsWorkspacesNetworkErrorMessageOutputWithContext(ctx context.Context) MwsWorkspacesNetworkErrorMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MwsWorkspacesNetworkErrorMessageOutput)
+}
+
+// MwsWorkspacesNetworkErrorMessageArrayInput is an input type that accepts MwsWorkspacesNetworkErrorMessageArray and MwsWorkspacesNetworkErrorMessageArrayOutput values.
+// You can construct a concrete instance of `MwsWorkspacesNetworkErrorMessageArrayInput` via:
+//
+// 		 MwsWorkspacesNetworkErrorMessageArray{ MwsWorkspacesNetworkErrorMessageArgs{...} }
+//
+type MwsWorkspacesNetworkErrorMessageArrayInput interface {
+	pulumi.Input
+
+	ToMwsWorkspacesNetworkErrorMessageArrayOutput() MwsWorkspacesNetworkErrorMessageArrayOutput
+	ToMwsWorkspacesNetworkErrorMessageArrayOutputWithContext(context.Context) MwsWorkspacesNetworkErrorMessageArrayOutput
+}
+
+type MwsWorkspacesNetworkErrorMessageArray []MwsWorkspacesNetworkErrorMessageInput
+
+func (MwsWorkspacesNetworkErrorMessageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MwsWorkspacesNetworkErrorMessage)(nil)).Elem()
+}
+
+func (i MwsWorkspacesNetworkErrorMessageArray) ToMwsWorkspacesNetworkErrorMessageArrayOutput() MwsWorkspacesNetworkErrorMessageArrayOutput {
+	return i.ToMwsWorkspacesNetworkErrorMessageArrayOutputWithContext(context.Background())
+}
+
+func (i MwsWorkspacesNetworkErrorMessageArray) ToMwsWorkspacesNetworkErrorMessageArrayOutputWithContext(ctx context.Context) MwsWorkspacesNetworkErrorMessageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MwsWorkspacesNetworkErrorMessageArrayOutput)
+}
+
+type MwsWorkspacesNetworkErrorMessageOutput struct{ *pulumi.OutputState }
+
+func (MwsWorkspacesNetworkErrorMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MwsWorkspacesNetworkErrorMessage)(nil)).Elem()
+}
+
+func (o MwsWorkspacesNetworkErrorMessageOutput) ToMwsWorkspacesNetworkErrorMessageOutput() MwsWorkspacesNetworkErrorMessageOutput {
+	return o
+}
+
+func (o MwsWorkspacesNetworkErrorMessageOutput) ToMwsWorkspacesNetworkErrorMessageOutputWithContext(ctx context.Context) MwsWorkspacesNetworkErrorMessageOutput {
+	return o
+}
+
+func (o MwsWorkspacesNetworkErrorMessageOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MwsWorkspacesNetworkErrorMessage) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o MwsWorkspacesNetworkErrorMessageOutput) ErrorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MwsWorkspacesNetworkErrorMessage) *string { return v.ErrorType }).(pulumi.StringPtrOutput)
+}
+
+type MwsWorkspacesNetworkErrorMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (MwsWorkspacesNetworkErrorMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MwsWorkspacesNetworkErrorMessage)(nil)).Elem()
+}
+
+func (o MwsWorkspacesNetworkErrorMessageArrayOutput) ToMwsWorkspacesNetworkErrorMessageArrayOutput() MwsWorkspacesNetworkErrorMessageArrayOutput {
+	return o
+}
+
+func (o MwsWorkspacesNetworkErrorMessageArrayOutput) ToMwsWorkspacesNetworkErrorMessageArrayOutputWithContext(ctx context.Context) MwsWorkspacesNetworkErrorMessageArrayOutput {
+	return o
+}
+
+func (o MwsWorkspacesNetworkErrorMessageArrayOutput) Index(i pulumi.IntInput) MwsWorkspacesNetworkErrorMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MwsWorkspacesNetworkErrorMessage {
+		return vs[0].([]MwsWorkspacesNetworkErrorMessage)[vs[1].(int)]
+	}).(MwsWorkspacesNetworkErrorMessageOutput)
+}
+
+type GetDbfsFilePathsPathList struct {
+	FileSize *int    `pulumi:"fileSize"`
+	Path     *string `pulumi:"path"`
+}
+
+// GetDbfsFilePathsPathListInput is an input type that accepts GetDbfsFilePathsPathListArgs and GetDbfsFilePathsPathListOutput values.
+// You can construct a concrete instance of `GetDbfsFilePathsPathListInput` via:
+//
+// 		 GetDbfsFilePathsPathListArgs{...}
+//
+type GetDbfsFilePathsPathListInput interface {
+	pulumi.Input
+
+	ToGetDbfsFilePathsPathListOutput() GetDbfsFilePathsPathListOutput
+	ToGetDbfsFilePathsPathListOutputWithContext(context.Context) GetDbfsFilePathsPathListOutput
+}
+
+type GetDbfsFilePathsPathListArgs struct {
+	FileSize pulumi.IntPtrInput    `pulumi:"fileSize"`
+	Path     pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (GetDbfsFilePathsPathListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDbfsFilePathsPathList)(nil)).Elem()
+}
+
+func (i GetDbfsFilePathsPathListArgs) ToGetDbfsFilePathsPathListOutput() GetDbfsFilePathsPathListOutput {
+	return i.ToGetDbfsFilePathsPathListOutputWithContext(context.Background())
+}
+
+func (i GetDbfsFilePathsPathListArgs) ToGetDbfsFilePathsPathListOutputWithContext(ctx context.Context) GetDbfsFilePathsPathListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDbfsFilePathsPathListOutput)
+}
+
+// GetDbfsFilePathsPathListArrayInput is an input type that accepts GetDbfsFilePathsPathListArray and GetDbfsFilePathsPathListArrayOutput values.
+// You can construct a concrete instance of `GetDbfsFilePathsPathListArrayInput` via:
+//
+// 		 GetDbfsFilePathsPathListArray{ GetDbfsFilePathsPathListArgs{...} }
+//
+type GetDbfsFilePathsPathListArrayInput interface {
+	pulumi.Input
+
+	ToGetDbfsFilePathsPathListArrayOutput() GetDbfsFilePathsPathListArrayOutput
+	ToGetDbfsFilePathsPathListArrayOutputWithContext(context.Context) GetDbfsFilePathsPathListArrayOutput
+}
+
+type GetDbfsFilePathsPathListArray []GetDbfsFilePathsPathListInput
+
+func (GetDbfsFilePathsPathListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDbfsFilePathsPathList)(nil)).Elem()
+}
+
+func (i GetDbfsFilePathsPathListArray) ToGetDbfsFilePathsPathListArrayOutput() GetDbfsFilePathsPathListArrayOutput {
+	return i.ToGetDbfsFilePathsPathListArrayOutputWithContext(context.Background())
+}
+
+func (i GetDbfsFilePathsPathListArray) ToGetDbfsFilePathsPathListArrayOutputWithContext(ctx context.Context) GetDbfsFilePathsPathListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDbfsFilePathsPathListArrayOutput)
+}
+
+type GetDbfsFilePathsPathListOutput struct{ *pulumi.OutputState }
+
+func (GetDbfsFilePathsPathListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDbfsFilePathsPathList)(nil)).Elem()
+}
+
+func (o GetDbfsFilePathsPathListOutput) ToGetDbfsFilePathsPathListOutput() GetDbfsFilePathsPathListOutput {
+	return o
+}
+
+func (o GetDbfsFilePathsPathListOutput) ToGetDbfsFilePathsPathListOutputWithContext(ctx context.Context) GetDbfsFilePathsPathListOutput {
+	return o
+}
+
+func (o GetDbfsFilePathsPathListOutput) FileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDbfsFilePathsPathList) *int { return v.FileSize }).(pulumi.IntPtrOutput)
+}
+
+func (o GetDbfsFilePathsPathListOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDbfsFilePathsPathList) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type GetDbfsFilePathsPathListArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDbfsFilePathsPathListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDbfsFilePathsPathList)(nil)).Elem()
+}
+
+func (o GetDbfsFilePathsPathListArrayOutput) ToGetDbfsFilePathsPathListArrayOutput() GetDbfsFilePathsPathListArrayOutput {
+	return o
+}
+
+func (o GetDbfsFilePathsPathListArrayOutput) ToGetDbfsFilePathsPathListArrayOutputWithContext(ctx context.Context) GetDbfsFilePathsPathListArrayOutput {
+	return o
+}
+
+func (o GetDbfsFilePathsPathListArrayOutput) Index(i pulumi.IntInput) GetDbfsFilePathsPathListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDbfsFilePathsPathList {
+		return vs[0].([]GetDbfsFilePathsPathList)[vs[1].(int)]
+	}).(GetDbfsFilePathsPathListOutput)
+}
+
+type GetNotebookPathsNotebookPathList struct {
+	Language *string `pulumi:"language"`
+	Path     *string `pulumi:"path"`
+}
+
+// GetNotebookPathsNotebookPathListInput is an input type that accepts GetNotebookPathsNotebookPathListArgs and GetNotebookPathsNotebookPathListOutput values.
+// You can construct a concrete instance of `GetNotebookPathsNotebookPathListInput` via:
+//
+// 		 GetNotebookPathsNotebookPathListArgs{...}
+//
+type GetNotebookPathsNotebookPathListInput interface {
+	pulumi.Input
+
+	ToGetNotebookPathsNotebookPathListOutput() GetNotebookPathsNotebookPathListOutput
+	ToGetNotebookPathsNotebookPathListOutputWithContext(context.Context) GetNotebookPathsNotebookPathListOutput
+}
+
+type GetNotebookPathsNotebookPathListArgs struct {
+	Language pulumi.StringPtrInput `pulumi:"language"`
+	Path     pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (GetNotebookPathsNotebookPathListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotebookPathsNotebookPathList)(nil)).Elem()
+}
+
+func (i GetNotebookPathsNotebookPathListArgs) ToGetNotebookPathsNotebookPathListOutput() GetNotebookPathsNotebookPathListOutput {
+	return i.ToGetNotebookPathsNotebookPathListOutputWithContext(context.Background())
+}
+
+func (i GetNotebookPathsNotebookPathListArgs) ToGetNotebookPathsNotebookPathListOutputWithContext(ctx context.Context) GetNotebookPathsNotebookPathListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotebookPathsNotebookPathListOutput)
+}
+
+// GetNotebookPathsNotebookPathListArrayInput is an input type that accepts GetNotebookPathsNotebookPathListArray and GetNotebookPathsNotebookPathListArrayOutput values.
+// You can construct a concrete instance of `GetNotebookPathsNotebookPathListArrayInput` via:
+//
+// 		 GetNotebookPathsNotebookPathListArray{ GetNotebookPathsNotebookPathListArgs{...} }
+//
+type GetNotebookPathsNotebookPathListArrayInput interface {
+	pulumi.Input
+
+	ToGetNotebookPathsNotebookPathListArrayOutput() GetNotebookPathsNotebookPathListArrayOutput
+	ToGetNotebookPathsNotebookPathListArrayOutputWithContext(context.Context) GetNotebookPathsNotebookPathListArrayOutput
+}
+
+type GetNotebookPathsNotebookPathListArray []GetNotebookPathsNotebookPathListInput
+
+func (GetNotebookPathsNotebookPathListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotebookPathsNotebookPathList)(nil)).Elem()
+}
+
+func (i GetNotebookPathsNotebookPathListArray) ToGetNotebookPathsNotebookPathListArrayOutput() GetNotebookPathsNotebookPathListArrayOutput {
+	return i.ToGetNotebookPathsNotebookPathListArrayOutputWithContext(context.Background())
+}
+
+func (i GetNotebookPathsNotebookPathListArray) ToGetNotebookPathsNotebookPathListArrayOutputWithContext(ctx context.Context) GetNotebookPathsNotebookPathListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotebookPathsNotebookPathListArrayOutput)
+}
+
+type GetNotebookPathsNotebookPathListOutput struct{ *pulumi.OutputState }
+
+func (GetNotebookPathsNotebookPathListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotebookPathsNotebookPathList)(nil)).Elem()
+}
+
+func (o GetNotebookPathsNotebookPathListOutput) ToGetNotebookPathsNotebookPathListOutput() GetNotebookPathsNotebookPathListOutput {
+	return o
+}
+
+func (o GetNotebookPathsNotebookPathListOutput) ToGetNotebookPathsNotebookPathListOutputWithContext(ctx context.Context) GetNotebookPathsNotebookPathListOutput {
+	return o
+}
+
+func (o GetNotebookPathsNotebookPathListOutput) Language() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetNotebookPathsNotebookPathList) *string { return v.Language }).(pulumi.StringPtrOutput)
+}
+
+func (o GetNotebookPathsNotebookPathListOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetNotebookPathsNotebookPathList) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type GetNotebookPathsNotebookPathListArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNotebookPathsNotebookPathListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotebookPathsNotebookPathList)(nil)).Elem()
+}
+
+func (o GetNotebookPathsNotebookPathListArrayOutput) ToGetNotebookPathsNotebookPathListArrayOutput() GetNotebookPathsNotebookPathListArrayOutput {
+	return o
+}
+
+func (o GetNotebookPathsNotebookPathListArrayOutput) ToGetNotebookPathsNotebookPathListArrayOutputWithContext(ctx context.Context) GetNotebookPathsNotebookPathListArrayOutput {
+	return o
+}
+
+func (o GetNotebookPathsNotebookPathListArrayOutput) Index(i pulumi.IntInput) GetNotebookPathsNotebookPathListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNotebookPathsNotebookPathList {
+		return vs[0].([]GetNotebookPathsNotebookPathList)[vs[1].(int)]
+	}).(GetNotebookPathsNotebookPathListOutput)
+}
+
 type ProviderAzureAuth struct {
 	AzureRegion          string `pulumi:"azureRegion"`
 	ClientId             string `pulumi:"clientId"`
@@ -387,6 +5992,82 @@ func (o ProviderBasicAuthPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(ClusterAutoscaleOutput{})
+	pulumi.RegisterOutputType(ClusterAutoscalePtrOutput{})
+	pulumi.RegisterOutputType(ClusterAwsAttributesOutput{})
+	pulumi.RegisterOutputType(ClusterAwsAttributesPtrOutput{})
+	pulumi.RegisterOutputType(ClusterClusterLogConfOutput{})
+	pulumi.RegisterOutputType(ClusterClusterLogConfPtrOutput{})
+	pulumi.RegisterOutputType(ClusterClusterLogConfDbfsOutput{})
+	pulumi.RegisterOutputType(ClusterClusterLogConfDbfsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterClusterLogConfS3Output{})
+	pulumi.RegisterOutputType(ClusterClusterLogConfS3PtrOutput{})
+	pulumi.RegisterOutputType(ClusterDockerImageOutput{})
+	pulumi.RegisterOutputType(ClusterDockerImagePtrOutput{})
+	pulumi.RegisterOutputType(ClusterDockerImageBasicAuthOutput{})
+	pulumi.RegisterOutputType(ClusterDockerImageBasicAuthPtrOutput{})
+	pulumi.RegisterOutputType(ClusterInitScriptOutput{})
+	pulumi.RegisterOutputType(ClusterInitScriptArrayOutput{})
+	pulumi.RegisterOutputType(ClusterInitScriptDbfsOutput{})
+	pulumi.RegisterOutputType(ClusterInitScriptDbfsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterInitScriptS3Output{})
+	pulumi.RegisterOutputType(ClusterInitScriptS3PtrOutput{})
+	pulumi.RegisterOutputType(ClusterLibraryCranOutput{})
+	pulumi.RegisterOutputType(ClusterLibraryCranArrayOutput{})
+	pulumi.RegisterOutputType(ClusterLibraryEggOutput{})
+	pulumi.RegisterOutputType(ClusterLibraryEggArrayOutput{})
+	pulumi.RegisterOutputType(ClusterLibraryJarOutput{})
+	pulumi.RegisterOutputType(ClusterLibraryJarArrayOutput{})
+	pulumi.RegisterOutputType(ClusterLibraryMavenOutput{})
+	pulumi.RegisterOutputType(ClusterLibraryMavenArrayOutput{})
+	pulumi.RegisterOutputType(ClusterLibraryPypiOutput{})
+	pulumi.RegisterOutputType(ClusterLibraryPypiArrayOutput{})
+	pulumi.RegisterOutputType(ClusterLibraryWhlOutput{})
+	pulumi.RegisterOutputType(ClusterLibraryWhlArrayOutput{})
+	pulumi.RegisterOutputType(InstancePoolAwsAttributesOutput{})
+	pulumi.RegisterOutputType(InstancePoolAwsAttributesPtrOutput{})
+	pulumi.RegisterOutputType(InstancePoolDiskSpecOutput{})
+	pulumi.RegisterOutputType(InstancePoolDiskSpecPtrOutput{})
+	pulumi.RegisterOutputType(JobEmailNotificationsOutput{})
+	pulumi.RegisterOutputType(JobEmailNotificationsPtrOutput{})
+	pulumi.RegisterOutputType(JobLibraryCranOutput{})
+	pulumi.RegisterOutputType(JobLibraryCranArrayOutput{})
+	pulumi.RegisterOutputType(JobLibraryMavenOutput{})
+	pulumi.RegisterOutputType(JobLibraryMavenArrayOutput{})
+	pulumi.RegisterOutputType(JobLibraryPypiOutput{})
+	pulumi.RegisterOutputType(JobLibraryPypiArrayOutput{})
+	pulumi.RegisterOutputType(JobNewClusterOutput{})
+	pulumi.RegisterOutputType(JobNewClusterPtrOutput{})
+	pulumi.RegisterOutputType(JobNewClusterAutoscaleOutput{})
+	pulumi.RegisterOutputType(JobNewClusterAutoscalePtrOutput{})
+	pulumi.RegisterOutputType(JobNewClusterAwsAttributesOutput{})
+	pulumi.RegisterOutputType(JobNewClusterAwsAttributesPtrOutput{})
+	pulumi.RegisterOutputType(JobNewClusterClusterLogConfOutput{})
+	pulumi.RegisterOutputType(JobNewClusterClusterLogConfPtrOutput{})
+	pulumi.RegisterOutputType(JobNewClusterClusterLogConfDbfsOutput{})
+	pulumi.RegisterOutputType(JobNewClusterClusterLogConfDbfsPtrOutput{})
+	pulumi.RegisterOutputType(JobNewClusterClusterLogConfS3Output{})
+	pulumi.RegisterOutputType(JobNewClusterClusterLogConfS3PtrOutput{})
+	pulumi.RegisterOutputType(JobNewClusterDockerImageOutput{})
+	pulumi.RegisterOutputType(JobNewClusterDockerImagePtrOutput{})
+	pulumi.RegisterOutputType(JobNewClusterDockerImageBasicAuthOutput{})
+	pulumi.RegisterOutputType(JobNewClusterDockerImageBasicAuthPtrOutput{})
+	pulumi.RegisterOutputType(JobNewClusterInitScriptOutput{})
+	pulumi.RegisterOutputType(JobNewClusterInitScriptArrayOutput{})
+	pulumi.RegisterOutputType(JobNewClusterInitScriptDbfsOutput{})
+	pulumi.RegisterOutputType(JobNewClusterInitScriptDbfsPtrOutput{})
+	pulumi.RegisterOutputType(JobNewClusterInitScriptS3Output{})
+	pulumi.RegisterOutputType(JobNewClusterInitScriptS3PtrOutput{})
+	pulumi.RegisterOutputType(JobScheduleOutput{})
+	pulumi.RegisterOutputType(JobSchedulePtrOutput{})
+	pulumi.RegisterOutputType(MwsNetworksErrorMessageOutput{})
+	pulumi.RegisterOutputType(MwsNetworksErrorMessageArrayOutput{})
+	pulumi.RegisterOutputType(MwsWorkspacesNetworkErrorMessageOutput{})
+	pulumi.RegisterOutputType(MwsWorkspacesNetworkErrorMessageArrayOutput{})
+	pulumi.RegisterOutputType(GetDbfsFilePathsPathListOutput{})
+	pulumi.RegisterOutputType(GetDbfsFilePathsPathListArrayOutput{})
+	pulumi.RegisterOutputType(GetNotebookPathsNotebookPathListOutput{})
+	pulumi.RegisterOutputType(GetNotebookPathsNotebookPathListArrayOutput{})
 	pulumi.RegisterOutputType(ProviderAzureAuthOutput{})
 	pulumi.RegisterOutputType(ProviderAzureAuthPtrOutput{})
 	pulumi.RegisterOutputType(ProviderBasicAuthOutput{})

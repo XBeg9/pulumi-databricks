@@ -37,6 +37,1384 @@
         }
     },
     "types": {
+        "databricks:/ClusterAutoscale:ClusterAutoscale": {
+            "properties": {
+                "maxWorkers": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "minWorkers": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:/ClusterAwsAttributes:ClusterAwsAttributes": {
+            "properties": {
+                "availability": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ebsVolumeCount": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ebsVolumeSize": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ebsVolumeType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "firstOnDemand": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "instanceProfileArn": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "spotBidPricePercent": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "zoneId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "zoneId"
+            ]
+        },
+        "databricks:/ClusterClusterLogConf:ClusterClusterLogConf": {
+            "properties": {
+                "dbfs": {
+                    "$ref": "#/types/databricks:/ClusterClusterLogConfDbfs:ClusterClusterLogConfDbfs",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "s3": {
+                    "$ref": "#/types/databricks:/ClusterClusterLogConfS3:ClusterClusterLogConfS3",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:/ClusterClusterLogConfDbfs:ClusterClusterLogConfDbfs": {
+            "properties": {
+                "destination": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "destination"
+            ]
+        },
+        "databricks:/ClusterClusterLogConfS3:ClusterClusterLogConfS3": {
+            "properties": {
+                "cannedAcl": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "destination": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "enableEncryption": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "encryptionType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "endpoint": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "kmsKey": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "region": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "destination"
+            ]
+        },
+        "databricks:/ClusterDockerImage:ClusterDockerImage": {
+            "properties": {
+                "basicAuth": {
+                    "$ref": "#/types/databricks:/ClusterDockerImageBasicAuth:ClusterDockerImageBasicAuth",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "url"
+            ]
+        },
+        "databricks:/ClusterDockerImageBasicAuth:ClusterDockerImageBasicAuth": {
+            "properties": {
+                "password": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "username": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "password",
+                "username"
+            ]
+        },
+        "databricks:/ClusterInitScript:ClusterInitScript": {
+            "properties": {
+                "dbfs": {
+                    "$ref": "#/types/databricks:/ClusterInitScriptDbfs:ClusterInitScriptDbfs",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "s3": {
+                    "$ref": "#/types/databricks:/ClusterInitScriptS3:ClusterInitScriptS3",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:/ClusterInitScriptDbfs:ClusterInitScriptDbfs": {
+            "properties": {
+                "destination": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "destination"
+            ]
+        },
+        "databricks:/ClusterInitScriptS3:ClusterInitScriptS3": {
+            "properties": {
+                "cannedAcl": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "destination": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "enableEncryption": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "encryptionType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "endpoint": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "kmsKey": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "region": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "destination"
+            ]
+        },
+        "databricks:/ClusterLibraryCran:ClusterLibraryCran": {
+            "properties": {
+                "messages": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "package": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repo": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:/ClusterLibraryEgg:ClusterLibraryEgg": {
+            "properties": {
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:/ClusterLibraryJar:ClusterLibraryJar": {
+            "properties": {
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:/ClusterLibraryMaven:ClusterLibraryMaven": {
+            "properties": {
+                "coordinates": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "exclusions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repo": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:/ClusterLibraryPypi:ClusterLibraryPypi": {
+            "properties": {
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "package": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repo": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "package"
+            ]
+        },
+        "databricks:/ClusterLibraryWhl:ClusterLibraryWhl": {
+            "properties": {
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:/InstancePoolAwsAttributes:InstancePoolAwsAttributes": {
+            "properties": {
+                "availability": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "spotBidPricePercent": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "zoneId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "zoneId"
+            ]
+        },
+        "databricks:/InstancePoolDiskSpec:InstancePoolDiskSpec": {
+            "properties": {
+                "azureDiskVolumeType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "diskCount": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "diskSize": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ebsVolumeType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:/JobEmailNotifications:JobEmailNotifications": {
+            "properties": {
+                "noAlertForSkippedRuns": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "onFailures": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "onStarts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "onSuccesses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:/JobLibraryCran:JobLibraryCran": {
+            "properties": {
+                "package": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repo": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "package"
+            ]
+        },
+        "databricks:/JobLibraryMaven:JobLibraryMaven": {
+            "properties": {
+                "coordinates": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "exclusions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repo": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "coordinates"
+            ]
+        },
+        "databricks:/JobLibraryPypi:JobLibraryPypi": {
+            "properties": {
+                "package": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repo": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "package"
+            ]
+        },
+        "databricks:/JobNewCluster:JobNewCluster": {
+            "properties": {
+                "autoscale": {
+                    "$ref": "#/types/databricks:/JobNewClusterAutoscale:JobNewClusterAutoscale",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "autoterminationMinutes": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "awsAttributes": {
+                    "$ref": "#/types/databricks:/JobNewClusterAwsAttributes:JobNewClusterAwsAttributes",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "clusterLogConf": {
+                    "$ref": "#/types/databricks:/JobNewClusterClusterLogConf:JobNewClusterClusterLogConf",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "clusterName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "customTags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dockerImage": {
+                    "$ref": "#/types/databricks:/JobNewClusterDockerImage:JobNewClusterDockerImage",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "driverNodeTypeId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "enableElasticDisk": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "initScripts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/JobNewClusterInitScript:JobNewClusterInitScript"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "instancePoolId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "nodeTypeId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "numWorkers": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sparkConf": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sparkEnvVars": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sparkVersion": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sshPublicKeys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:/JobNewClusterAutoscale:JobNewClusterAutoscale": {
+            "properties": {
+                "maxWorkers": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "minWorkers": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:/JobNewClusterAwsAttributes:JobNewClusterAwsAttributes": {
+            "properties": {
+                "availability": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ebsVolumeCount": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ebsVolumeSize": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ebsVolumeType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "firstOnDemand": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "instanceProfileArn": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "spotBidPricePercent": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "zoneId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "zoneId"
+            ]
+        },
+        "databricks:/JobNewClusterClusterLogConf:JobNewClusterClusterLogConf": {
+            "properties": {
+                "dbfs": {
+                    "$ref": "#/types/databricks:/JobNewClusterClusterLogConfDbfs:JobNewClusterClusterLogConfDbfs",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "s3": {
+                    "$ref": "#/types/databricks:/JobNewClusterClusterLogConfS3:JobNewClusterClusterLogConfS3",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:/JobNewClusterClusterLogConfDbfs:JobNewClusterClusterLogConfDbfs": {
+            "properties": {
+                "destination": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "destination"
+            ]
+        },
+        "databricks:/JobNewClusterClusterLogConfS3:JobNewClusterClusterLogConfS3": {
+            "properties": {
+                "cannedAcl": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "destination": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "enableEncryption": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "encryptionType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "endpoint": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "kmsKey": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "region": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "destination"
+            ]
+        },
+        "databricks:/JobNewClusterDockerImage:JobNewClusterDockerImage": {
+            "properties": {
+                "basicAuth": {
+                    "$ref": "#/types/databricks:/JobNewClusterDockerImageBasicAuth:JobNewClusterDockerImageBasicAuth",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "url"
+            ]
+        },
+        "databricks:/JobNewClusterDockerImageBasicAuth:JobNewClusterDockerImageBasicAuth": {
+            "properties": {
+                "password": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "username": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "password",
+                "username"
+            ]
+        },
+        "databricks:/JobNewClusterInitScript:JobNewClusterInitScript": {
+            "properties": {
+                "dbfs": {
+                    "$ref": "#/types/databricks:/JobNewClusterInitScriptDbfs:JobNewClusterInitScriptDbfs",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "s3": {
+                    "$ref": "#/types/databricks:/JobNewClusterInitScriptS3:JobNewClusterInitScriptS3",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:/JobNewClusterInitScriptDbfs:JobNewClusterInitScriptDbfs": {
+            "properties": {
+                "destination": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "destination"
+            ]
+        },
+        "databricks:/JobNewClusterInitScriptS3:JobNewClusterInitScriptS3": {
+            "properties": {
+                "cannedAcl": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "destination": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "enableEncryption": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "encryptionType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "endpoint": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "kmsKey": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "region": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "destination"
+            ]
+        },
+        "databricks:/JobSchedule:JobSchedule": {
+            "properties": {
+                "quartzCronExpression": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timezoneId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "quartzCronExpression",
+                "timezoneId"
+            ]
+        },
+        "databricks:/MwsNetworksErrorMessage:MwsNetworksErrorMessage": {
+            "properties": {
+                "errorMessage": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "errorType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:/MwsWorkspacesNetworkErrorMessage:MwsWorkspacesNetworkErrorMessage": {
+            "properties": {
+                "errorMessage": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "errorType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:/getDbfsFilePathsPathList:getDbfsFilePathsPathList": {
+            "properties": {
+                "fileSize": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:/getNotebookPathsNotebookPathList:getNotebookPathsNotebookPathList": {
+            "properties": {
+                "language": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
         "databricks:config/azureAuth:azureAuth": {
             "properties": {
                 "azureRegion": {
@@ -178,6 +1556,2779 @@
             },
             "token": {
                 "type": "string"
+            }
+        }
+    },
+    "resources": {
+        "databricks:index/awsS3Mount:AwsS3Mount": {
+            "properties": {
+                "clusterId": {
+                    "type": "string"
+                },
+                "mountName": {
+                    "type": "string"
+                },
+                "s3BucketName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clusterId",
+                "mountName",
+                "s3BucketName"
+            ],
+            "inputProperties": {
+                "clusterId": {
+                    "type": "string"
+                },
+                "mountName": {
+                    "type": "string"
+                },
+                "s3BucketName": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "clusterId",
+                "mountName",
+                "s3BucketName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AwsS3Mount resources.\n",
+                "properties": {
+                    "clusterId": {
+                        "type": "string"
+                    },
+                    "mountName": {
+                        "type": "string"
+                    },
+                    "s3BucketName": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/azureAdlsGen1Mount:AzureAdlsGen1Mount": {
+            "properties": {
+                "clientId": {
+                    "type": "string"
+                },
+                "clientSecretKey": {
+                    "type": "string"
+                },
+                "clientSecretScope": {
+                    "type": "string"
+                },
+                "clusterId": {
+                    "type": "string"
+                },
+                "directory": {
+                    "type": "string"
+                },
+                "mountName": {
+                    "type": "string"
+                },
+                "sparkConfPrefix": {
+                    "type": "string"
+                },
+                "storageResourceName": {
+                    "type": "string"
+                },
+                "tenantId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clientId",
+                "clientSecretKey",
+                "clientSecretScope",
+                "clusterId",
+                "directory",
+                "mountName",
+                "storageResourceName",
+                "tenantId"
+            ],
+            "inputProperties": {
+                "clientId": {
+                    "type": "string"
+                },
+                "clientSecretKey": {
+                    "type": "string"
+                },
+                "clientSecretScope": {
+                    "type": "string"
+                },
+                "clusterId": {
+                    "type": "string"
+                },
+                "directory": {
+                    "type": "string"
+                },
+                "mountName": {
+                    "type": "string"
+                },
+                "sparkConfPrefix": {
+                    "type": "string"
+                },
+                "storageResourceName": {
+                    "type": "string"
+                },
+                "tenantId": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "clientId",
+                "clientSecretKey",
+                "clientSecretScope",
+                "clusterId",
+                "mountName",
+                "storageResourceName",
+                "tenantId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AzureAdlsGen1Mount resources.\n",
+                "properties": {
+                    "clientId": {
+                        "type": "string"
+                    },
+                    "clientSecretKey": {
+                        "type": "string"
+                    },
+                    "clientSecretScope": {
+                        "type": "string"
+                    },
+                    "clusterId": {
+                        "type": "string"
+                    },
+                    "directory": {
+                        "type": "string"
+                    },
+                    "mountName": {
+                        "type": "string"
+                    },
+                    "sparkConfPrefix": {
+                        "type": "string"
+                    },
+                    "storageResourceName": {
+                        "type": "string"
+                    },
+                    "tenantId": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/azureAdlsGen2Mount:AzureAdlsGen2Mount": {
+            "properties": {
+                "clientId": {
+                    "type": "string"
+                },
+                "clientSecretKey": {
+                    "type": "string"
+                },
+                "clientSecretScope": {
+                    "type": "string"
+                },
+                "clusterId": {
+                    "type": "string"
+                },
+                "containerName": {
+                    "type": "string"
+                },
+                "directory": {
+                    "type": "string"
+                },
+                "initializeFileSystem": {
+                    "type": "boolean"
+                },
+                "mountName": {
+                    "type": "string"
+                },
+                "storageAccountName": {
+                    "type": "string"
+                },
+                "tenantId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clientId",
+                "clientSecretKey",
+                "clientSecretScope",
+                "clusterId",
+                "containerName",
+                "directory",
+                "initializeFileSystem",
+                "mountName",
+                "storageAccountName",
+                "tenantId"
+            ],
+            "inputProperties": {
+                "clientId": {
+                    "type": "string"
+                },
+                "clientSecretKey": {
+                    "type": "string"
+                },
+                "clientSecretScope": {
+                    "type": "string"
+                },
+                "clusterId": {
+                    "type": "string"
+                },
+                "containerName": {
+                    "type": "string"
+                },
+                "directory": {
+                    "type": "string"
+                },
+                "initializeFileSystem": {
+                    "type": "boolean"
+                },
+                "mountName": {
+                    "type": "string"
+                },
+                "storageAccountName": {
+                    "type": "string"
+                },
+                "tenantId": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "clientId",
+                "clientSecretKey",
+                "clientSecretScope",
+                "clusterId",
+                "containerName",
+                "initializeFileSystem",
+                "mountName",
+                "storageAccountName",
+                "tenantId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AzureAdlsGen2Mount resources.\n",
+                "properties": {
+                    "clientId": {
+                        "type": "string"
+                    },
+                    "clientSecretKey": {
+                        "type": "string"
+                    },
+                    "clientSecretScope": {
+                        "type": "string"
+                    },
+                    "clusterId": {
+                        "type": "string"
+                    },
+                    "containerName": {
+                        "type": "string"
+                    },
+                    "directory": {
+                        "type": "string"
+                    },
+                    "initializeFileSystem": {
+                        "type": "boolean"
+                    },
+                    "mountName": {
+                        "type": "string"
+                    },
+                    "storageAccountName": {
+                        "type": "string"
+                    },
+                    "tenantId": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/azureBlobMount:AzureBlobMount": {
+            "properties": {
+                "authType": {
+                    "type": "string"
+                },
+                "clusterId": {
+                    "type": "string"
+                },
+                "containerName": {
+                    "type": "string"
+                },
+                "directory": {
+                    "type": "string"
+                },
+                "mountName": {
+                    "type": "string"
+                },
+                "storageAccountName": {
+                    "type": "string"
+                },
+                "tokenSecretKey": {
+                    "type": "string"
+                },
+                "tokenSecretScope": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "authType",
+                "clusterId",
+                "containerName",
+                "directory",
+                "mountName",
+                "storageAccountName",
+                "tokenSecretKey",
+                "tokenSecretScope"
+            ],
+            "inputProperties": {
+                "authType": {
+                    "type": "string"
+                },
+                "clusterId": {
+                    "type": "string"
+                },
+                "containerName": {
+                    "type": "string"
+                },
+                "directory": {
+                    "type": "string"
+                },
+                "mountName": {
+                    "type": "string"
+                },
+                "storageAccountName": {
+                    "type": "string"
+                },
+                "tokenSecretKey": {
+                    "type": "string"
+                },
+                "tokenSecretScope": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "authType",
+                "clusterId",
+                "containerName",
+                "mountName",
+                "storageAccountName",
+                "tokenSecretKey",
+                "tokenSecretScope"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AzureBlobMount resources.\n",
+                "properties": {
+                    "authType": {
+                        "type": "string"
+                    },
+                    "clusterId": {
+                        "type": "string"
+                    },
+                    "containerName": {
+                        "type": "string"
+                    },
+                    "directory": {
+                        "type": "string"
+                    },
+                    "mountName": {
+                        "type": "string"
+                    },
+                    "storageAccountName": {
+                        "type": "string"
+                    },
+                    "tokenSecretKey": {
+                        "type": "string"
+                    },
+                    "tokenSecretScope": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/cluster:Cluster": {
+            "properties": {
+                "autoscale": {
+                    "$ref": "#/types/databricks:/ClusterAutoscale:ClusterAutoscale"
+                },
+                "autoterminationMinutes": {
+                    "type": "integer"
+                },
+                "awsAttributes": {
+                    "$ref": "#/types/databricks:/ClusterAwsAttributes:ClusterAwsAttributes"
+                },
+                "clusterId": {
+                    "type": "string"
+                },
+                "clusterLogConf": {
+                    "$ref": "#/types/databricks:/ClusterClusterLogConf:ClusterClusterLogConf"
+                },
+                "clusterName": {
+                    "type": "string"
+                },
+                "customTags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "defaultTags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "dockerImage": {
+                    "$ref": "#/types/databricks:/ClusterDockerImage:ClusterDockerImage"
+                },
+                "driverNodeTypeId": {
+                    "type": "string"
+                },
+                "enableElasticDisk": {
+                    "type": "boolean"
+                },
+                "idempotencyToken": {
+                    "type": "integer"
+                },
+                "initScripts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/ClusterInitScript:ClusterInitScript"
+                    }
+                },
+                "instancePoolId": {
+                    "type": "string"
+                },
+                "libraryCrans": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/ClusterLibraryCran:ClusterLibraryCran"
+                    }
+                },
+                "libraryEggs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/ClusterLibraryEgg:ClusterLibraryEgg"
+                    }
+                },
+                "libraryJars": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/ClusterLibraryJar:ClusterLibraryJar"
+                    }
+                },
+                "libraryMavens": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/ClusterLibraryMaven:ClusterLibraryMaven"
+                    }
+                },
+                "libraryPypis": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/ClusterLibraryPypi:ClusterLibraryPypi"
+                    }
+                },
+                "libraryWhls": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/ClusterLibraryWhl:ClusterLibraryWhl"
+                    }
+                },
+                "nodeTypeId": {
+                    "type": "string"
+                },
+                "numWorkers": {
+                    "type": "integer"
+                },
+                "singleUserName": {
+                    "type": "string"
+                },
+                "sparkConf": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "sparkEnvVars": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "sparkVersion": {
+                    "type": "string"
+                },
+                "sshPublicKeys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "state": {
+                    "type": "string"
+                },
+                "stateMessage": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clusterId",
+                "clusterName",
+                "defaultTags",
+                "driverNodeTypeId",
+                "enableElasticDisk",
+                "sparkVersion",
+                "state",
+                "stateMessage"
+            ],
+            "inputProperties": {
+                "autoscale": {
+                    "$ref": "#/types/databricks:/ClusterAutoscale:ClusterAutoscale"
+                },
+                "autoterminationMinutes": {
+                    "type": "integer"
+                },
+                "awsAttributes": {
+                    "$ref": "#/types/databricks:/ClusterAwsAttributes:ClusterAwsAttributes"
+                },
+                "clusterLogConf": {
+                    "$ref": "#/types/databricks:/ClusterClusterLogConf:ClusterClusterLogConf"
+                },
+                "clusterName": {
+                    "type": "string"
+                },
+                "customTags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "dockerImage": {
+                    "$ref": "#/types/databricks:/ClusterDockerImage:ClusterDockerImage"
+                },
+                "driverNodeTypeId": {
+                    "type": "string"
+                },
+                "enableElasticDisk": {
+                    "type": "boolean"
+                },
+                "idempotencyToken": {
+                    "type": "integer"
+                },
+                "initScripts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/ClusterInitScript:ClusterInitScript"
+                    }
+                },
+                "instancePoolId": {
+                    "type": "string"
+                },
+                "libraryCrans": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/ClusterLibraryCran:ClusterLibraryCran"
+                    }
+                },
+                "libraryEggs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/ClusterLibraryEgg:ClusterLibraryEgg"
+                    }
+                },
+                "libraryJars": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/ClusterLibraryJar:ClusterLibraryJar"
+                    }
+                },
+                "libraryMavens": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/ClusterLibraryMaven:ClusterLibraryMaven"
+                    }
+                },
+                "libraryPypis": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/ClusterLibraryPypi:ClusterLibraryPypi"
+                    }
+                },
+                "libraryWhls": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/ClusterLibraryWhl:ClusterLibraryWhl"
+                    }
+                },
+                "nodeTypeId": {
+                    "type": "string"
+                },
+                "numWorkers": {
+                    "type": "integer"
+                },
+                "singleUserName": {
+                    "type": "string"
+                },
+                "sparkConf": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "sparkEnvVars": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "sparkVersion": {
+                    "type": "string"
+                },
+                "sshPublicKeys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "sparkVersion"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Cluster resources.\n",
+                "properties": {
+                    "autoscale": {
+                        "$ref": "#/types/databricks:/ClusterAutoscale:ClusterAutoscale"
+                    },
+                    "autoterminationMinutes": {
+                        "type": "integer"
+                    },
+                    "awsAttributes": {
+                        "$ref": "#/types/databricks:/ClusterAwsAttributes:ClusterAwsAttributes"
+                    },
+                    "clusterId": {
+                        "type": "string"
+                    },
+                    "clusterLogConf": {
+                        "$ref": "#/types/databricks:/ClusterClusterLogConf:ClusterClusterLogConf"
+                    },
+                    "clusterName": {
+                        "type": "string"
+                    },
+                    "customTags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "defaultTags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "dockerImage": {
+                        "$ref": "#/types/databricks:/ClusterDockerImage:ClusterDockerImage"
+                    },
+                    "driverNodeTypeId": {
+                        "type": "string"
+                    },
+                    "enableElasticDisk": {
+                        "type": "boolean"
+                    },
+                    "idempotencyToken": {
+                        "type": "integer"
+                    },
+                    "initScripts": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/databricks:/ClusterInitScript:ClusterInitScript"
+                        }
+                    },
+                    "instancePoolId": {
+                        "type": "string"
+                    },
+                    "libraryCrans": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/databricks:/ClusterLibraryCran:ClusterLibraryCran"
+                        }
+                    },
+                    "libraryEggs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/databricks:/ClusterLibraryEgg:ClusterLibraryEgg"
+                        }
+                    },
+                    "libraryJars": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/databricks:/ClusterLibraryJar:ClusterLibraryJar"
+                        }
+                    },
+                    "libraryMavens": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/databricks:/ClusterLibraryMaven:ClusterLibraryMaven"
+                        }
+                    },
+                    "libraryPypis": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/databricks:/ClusterLibraryPypi:ClusterLibraryPypi"
+                        }
+                    },
+                    "libraryWhls": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/databricks:/ClusterLibraryWhl:ClusterLibraryWhl"
+                        }
+                    },
+                    "nodeTypeId": {
+                        "type": "string"
+                    },
+                    "numWorkers": {
+                        "type": "integer"
+                    },
+                    "singleUserName": {
+                        "type": "string"
+                    },
+                    "sparkConf": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "sparkEnvVars": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "sparkVersion": {
+                        "type": "string"
+                    },
+                    "sshPublicKeys": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "stateMessage": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/dbfsFile:DbfsFile": {
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "fileSize": {
+                    "type": "integer"
+                },
+                "mkdirs": {
+                    "type": "boolean"
+                },
+                "overwrite": {
+                    "type": "boolean"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "validateRemoteFile": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "content",
+                "fileSize",
+                "path"
+            ],
+            "inputProperties": {
+                "content": {
+                    "type": "string"
+                },
+                "mkdirs": {
+                    "type": "boolean"
+                },
+                "overwrite": {
+                    "type": "boolean"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "validateRemoteFile": {
+                    "type": "boolean"
+                }
+            },
+            "requiredInputs": [
+                "content",
+                "path"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DbfsFile resources.\n",
+                "properties": {
+                    "content": {
+                        "type": "string"
+                    },
+                    "fileSize": {
+                        "type": "integer"
+                    },
+                    "mkdirs": {
+                        "type": "boolean"
+                    },
+                    "overwrite": {
+                        "type": "boolean"
+                    },
+                    "path": {
+                        "type": "string"
+                    },
+                    "validateRemoteFile": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/dbfsFileSync:DbfsFileSync": {
+            "properties": {
+                "fileSize": {
+                    "type": "integer"
+                },
+                "host": {
+                    "type": "string"
+                },
+                "mkdirs": {
+                    "type": "boolean"
+                },
+                "srcPath": {
+                    "type": "string"
+                },
+                "tgtPath": {
+                    "type": "string"
+                },
+                "token": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "fileSize",
+                "srcPath",
+                "tgtPath"
+            ],
+            "inputProperties": {
+                "fileSize": {
+                    "type": "integer"
+                },
+                "host": {
+                    "type": "string"
+                },
+                "mkdirs": {
+                    "type": "boolean"
+                },
+                "srcPath": {
+                    "type": "string"
+                },
+                "tgtPath": {
+                    "type": "string"
+                },
+                "token": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "fileSize",
+                "srcPath",
+                "tgtPath"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DbfsFileSync resources.\n",
+                "properties": {
+                    "fileSize": {
+                        "type": "integer"
+                    },
+                    "host": {
+                        "type": "string"
+                    },
+                    "mkdirs": {
+                        "type": "boolean"
+                    },
+                    "srcPath": {
+                        "type": "string"
+                    },
+                    "tgtPath": {
+                        "type": "string"
+                    },
+                    "token": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/group:Group": {
+            "properties": {
+                "allowClusterCreate": {
+                    "type": "boolean"
+                },
+                "allowInstancePoolCreate": {
+                    "type": "boolean"
+                },
+                "displayName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "displayName"
+            ],
+            "inputProperties": {
+                "allowClusterCreate": {
+                    "type": "boolean"
+                },
+                "allowInstancePoolCreate": {
+                    "type": "boolean"
+                },
+                "displayName": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "displayName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Group resources.\n",
+                "properties": {
+                    "allowClusterCreate": {
+                        "type": "boolean"
+                    },
+                    "allowInstancePoolCreate": {
+                        "type": "boolean"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/groupInstanceProfile:GroupInstanceProfile": {
+            "properties": {
+                "groupId": {
+                    "type": "string"
+                },
+                "instanceProfileId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "groupId",
+                "instanceProfileId"
+            ],
+            "inputProperties": {
+                "groupId": {
+                    "type": "string"
+                },
+                "instanceProfileId": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "groupId",
+                "instanceProfileId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GroupInstanceProfile resources.\n",
+                "properties": {
+                    "groupId": {
+                        "type": "string"
+                    },
+                    "instanceProfileId": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/groupMember:GroupMember": {
+            "properties": {
+                "groupId": {
+                    "type": "string"
+                },
+                "memberId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "groupId",
+                "memberId"
+            ],
+            "inputProperties": {
+                "groupId": {
+                    "type": "string"
+                },
+                "memberId": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "groupId",
+                "memberId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GroupMember resources.\n",
+                "properties": {
+                    "groupId": {
+                        "type": "string"
+                    },
+                    "memberId": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/instancePool:InstancePool": {
+            "properties": {
+                "awsAttributes": {
+                    "$ref": "#/types/databricks:/InstancePoolAwsAttributes:InstancePoolAwsAttributes"
+                },
+                "customTags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "defaultTags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "diskSpec": {
+                    "$ref": "#/types/databricks:/InstancePoolDiskSpec:InstancePoolDiskSpec"
+                },
+                "enableElasticDisk": {
+                    "type": "boolean"
+                },
+                "idleInstanceAutoterminationMinutes": {
+                    "type": "integer"
+                },
+                "instancePoolName": {
+                    "type": "string"
+                },
+                "maxCapacity": {
+                    "type": "integer"
+                },
+                "minIdleInstances": {
+                    "type": "integer"
+                },
+                "nodeTypeId": {
+                    "type": "string"
+                },
+                "preloadedSparkVersions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "state": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "defaultTags",
+                "idleInstanceAutoterminationMinutes",
+                "instancePoolName",
+                "maxCapacity",
+                "minIdleInstances",
+                "nodeTypeId",
+                "state"
+            ],
+            "inputProperties": {
+                "awsAttributes": {
+                    "$ref": "#/types/databricks:/InstancePoolAwsAttributes:InstancePoolAwsAttributes"
+                },
+                "customTags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "diskSpec": {
+                    "$ref": "#/types/databricks:/InstancePoolDiskSpec:InstancePoolDiskSpec"
+                },
+                "enableElasticDisk": {
+                    "type": "boolean"
+                },
+                "idleInstanceAutoterminationMinutes": {
+                    "type": "integer"
+                },
+                "instancePoolName": {
+                    "type": "string"
+                },
+                "maxCapacity": {
+                    "type": "integer"
+                },
+                "minIdleInstances": {
+                    "type": "integer"
+                },
+                "nodeTypeId": {
+                    "type": "string"
+                },
+                "preloadedSparkVersions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "state": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "idleInstanceAutoterminationMinutes",
+                "instancePoolName",
+                "maxCapacity",
+                "minIdleInstances",
+                "nodeTypeId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering InstancePool resources.\n",
+                "properties": {
+                    "awsAttributes": {
+                        "$ref": "#/types/databricks:/InstancePoolAwsAttributes:InstancePoolAwsAttributes"
+                    },
+                    "customTags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "defaultTags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "diskSpec": {
+                        "$ref": "#/types/databricks:/InstancePoolDiskSpec:InstancePoolDiskSpec"
+                    },
+                    "enableElasticDisk": {
+                        "type": "boolean"
+                    },
+                    "idleInstanceAutoterminationMinutes": {
+                        "type": "integer"
+                    },
+                    "instancePoolName": {
+                        "type": "string"
+                    },
+                    "maxCapacity": {
+                        "type": "integer"
+                    },
+                    "minIdleInstances": {
+                        "type": "integer"
+                    },
+                    "nodeTypeId": {
+                        "type": "string"
+                    },
+                    "preloadedSparkVersions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "state": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/instanceProfile:InstanceProfile": {
+            "properties": {
+                "instanceProfileArn": {
+                    "type": "string"
+                },
+                "skipValidation": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "instanceProfileArn",
+                "skipValidation"
+            ],
+            "inputProperties": {
+                "instanceProfileArn": {
+                    "type": "string"
+                },
+                "skipValidation": {
+                    "type": "boolean"
+                }
+            },
+            "requiredInputs": [
+                "instanceProfileArn",
+                "skipValidation"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering InstanceProfile resources.\n",
+                "properties": {
+                    "instanceProfileArn": {
+                        "type": "string"
+                    },
+                    "skipValidation": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/job:Job": {
+            "properties": {
+                "createdTime": {
+                    "type": "integer"
+                },
+                "creatorUserName": {
+                    "type": "string"
+                },
+                "emailNotifications": {
+                    "$ref": "#/types/databricks:/JobEmailNotifications:JobEmailNotifications"
+                },
+                "existingClusterId": {
+                    "type": "string"
+                },
+                "jarMainClassName": {
+                    "type": "string"
+                },
+                "jarParameters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "jarUri": {
+                    "type": "string"
+                },
+                "jobId": {
+                    "type": "integer"
+                },
+                "libraryCrans": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/JobLibraryCran:JobLibraryCran"
+                    }
+                },
+                "libraryEggs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "libraryJars": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "libraryMavens": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/JobLibraryMaven:JobLibraryMaven"
+                    }
+                },
+                "libraryPypis": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/JobLibraryPypi:JobLibraryPypi"
+                    }
+                },
+                "libraryWhls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "maxConcurrentRuns": {
+                    "type": "integer"
+                },
+                "maxRetries": {
+                    "type": "integer"
+                },
+                "minRetryIntervalMillis": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "newCluster": {
+                    "$ref": "#/types/databricks:/JobNewCluster:JobNewCluster"
+                },
+                "notebookBaseParameters": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "notebookPath": {
+                    "type": "string"
+                },
+                "pythonFile": {
+                    "type": "string"
+                },
+                "pythonParameters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "retryOnTimeout": {
+                    "type": "boolean"
+                },
+                "schedule": {
+                    "$ref": "#/types/databricks:/JobSchedule:JobSchedule"
+                },
+                "sparkSubmitParameters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "timeoutSeconds": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "createdTime",
+                "creatorUserName",
+                "jobId",
+                "name"
+            ],
+            "inputProperties": {
+                "emailNotifications": {
+                    "$ref": "#/types/databricks:/JobEmailNotifications:JobEmailNotifications"
+                },
+                "existingClusterId": {
+                    "type": "string"
+                },
+                "jarMainClassName": {
+                    "type": "string"
+                },
+                "jarParameters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "jarUri": {
+                    "type": "string"
+                },
+                "libraryCrans": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/JobLibraryCran:JobLibraryCran"
+                    }
+                },
+                "libraryEggs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "libraryJars": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "libraryMavens": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/JobLibraryMaven:JobLibraryMaven"
+                    }
+                },
+                "libraryPypis": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/JobLibraryPypi:JobLibraryPypi"
+                    }
+                },
+                "libraryWhls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "maxConcurrentRuns": {
+                    "type": "integer"
+                },
+                "maxRetries": {
+                    "type": "integer"
+                },
+                "minRetryIntervalMillis": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "newCluster": {
+                    "$ref": "#/types/databricks:/JobNewCluster:JobNewCluster"
+                },
+                "notebookBaseParameters": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "notebookPath": {
+                    "type": "string"
+                },
+                "pythonFile": {
+                    "type": "string"
+                },
+                "pythonParameters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "retryOnTimeout": {
+                    "type": "boolean"
+                },
+                "schedule": {
+                    "$ref": "#/types/databricks:/JobSchedule:JobSchedule"
+                },
+                "sparkSubmitParameters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "timeoutSeconds": {
+                    "type": "integer"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Job resources.\n",
+                "properties": {
+                    "createdTime": {
+                        "type": "integer"
+                    },
+                    "creatorUserName": {
+                        "type": "string"
+                    },
+                    "emailNotifications": {
+                        "$ref": "#/types/databricks:/JobEmailNotifications:JobEmailNotifications"
+                    },
+                    "existingClusterId": {
+                        "type": "string"
+                    },
+                    "jarMainClassName": {
+                        "type": "string"
+                    },
+                    "jarParameters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "jarUri": {
+                        "type": "string"
+                    },
+                    "jobId": {
+                        "type": "integer"
+                    },
+                    "libraryCrans": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/databricks:/JobLibraryCran:JobLibraryCran"
+                        }
+                    },
+                    "libraryEggs": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "libraryJars": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "libraryMavens": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/databricks:/JobLibraryMaven:JobLibraryMaven"
+                        }
+                    },
+                    "libraryPypis": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/databricks:/JobLibraryPypi:JobLibraryPypi"
+                        }
+                    },
+                    "libraryWhls": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "maxConcurrentRuns": {
+                        "type": "integer"
+                    },
+                    "maxRetries": {
+                        "type": "integer"
+                    },
+                    "minRetryIntervalMillis": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "newCluster": {
+                        "$ref": "#/types/databricks:/JobNewCluster:JobNewCluster"
+                    },
+                    "notebookBaseParameters": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "notebookPath": {
+                        "type": "string"
+                    },
+                    "pythonFile": {
+                        "type": "string"
+                    },
+                    "pythonParameters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "retryOnTimeout": {
+                        "type": "boolean"
+                    },
+                    "schedule": {
+                        "$ref": "#/types/databricks:/JobSchedule:JobSchedule"
+                    },
+                    "sparkSubmitParameters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "timeoutSeconds": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/mwsCredentials:MwsCredentials": {
+            "properties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "creationTime": {
+                    "type": "integer"
+                },
+                "credentialsId": {
+                    "type": "string"
+                },
+                "credentialsName": {
+                    "type": "string"
+                },
+                "externalId": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "accountId",
+                "creationTime",
+                "credentialsId",
+                "credentialsName",
+                "externalId",
+                "roleArn"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "credentialsName": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "accountId",
+                "credentialsName",
+                "roleArn"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering MwsCredentials resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string"
+                    },
+                    "creationTime": {
+                        "type": "integer"
+                    },
+                    "credentialsId": {
+                        "type": "string"
+                    },
+                    "credentialsName": {
+                        "type": "string"
+                    },
+                    "externalId": {
+                        "type": "string"
+                    },
+                    "roleArn": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/mwsNetworks:MwsNetworks": {
+            "properties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "creationTime": {
+                    "type": "integer"
+                },
+                "errorMessages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/MwsNetworksErrorMessage:MwsNetworksErrorMessage"
+                    }
+                },
+                "networkId": {
+                    "type": "string"
+                },
+                "networkName": {
+                    "type": "string"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "vpcId": {
+                    "type": "string"
+                },
+                "vpcStatus": {
+                    "type": "string"
+                },
+                "workspaceId": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "accountId",
+                "creationTime",
+                "errorMessages",
+                "networkId",
+                "networkName",
+                "securityGroupIds",
+                "subnetIds",
+                "vpcId",
+                "vpcStatus",
+                "workspaceId"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "errorMessages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/MwsNetworksErrorMessage:MwsNetworksErrorMessage"
+                    }
+                },
+                "networkName": {
+                    "type": "string"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "accountId",
+                "networkName",
+                "securityGroupIds",
+                "subnetIds",
+                "vpcId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering MwsNetworks resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string"
+                    },
+                    "creationTime": {
+                        "type": "integer"
+                    },
+                    "errorMessages": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/databricks:/MwsNetworksErrorMessage:MwsNetworksErrorMessage"
+                        }
+                    },
+                    "networkId": {
+                        "type": "string"
+                    },
+                    "networkName": {
+                        "type": "string"
+                    },
+                    "securityGroupIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "subnetIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "vpcId": {
+                        "type": "string"
+                    },
+                    "vpcStatus": {
+                        "type": "string"
+                    },
+                    "workspaceId": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/mwsStorageConfigurations:MwsStorageConfigurations": {
+            "properties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "bucketName": {
+                    "type": "string"
+                },
+                "creationTime": {
+                    "type": "integer"
+                },
+                "storageConfigurationId": {
+                    "type": "string"
+                },
+                "storageConfigurationName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "accountId",
+                "bucketName",
+                "creationTime",
+                "storageConfigurationId",
+                "storageConfigurationName"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "bucketName": {
+                    "type": "string"
+                },
+                "storageConfigurationName": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "accountId",
+                "bucketName",
+                "storageConfigurationName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering MwsStorageConfigurations resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string"
+                    },
+                    "bucketName": {
+                        "type": "string"
+                    },
+                    "creationTime": {
+                        "type": "integer"
+                    },
+                    "storageConfigurationId": {
+                        "type": "string"
+                    },
+                    "storageConfigurationName": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/mwsWorkspaces:MwsWorkspaces": {
+            "properties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "awsRegion": {
+                    "type": "string"
+                },
+                "creationTime": {
+                    "type": "integer"
+                },
+                "credentialsId": {
+                    "type": "string"
+                },
+                "customerManagedKeyId": {
+                    "type": "string"
+                },
+                "deploymentName": {
+                    "type": "string"
+                },
+                "isNoPublicIpEnabled": {
+                    "type": "boolean"
+                },
+                "networkErrorMessages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:/MwsWorkspacesNetworkErrorMessage:MwsWorkspacesNetworkErrorMessage"
+                    }
+                },
+                "networkId": {
+                    "type": "string"
+                },
+                "storageConfigurationId": {
+                    "type": "string"
+                },
+                "verifyWorkspaceRunnning": {
+                    "type": "boolean"
+                },
+                "workspaceId": {
+                    "type": "integer"
+                },
+                "workspaceName": {
+                    "type": "string"
+                },
+                "workspaceStatus": {
+                    "type": "string"
+                },
+                "workspaceStatusMessage": {
+                    "type": "string"
+                },
+                "workspaceUrl": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "accountId",
+                "awsRegion",
+                "creationTime",
+                "credentialsId",
+                "deploymentName",
+                "networkErrorMessages",
+                "storageConfigurationId",
+                "verifyWorkspaceRunnning",
+                "workspaceId",
+                "workspaceName",
+                "workspaceStatus",
+                "workspaceStatusMessage",
+                "workspaceUrl"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "awsRegion": {
+                    "type": "string"
+                },
+                "credentialsId": {
+                    "type": "string"
+                },
+                "customerManagedKeyId": {
+                    "type": "string"
+                },
+                "deploymentName": {
+                    "type": "string"
+                },
+                "isNoPublicIpEnabled": {
+                    "type": "boolean"
+                },
+                "networkId": {
+                    "type": "string"
+                },
+                "storageConfigurationId": {
+                    "type": "string"
+                },
+                "verifyWorkspaceRunnning": {
+                    "type": "boolean"
+                },
+                "workspaceName": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "accountId",
+                "awsRegion",
+                "credentialsId",
+                "deploymentName",
+                "storageConfigurationId",
+                "verifyWorkspaceRunnning",
+                "workspaceName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering MwsWorkspaces resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string"
+                    },
+                    "awsRegion": {
+                        "type": "string"
+                    },
+                    "creationTime": {
+                        "type": "integer"
+                    },
+                    "credentialsId": {
+                        "type": "string"
+                    },
+                    "customerManagedKeyId": {
+                        "type": "string"
+                    },
+                    "deploymentName": {
+                        "type": "string"
+                    },
+                    "isNoPublicIpEnabled": {
+                        "type": "boolean"
+                    },
+                    "networkErrorMessages": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/databricks:/MwsWorkspacesNetworkErrorMessage:MwsWorkspacesNetworkErrorMessage"
+                        }
+                    },
+                    "networkId": {
+                        "type": "string"
+                    },
+                    "storageConfigurationId": {
+                        "type": "string"
+                    },
+                    "verifyWorkspaceRunnning": {
+                        "type": "boolean"
+                    },
+                    "workspaceId": {
+                        "type": "integer"
+                    },
+                    "workspaceName": {
+                        "type": "string"
+                    },
+                    "workspaceStatus": {
+                        "type": "string"
+                    },
+                    "workspaceStatusMessage": {
+                        "type": "string"
+                    },
+                    "workspaceUrl": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/notebook:Notebook": {
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "format": {
+                    "type": "string"
+                },
+                "language": {
+                    "type": "string"
+                },
+                "mkdirs": {
+                    "type": "boolean"
+                },
+                "objectId": {
+                    "type": "integer"
+                },
+                "objectType": {
+                    "type": "string"
+                },
+                "overwrite": {
+                    "type": "boolean"
+                },
+                "path": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "content",
+                "objectId",
+                "objectType",
+                "path"
+            ],
+            "inputProperties": {
+                "content": {
+                    "type": "string"
+                },
+                "format": {
+                    "type": "string"
+                },
+                "language": {
+                    "type": "string"
+                },
+                "mkdirs": {
+                    "type": "boolean"
+                },
+                "overwrite": {
+                    "type": "boolean"
+                },
+                "path": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "content",
+                "path"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Notebook resources.\n",
+                "properties": {
+                    "content": {
+                        "type": "string"
+                    },
+                    "format": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "type": "string"
+                    },
+                    "mkdirs": {
+                        "type": "boolean"
+                    },
+                    "objectId": {
+                        "type": "integer"
+                    },
+                    "objectType": {
+                        "type": "string"
+                    },
+                    "overwrite": {
+                        "type": "boolean"
+                    },
+                    "path": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/scimGroup:ScimGroup": {
+            "properties": {
+                "displayName": {
+                    "type": "string"
+                },
+                "entitlements": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "inheritedRoles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "members": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "displayName",
+                "inheritedRoles"
+            ],
+            "inputProperties": {
+                "displayName": {
+                    "type": "string"
+                },
+                "entitlements": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "members": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "displayName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ScimGroup resources.\n",
+                "properties": {
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "entitlements": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "inheritedRoles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "members": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/scimUser:ScimUser": {
+            "properties": {
+                "defaultRoles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "entitlements": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "inheritedRoles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "setAdmin": {
+                    "type": "boolean"
+                },
+                "userName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "defaultRoles",
+                "inheritedRoles",
+                "userName"
+            ],
+            "inputProperties": {
+                "defaultRoles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "entitlements": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "setAdmin": {
+                    "type": "boolean"
+                },
+                "userName": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "defaultRoles",
+                "userName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ScimUser resources.\n",
+                "properties": {
+                    "defaultRoles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "entitlements": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "inheritedRoles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "setAdmin": {
+                        "type": "boolean"
+                    },
+                    "userName": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/secret:Secret": {
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "lastUpdatedTimestamp": {
+                    "type": "integer"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "stringValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "key",
+                "lastUpdatedTimestamp",
+                "scope",
+                "stringValue"
+            ],
+            "inputProperties": {
+                "key": {
+                    "type": "string"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "stringValue": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "key",
+                "scope",
+                "stringValue"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Secret resources.\n",
+                "properties": {
+                    "key": {
+                        "type": "string"
+                    },
+                    "lastUpdatedTimestamp": {
+                        "type": "integer"
+                    },
+                    "scope": {
+                        "type": "string"
+                    },
+                    "stringValue": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/secretAcl:SecretAcl": {
+            "properties": {
+                "permission": {
+                    "type": "string"
+                },
+                "principal": {
+                    "type": "string"
+                },
+                "scope": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "permission",
+                "principal",
+                "scope"
+            ],
+            "inputProperties": {
+                "permission": {
+                    "type": "string"
+                },
+                "principal": {
+                    "type": "string"
+                },
+                "scope": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "permission",
+                "principal",
+                "scope"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SecretAcl resources.\n",
+                "properties": {
+                    "permission": {
+                        "type": "string"
+                    },
+                    "principal": {
+                        "type": "string"
+                    },
+                    "scope": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/secretScope:SecretScope": {
+            "properties": {
+                "backendType": {
+                    "type": "string"
+                },
+                "initialManagePrincipal": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "backendType",
+                "name"
+            ],
+            "inputProperties": {
+                "initialManagePrincipal": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SecretScope resources.\n",
+                "properties": {
+                    "backendType": {
+                        "type": "string"
+                    },
+                    "initialManagePrincipal": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:index/token:Token": {
+            "properties": {
+                "comment": {
+                    "type": "string"
+                },
+                "creationTime": {
+                    "type": "integer"
+                },
+                "expiryTime": {
+                    "type": "integer"
+                },
+                "lifetimeSeconds": {
+                    "type": "integer"
+                },
+                "tokenValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "creationTime",
+                "expiryTime",
+                "tokenValue"
+            ],
+            "inputProperties": {
+                "comment": {
+                    "type": "string"
+                },
+                "creationTime": {
+                    "type": "integer"
+                },
+                "expiryTime": {
+                    "type": "integer"
+                },
+                "lifetimeSeconds": {
+                    "type": "integer"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Token resources.\n",
+                "properties": {
+                    "comment": {
+                        "type": "string"
+                    },
+                    "creationTime": {
+                        "type": "integer"
+                    },
+                    "expiryTime": {
+                        "type": "integer"
+                    },
+                    "lifetimeSeconds": {
+                        "type": "integer"
+                    },
+                    "tokenValue": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "functions": {
+        "databricks:index/getDbfsFile:getDbfsFile": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getDbfsFile.\n",
+                "properties": {
+                    "limitFileSize": {
+                        "type": "boolean"
+                    },
+                    "path": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "limitFileSize",
+                    "path"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDbfsFile.\n",
+                "properties": {
+                    "content": {
+                        "type": "string"
+                    },
+                    "fileSize": {
+                        "type": "integer"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "limitFileSize": {
+                        "type": "boolean"
+                    },
+                    "path": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "content",
+                    "fileSize",
+                    "limitFileSize",
+                    "path",
+                    "id"
+                ]
+            }
+        },
+        "databricks:index/getDbfsFilePaths:getDbfsFilePaths": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getDbfsFilePaths.\n",
+                "properties": {
+                    "path": {
+                        "type": "string"
+                    },
+                    "recursive": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "path",
+                    "recursive"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDbfsFilePaths.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "path": {
+                        "type": "string"
+                    },
+                    "pathLists": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/databricks:/getDbfsFilePathsPathList:getDbfsFilePathsPathList"
+                        }
+                    },
+                    "recursive": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "path",
+                    "pathLists",
+                    "recursive",
+                    "id"
+                ]
+            }
+        },
+        "databricks:index/getDefaultUserRoles:getDefaultUserRoles": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getDefaultUserRoles.\n",
+                "properties": {
+                    "defaultUsername": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "defaultUsername"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDefaultUserRoles.\n",
+                "properties": {
+                    "defaultUsername": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "defaultUsername",
+                    "roles",
+                    "id"
+                ]
+            }
+        },
+        "databricks:index/getNotebook:getNotebook": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getNotebook.\n",
+                "properties": {
+                    "format": {
+                        "type": "string"
+                    },
+                    "path": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "format",
+                    "path"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getNotebook.\n",
+                "properties": {
+                    "content": {
+                        "type": "string"
+                    },
+                    "format": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "language": {
+                        "type": "string"
+                    },
+                    "objectId": {
+                        "type": "integer"
+                    },
+                    "objectType": {
+                        "type": "string"
+                    },
+                    "path": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "content",
+                    "format",
+                    "language",
+                    "objectId",
+                    "objectType",
+                    "path",
+                    "id"
+                ]
+            }
+        },
+        "databricks:index/getNotebookPaths:getNotebookPaths": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getNotebookPaths.\n",
+                "properties": {
+                    "path": {
+                        "type": "string"
+                    },
+                    "recursive": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "path",
+                    "recursive"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getNotebookPaths.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "notebookPathLists": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/databricks:/getNotebookPathsNotebookPathList:getNotebookPathsNotebookPathList"
+                        }
+                    },
+                    "path": {
+                        "type": "string"
+                    },
+                    "recursive": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "notebookPathLists",
+                    "path",
+                    "recursive",
+                    "id"
+                ]
+            }
+        },
+        "databricks:index/getZones:getZones": {
+            "outputs": {
+                "description": "A collection of values returned by getZones.\n",
+                "properties": {
+                    "defaultZone": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "zones": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "defaultZone",
+                    "zones",
+                    "id"
+                ]
             }
         }
     },
