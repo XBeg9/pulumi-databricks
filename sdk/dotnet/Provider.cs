@@ -73,6 +73,8 @@ namespace Pulumi.Databricks
 
         public ProviderArgs()
         {
+            Host = Utilities.GetEnv("DATABRICKS_HOST");
+            Token = Utilities.GetEnv("DATABRICKS_TOKEN");
         }
     }
 }

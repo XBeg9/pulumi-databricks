@@ -14,10 +14,10 @@ export let basicAuth: { password: string, username: string } | undefined = __con
  * docs. Config file credetials will only be used when host/token are not provided.
  */
 export let configFile: string | undefined = __config.get("configFile");
-export let host: string | undefined = __config.get("host");
+export let host: string | undefined = __config.get("host") || utilities.getEnv("DATABRICKS_HOST");
 /**
  * Connection profile specified within ~/.databrickscfg. Please check
  * https://docs.databricks.com/dev-tools/cli/index.html#connection-profiles for documentation.
  */
 export let profile: string | undefined = __config.get("profile");
-export let token: string | undefined = __config.get("token");
+export let token: string | undefined = __config.get("token") || utilities.getEnv("DATABRICKS_TOKEN");

@@ -19,7 +19,7 @@ namespace Pulumi.Databricks
         /// </summary>
         public static string? ConfigFile { get; set; } = __config.Get("configFile");
 
-        public static string? Host { get; set; } = __config.Get("host");
+        public static string? Host { get; set; } = __config.Get("host") ?? Utilities.GetEnv("DATABRICKS_HOST");
 
         /// <summary>
         /// Connection profile specified within ~/.databrickscfg. Please check
@@ -27,7 +27,7 @@ namespace Pulumi.Databricks
         /// </summary>
         public static string? Profile { get; set; } = __config.Get("profile");
 
-        public static string? Token { get; set; } = __config.Get("token");
+        public static string? Token { get; set; } = __config.Get("token") ?? Utilities.GetEnv("DATABRICKS_TOKEN");
 
         public static class Types
         {

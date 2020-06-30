@@ -2,10 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./awsS3Mount";
-export * from "./azureAdlsGen1Mount";
-export * from "./azureAdlsGen2Mount";
-export * from "./azureBlobMount";
 export * from "./cluster";
 export * from "./dbfsFile";
 export * from "./dbfsFileSync";
@@ -21,10 +17,6 @@ export * from "./groupMember";
 export * from "./instancePool";
 export * from "./instanceProfile";
 export * from "./job";
-export * from "./mwsCredentials";
-export * from "./mwsNetworks";
-export * from "./mwsStorageConfigurations";
-export * from "./mwsWorkspaces";
 export * from "./notebook";
 export * from "./provider";
 export * from "./scimGroup";
@@ -35,6 +27,8 @@ export * from "./secretScope";
 export * from "./token";
 
 // Export sub-modules:
+import * as aws from "./aws/index";
+import * as azure from "./azure/index";
 import * as config from "./config/index";
 import * as types from "./types/index";
-export {config, types};
+export {aws, azure, config, types};

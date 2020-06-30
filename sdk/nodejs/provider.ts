@@ -41,9 +41,9 @@ export class Provider extends pulumi.ProviderResource {
             inputs["azureAuth"] = pulumi.output(args ? args.azureAuth : undefined).apply(JSON.stringify);
             inputs["basicAuth"] = pulumi.output(args ? args.basicAuth : undefined).apply(JSON.stringify);
             inputs["configFile"] = args ? args.configFile : undefined;
-            inputs["host"] = args ? args.host : undefined;
+            inputs["host"] = (args ? args.host : undefined) || utilities.getEnv("DATABRICKS_HOST");
             inputs["profile"] = args ? args.profile : undefined;
-            inputs["token"] = args ? args.token : undefined;
+            inputs["token"] = (args ? args.token : undefined) || utilities.getEnv("DATABRICKS_TOKEN");
         }
         if (!opts) {
             opts = {}

@@ -243,12 +243,14 @@ export interface JobSchedule {
     timezoneId: string;
 }
 
-export interface MwsNetworksErrorMessage {
-    errorMessage: string;
-    errorType: string;
-}
+export namespace aws {
+    export interface MwsNetworksErrorMessage {
+        errorMessage: string;
+        errorType: string;
+    }
 
-export interface MwsWorkspacesNetworkErrorMessage {
-    errorMessage: string;
-    errorType: string;
+    export interface MwsWorkspacesNetworkErrorMessage {
+        errorMessage: string;
+        errorType: string;
+    }
 }

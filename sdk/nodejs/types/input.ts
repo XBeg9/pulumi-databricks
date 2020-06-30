@@ -233,16 +233,6 @@ export interface JobSchedule {
     timezoneId: pulumi.Input<string>;
 }
 
-export interface MwsNetworksErrorMessage {
-    errorMessage?: pulumi.Input<string>;
-    errorType?: pulumi.Input<string>;
-}
-
-export interface MwsWorkspacesNetworkErrorMessage {
-    errorMessage?: pulumi.Input<string>;
-    errorType?: pulumi.Input<string>;
-}
-
 export interface ProviderAzureAuth {
     azureRegion: pulumi.Input<string>;
     clientId: pulumi.Input<string>;
@@ -257,4 +247,16 @@ export interface ProviderAzureAuth {
 export interface ProviderBasicAuth {
     password: pulumi.Input<string>;
     username: pulumi.Input<string>;
+}
+
+export namespace aws {
+    export interface MwsNetworksErrorMessage {
+        errorMessage?: pulumi.Input<string>;
+        errorType?: pulumi.Input<string>;
+    }
+
+    export interface MwsWorkspacesNetworkErrorMessage {
+        errorMessage?: pulumi.Input<string>;
+        errorType?: pulumi.Input<string>;
+    }
 }

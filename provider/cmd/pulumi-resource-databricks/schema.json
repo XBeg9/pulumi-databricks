@@ -25,14 +25,24 @@
                 "description": "Location of the Databricks CLI credentials file, that is created by `databricks configure --token` command. By default,\nit is located in ~/.databrickscfg. Check https://docs.databricks.com/dev-tools/cli/index.html#set-up-authentication for\ndocs. Config file credetials will only be used when host/token are not provided.\n"
             },
             "host": {
-                "type": "string"
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "DATABRICKS_HOST"
+                    ]
+                }
             },
             "profile": {
                 "type": "string",
                 "description": "Connection profile specified within ~/.databrickscfg. Please check\nhttps://docs.databricks.com/dev-tools/cli/index.html#connection-profiles for documentation.\n"
             },
             "token": {
-                "type": "string"
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "DATABRICKS_TOKEN"
+                    ]
+                }
             }
         }
     },
@@ -1331,48 +1341,6 @@
                 "timezoneId"
             ]
         },
-        "databricks:/MwsNetworksErrorMessage:MwsNetworksErrorMessage": {
-            "properties": {
-                "errorMessage": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "errorType": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "databricks:/MwsWorkspacesNetworkErrorMessage:MwsWorkspacesNetworkErrorMessage": {
-            "properties": {
-                "errorMessage": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "errorType": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object"
-        },
         "databricks:/getDbfsFilePathsPathList:getDbfsFilePathsPathList": {
             "properties": {
                 "fileSize": {
@@ -1405,6 +1373,48 @@
                     }
                 },
                 "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:aws/MwsNetworksErrorMessage:MwsNetworksErrorMessage": {
+            "properties": {
+                "errorMessage": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "errorType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "databricks:aws/MwsWorkspacesNetworkErrorMessage:MwsWorkspacesNetworkErrorMessage": {
+            "properties": {
+                "errorMessage": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "errorType": {
                     "type": "string",
                     "language": {
                         "python": {
@@ -1548,19 +1558,29 @@
                 "description": "Location of the Databricks CLI credentials file, that is created by `databricks configure --token` command. By default,\nit is located in ~/.databrickscfg. Check https://docs.databricks.com/dev-tools/cli/index.html#set-up-authentication for\ndocs. Config file credetials will only be used when host/token are not provided.\n"
             },
             "host": {
-                "type": "string"
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "DATABRICKS_HOST"
+                    ]
+                }
             },
             "profile": {
                 "type": "string",
                 "description": "Connection profile specified within ~/.databrickscfg. Please check\nhttps://docs.databricks.com/dev-tools/cli/index.html#connection-profiles for documentation.\n"
             },
             "token": {
-                "type": "string"
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "DATABRICKS_TOKEN"
+                    ]
+                }
             }
         }
     },
     "resources": {
-        "databricks:index/awsS3Mount:AwsS3Mount": {
+        "databricks:aws/awsS3Mount:AwsS3Mount": {
             "properties": {
                 "clusterId": {
                     "type": "string"
@@ -1609,7 +1629,444 @@
                 "type": "object"
             }
         },
-        "databricks:index/azureAdlsGen1Mount:AzureAdlsGen1Mount": {
+        "databricks:aws/mwsCredentials:MwsCredentials": {
+            "properties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "creationTime": {
+                    "type": "integer"
+                },
+                "credentialsId": {
+                    "type": "string"
+                },
+                "credentialsName": {
+                    "type": "string"
+                },
+                "externalId": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "accountId",
+                "creationTime",
+                "credentialsId",
+                "credentialsName",
+                "externalId",
+                "roleArn"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "credentialsName": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "accountId",
+                "credentialsName",
+                "roleArn"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering MwsCredentials resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string"
+                    },
+                    "creationTime": {
+                        "type": "integer"
+                    },
+                    "credentialsId": {
+                        "type": "string"
+                    },
+                    "credentialsName": {
+                        "type": "string"
+                    },
+                    "externalId": {
+                        "type": "string"
+                    },
+                    "roleArn": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:aws/mwsNetworks:MwsNetworks": {
+            "properties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "creationTime": {
+                    "type": "integer"
+                },
+                "errorMessages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:aws/MwsNetworksErrorMessage:MwsNetworksErrorMessage"
+                    }
+                },
+                "networkId": {
+                    "type": "string"
+                },
+                "networkName": {
+                    "type": "string"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "vpcId": {
+                    "type": "string"
+                },
+                "vpcStatus": {
+                    "type": "string"
+                },
+                "workspaceId": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "accountId",
+                "creationTime",
+                "errorMessages",
+                "networkId",
+                "networkName",
+                "securityGroupIds",
+                "subnetIds",
+                "vpcId",
+                "vpcStatus",
+                "workspaceId"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "errorMessages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:aws/MwsNetworksErrorMessage:MwsNetworksErrorMessage"
+                    }
+                },
+                "networkName": {
+                    "type": "string"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "accountId",
+                "networkName",
+                "securityGroupIds",
+                "subnetIds",
+                "vpcId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering MwsNetworks resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string"
+                    },
+                    "creationTime": {
+                        "type": "integer"
+                    },
+                    "errorMessages": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/databricks:aws/MwsNetworksErrorMessage:MwsNetworksErrorMessage"
+                        }
+                    },
+                    "networkId": {
+                        "type": "string"
+                    },
+                    "networkName": {
+                        "type": "string"
+                    },
+                    "securityGroupIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "subnetIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "vpcId": {
+                        "type": "string"
+                    },
+                    "vpcStatus": {
+                        "type": "string"
+                    },
+                    "workspaceId": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:aws/mwsStorageConfigurations:MwsStorageConfigurations": {
+            "properties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "bucketName": {
+                    "type": "string"
+                },
+                "creationTime": {
+                    "type": "integer"
+                },
+                "storageConfigurationId": {
+                    "type": "string"
+                },
+                "storageConfigurationName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "accountId",
+                "bucketName",
+                "creationTime",
+                "storageConfigurationId",
+                "storageConfigurationName"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "bucketName": {
+                    "type": "string"
+                },
+                "storageConfigurationName": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "accountId",
+                "bucketName",
+                "storageConfigurationName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering MwsStorageConfigurations resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string"
+                    },
+                    "bucketName": {
+                        "type": "string"
+                    },
+                    "creationTime": {
+                        "type": "integer"
+                    },
+                    "storageConfigurationId": {
+                        "type": "string"
+                    },
+                    "storageConfigurationName": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:aws/mwsWorkspaces:MwsWorkspaces": {
+            "properties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "awsRegion": {
+                    "type": "string"
+                },
+                "creationTime": {
+                    "type": "integer"
+                },
+                "credentialsId": {
+                    "type": "string"
+                },
+                "customerManagedKeyId": {
+                    "type": "string"
+                },
+                "deploymentName": {
+                    "type": "string"
+                },
+                "isNoPublicIpEnabled": {
+                    "type": "boolean"
+                },
+                "networkErrorMessages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/databricks:aws/MwsWorkspacesNetworkErrorMessage:MwsWorkspacesNetworkErrorMessage"
+                    }
+                },
+                "networkId": {
+                    "type": "string"
+                },
+                "storageConfigurationId": {
+                    "type": "string"
+                },
+                "verifyWorkspaceRunnning": {
+                    "type": "boolean"
+                },
+                "workspaceId": {
+                    "type": "integer"
+                },
+                "workspaceName": {
+                    "type": "string"
+                },
+                "workspaceStatus": {
+                    "type": "string"
+                },
+                "workspaceStatusMessage": {
+                    "type": "string"
+                },
+                "workspaceUrl": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "accountId",
+                "awsRegion",
+                "creationTime",
+                "credentialsId",
+                "deploymentName",
+                "networkErrorMessages",
+                "storageConfigurationId",
+                "verifyWorkspaceRunnning",
+                "workspaceId",
+                "workspaceName",
+                "workspaceStatus",
+                "workspaceStatusMessage",
+                "workspaceUrl"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "awsRegion": {
+                    "type": "string"
+                },
+                "credentialsId": {
+                    "type": "string"
+                },
+                "customerManagedKeyId": {
+                    "type": "string"
+                },
+                "deploymentName": {
+                    "type": "string"
+                },
+                "isNoPublicIpEnabled": {
+                    "type": "boolean"
+                },
+                "networkId": {
+                    "type": "string"
+                },
+                "storageConfigurationId": {
+                    "type": "string"
+                },
+                "verifyWorkspaceRunnning": {
+                    "type": "boolean"
+                },
+                "workspaceName": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "accountId",
+                "awsRegion",
+                "credentialsId",
+                "deploymentName",
+                "storageConfigurationId",
+                "verifyWorkspaceRunnning",
+                "workspaceName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering MwsWorkspaces resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string"
+                    },
+                    "awsRegion": {
+                        "type": "string"
+                    },
+                    "creationTime": {
+                        "type": "integer"
+                    },
+                    "credentialsId": {
+                        "type": "string"
+                    },
+                    "customerManagedKeyId": {
+                        "type": "string"
+                    },
+                    "deploymentName": {
+                        "type": "string"
+                    },
+                    "isNoPublicIpEnabled": {
+                        "type": "boolean"
+                    },
+                    "networkErrorMessages": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/databricks:aws/MwsWorkspacesNetworkErrorMessage:MwsWorkspacesNetworkErrorMessage"
+                        }
+                    },
+                    "networkId": {
+                        "type": "string"
+                    },
+                    "storageConfigurationId": {
+                        "type": "string"
+                    },
+                    "verifyWorkspaceRunnning": {
+                        "type": "boolean"
+                    },
+                    "workspaceId": {
+                        "type": "integer"
+                    },
+                    "workspaceName": {
+                        "type": "string"
+                    },
+                    "workspaceStatus": {
+                        "type": "string"
+                    },
+                    "workspaceStatusMessage": {
+                        "type": "string"
+                    },
+                    "workspaceUrl": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "databricks:azure/azureAdlsGen1Mount:AzureAdlsGen1Mount": {
             "properties": {
                 "clientId": {
                     "type": "string"
@@ -1721,7 +2178,7 @@
                 "type": "object"
             }
         },
-        "databricks:index/azureAdlsGen2Mount:AzureAdlsGen2Mount": {
+        "databricks:azure/azureAdlsGen2Mount:AzureAdlsGen2Mount": {
             "properties": {
                 "clientId": {
                     "type": "string"
@@ -1846,7 +2303,7 @@
                 "type": "object"
             }
         },
-        "databricks:index/azureBlobMount:AzureBlobMount": {
+        "databricks:azure/azureBlobMount:AzureBlobMount": {
             "properties": {
                 "authType": {
                     "type": "string"
@@ -3129,443 +3586,6 @@
                     },
                     "timeoutSeconds": {
                         "type": "integer"
-                    }
-                },
-                "type": "object"
-            }
-        },
-        "databricks:index/mwsCredentials:MwsCredentials": {
-            "properties": {
-                "accountId": {
-                    "type": "string"
-                },
-                "creationTime": {
-                    "type": "integer"
-                },
-                "credentialsId": {
-                    "type": "string"
-                },
-                "credentialsName": {
-                    "type": "string"
-                },
-                "externalId": {
-                    "type": "string"
-                },
-                "roleArn": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "accountId",
-                "creationTime",
-                "credentialsId",
-                "credentialsName",
-                "externalId",
-                "roleArn"
-            ],
-            "inputProperties": {
-                "accountId": {
-                    "type": "string"
-                },
-                "credentialsName": {
-                    "type": "string"
-                },
-                "roleArn": {
-                    "type": "string"
-                }
-            },
-            "requiredInputs": [
-                "accountId",
-                "credentialsName",
-                "roleArn"
-            ],
-            "stateInputs": {
-                "description": "Input properties used for looking up and filtering MwsCredentials resources.\n",
-                "properties": {
-                    "accountId": {
-                        "type": "string"
-                    },
-                    "creationTime": {
-                        "type": "integer"
-                    },
-                    "credentialsId": {
-                        "type": "string"
-                    },
-                    "credentialsName": {
-                        "type": "string"
-                    },
-                    "externalId": {
-                        "type": "string"
-                    },
-                    "roleArn": {
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            }
-        },
-        "databricks:index/mwsNetworks:MwsNetworks": {
-            "properties": {
-                "accountId": {
-                    "type": "string"
-                },
-                "creationTime": {
-                    "type": "integer"
-                },
-                "errorMessages": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/databricks:/MwsNetworksErrorMessage:MwsNetworksErrorMessage"
-                    }
-                },
-                "networkId": {
-                    "type": "string"
-                },
-                "networkName": {
-                    "type": "string"
-                },
-                "securityGroupIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "subnetIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "vpcId": {
-                    "type": "string"
-                },
-                "vpcStatus": {
-                    "type": "string"
-                },
-                "workspaceId": {
-                    "type": "integer"
-                }
-            },
-            "required": [
-                "accountId",
-                "creationTime",
-                "errorMessages",
-                "networkId",
-                "networkName",
-                "securityGroupIds",
-                "subnetIds",
-                "vpcId",
-                "vpcStatus",
-                "workspaceId"
-            ],
-            "inputProperties": {
-                "accountId": {
-                    "type": "string"
-                },
-                "errorMessages": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/databricks:/MwsNetworksErrorMessage:MwsNetworksErrorMessage"
-                    }
-                },
-                "networkName": {
-                    "type": "string"
-                },
-                "securityGroupIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "subnetIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "vpcId": {
-                    "type": "string"
-                }
-            },
-            "requiredInputs": [
-                "accountId",
-                "networkName",
-                "securityGroupIds",
-                "subnetIds",
-                "vpcId"
-            ],
-            "stateInputs": {
-                "description": "Input properties used for looking up and filtering MwsNetworks resources.\n",
-                "properties": {
-                    "accountId": {
-                        "type": "string"
-                    },
-                    "creationTime": {
-                        "type": "integer"
-                    },
-                    "errorMessages": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/types/databricks:/MwsNetworksErrorMessage:MwsNetworksErrorMessage"
-                        }
-                    },
-                    "networkId": {
-                        "type": "string"
-                    },
-                    "networkName": {
-                        "type": "string"
-                    },
-                    "securityGroupIds": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "subnetIds": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "vpcId": {
-                        "type": "string"
-                    },
-                    "vpcStatus": {
-                        "type": "string"
-                    },
-                    "workspaceId": {
-                        "type": "integer"
-                    }
-                },
-                "type": "object"
-            }
-        },
-        "databricks:index/mwsStorageConfigurations:MwsStorageConfigurations": {
-            "properties": {
-                "accountId": {
-                    "type": "string"
-                },
-                "bucketName": {
-                    "type": "string"
-                },
-                "creationTime": {
-                    "type": "integer"
-                },
-                "storageConfigurationId": {
-                    "type": "string"
-                },
-                "storageConfigurationName": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "accountId",
-                "bucketName",
-                "creationTime",
-                "storageConfigurationId",
-                "storageConfigurationName"
-            ],
-            "inputProperties": {
-                "accountId": {
-                    "type": "string"
-                },
-                "bucketName": {
-                    "type": "string"
-                },
-                "storageConfigurationName": {
-                    "type": "string"
-                }
-            },
-            "requiredInputs": [
-                "accountId",
-                "bucketName",
-                "storageConfigurationName"
-            ],
-            "stateInputs": {
-                "description": "Input properties used for looking up and filtering MwsStorageConfigurations resources.\n",
-                "properties": {
-                    "accountId": {
-                        "type": "string"
-                    },
-                    "bucketName": {
-                        "type": "string"
-                    },
-                    "creationTime": {
-                        "type": "integer"
-                    },
-                    "storageConfigurationId": {
-                        "type": "string"
-                    },
-                    "storageConfigurationName": {
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            }
-        },
-        "databricks:index/mwsWorkspaces:MwsWorkspaces": {
-            "properties": {
-                "accountId": {
-                    "type": "string"
-                },
-                "awsRegion": {
-                    "type": "string"
-                },
-                "creationTime": {
-                    "type": "integer"
-                },
-                "credentialsId": {
-                    "type": "string"
-                },
-                "customerManagedKeyId": {
-                    "type": "string"
-                },
-                "deploymentName": {
-                    "type": "string"
-                },
-                "isNoPublicIpEnabled": {
-                    "type": "boolean"
-                },
-                "networkErrorMessages": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/databricks:/MwsWorkspacesNetworkErrorMessage:MwsWorkspacesNetworkErrorMessage"
-                    }
-                },
-                "networkId": {
-                    "type": "string"
-                },
-                "storageConfigurationId": {
-                    "type": "string"
-                },
-                "verifyWorkspaceRunnning": {
-                    "type": "boolean"
-                },
-                "workspaceId": {
-                    "type": "integer"
-                },
-                "workspaceName": {
-                    "type": "string"
-                },
-                "workspaceStatus": {
-                    "type": "string"
-                },
-                "workspaceStatusMessage": {
-                    "type": "string"
-                },
-                "workspaceUrl": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "accountId",
-                "awsRegion",
-                "creationTime",
-                "credentialsId",
-                "deploymentName",
-                "networkErrorMessages",
-                "storageConfigurationId",
-                "verifyWorkspaceRunnning",
-                "workspaceId",
-                "workspaceName",
-                "workspaceStatus",
-                "workspaceStatusMessage",
-                "workspaceUrl"
-            ],
-            "inputProperties": {
-                "accountId": {
-                    "type": "string"
-                },
-                "awsRegion": {
-                    "type": "string"
-                },
-                "credentialsId": {
-                    "type": "string"
-                },
-                "customerManagedKeyId": {
-                    "type": "string"
-                },
-                "deploymentName": {
-                    "type": "string"
-                },
-                "isNoPublicIpEnabled": {
-                    "type": "boolean"
-                },
-                "networkId": {
-                    "type": "string"
-                },
-                "storageConfigurationId": {
-                    "type": "string"
-                },
-                "verifyWorkspaceRunnning": {
-                    "type": "boolean"
-                },
-                "workspaceName": {
-                    "type": "string"
-                }
-            },
-            "requiredInputs": [
-                "accountId",
-                "awsRegion",
-                "credentialsId",
-                "deploymentName",
-                "storageConfigurationId",
-                "verifyWorkspaceRunnning",
-                "workspaceName"
-            ],
-            "stateInputs": {
-                "description": "Input properties used for looking up and filtering MwsWorkspaces resources.\n",
-                "properties": {
-                    "accountId": {
-                        "type": "string"
-                    },
-                    "awsRegion": {
-                        "type": "string"
-                    },
-                    "creationTime": {
-                        "type": "integer"
-                    },
-                    "credentialsId": {
-                        "type": "string"
-                    },
-                    "customerManagedKeyId": {
-                        "type": "string"
-                    },
-                    "deploymentName": {
-                        "type": "string"
-                    },
-                    "isNoPublicIpEnabled": {
-                        "type": "boolean"
-                    },
-                    "networkErrorMessages": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/types/databricks:/MwsWorkspacesNetworkErrorMessage:MwsWorkspacesNetworkErrorMessage"
-                        }
-                    },
-                    "networkId": {
-                        "type": "string"
-                    },
-                    "storageConfigurationId": {
-                        "type": "string"
-                    },
-                    "verifyWorkspaceRunnning": {
-                        "type": "boolean"
-                    },
-                    "workspaceId": {
-                        "type": "integer"
-                    },
-                    "workspaceName": {
-                        "type": "string"
-                    },
-                    "workspaceStatus": {
-                        "type": "string"
-                    },
-                    "workspaceStatusMessage": {
-                        "type": "string"
-                    },
-                    "workspaceUrl": {
-                        "type": "string"
                     }
                 },
                 "type": "object"

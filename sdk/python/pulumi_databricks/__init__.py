@@ -4,16 +4,12 @@
 
 import importlib
 # Make subpackages available:
-__all__ = ['config']
+__all__ = ['aws', 'azure', 'config']
 for pkg in __all__:
     if pkg != 'config':
         importlib.import_module(f'{__name__}.{pkg}')
 
 # Export this package's modules as members:
-from .aws_s3_mount import *
-from .azure_adls_gen1_mount import *
-from .azure_adls_gen2_mount import *
-from .azure_blob_mount import *
 from .cluster import *
 from .dbfs_file import *
 from .dbfs_file_sync import *
@@ -29,10 +25,6 @@ from .group_member import *
 from .instance_pool import *
 from .instance_profile import *
 from .job import *
-from .mws_credentials import *
-from .mws_networks import *
-from .mws_storage_configurations import *
-from .mws_workspaces import *
 from .notebook import *
 from .provider import *
 from .scim_group import *

@@ -61,8 +61,12 @@ class Provider(pulumi.ProviderResource):
             __props__['azure_auth'] = pulumi.Output.from_input(azure_auth).apply(json.dumps) if azure_auth is not None else None
             __props__['basic_auth'] = pulumi.Output.from_input(basic_auth).apply(json.dumps) if basic_auth is not None else None
             __props__['config_file'] = config_file
+            if host is None:
+                host = utilities.get_env('DATABRICKS_HOST')
             __props__['host'] = host
             __props__['profile'] = profile
+            if token is None:
+                token = utilities.get_env('DATABRICKS_TOKEN')
             __props__['token'] = token
         super(Provider, __self__).__init__(
             'databricks',

@@ -23,6 +23,12 @@ func NewProvider(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProviderArgs{}
 	}
+	if args.Host == nil {
+		args.Host = pulumi.StringPtr(getEnvOrDefault("", nil, "DATABRICKS_HOST").(string))
+	}
+	if args.Token == nil {
+		args.Token = pulumi.StringPtr(getEnvOrDefault("", nil, "DATABRICKS_TOKEN").(string))
+	}
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:databricks", name, args, &resource, opts...)
 	if err != nil {

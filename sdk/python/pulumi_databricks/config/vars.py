@@ -22,7 +22,7 @@ it is located in ~/.databrickscfg. Check https://docs.databricks.com/dev-tools/c
 docs. Config file credetials will only be used when host/token are not provided.
 """
 
-host = __config__.get('host')
+host = __config__.get('host') or utilities.get_env('DATABRICKS_HOST')
 
 profile = __config__.get('profile')
 """
@@ -30,5 +30,5 @@ Connection profile specified within ~/.databrickscfg. Please check
 https://docs.databricks.com/dev-tools/cli/index.html#connection-profiles for documentation.
 """
 
-token = __config__.get('token')
+token = __config__.get('token') or utilities.get_env('DATABRICKS_TOKEN')
 

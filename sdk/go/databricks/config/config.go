@@ -22,7 +22,11 @@ func GetConfigFile(ctx *pulumi.Context) string {
 	return config.Get(ctx, "databricks:configFile")
 }
 func GetHost(ctx *pulumi.Context) string {
-	return config.Get(ctx, "databricks:host")
+	v, err := config.Try(ctx, "databricks:host")
+	if err == nil {
+		return v
+	}
+	return getEnvOrDefault("", nil, "DATABRICKS_HOST").(string)
 }
 
 // Connection profile specified within ~/.databrickscfg. Please check
@@ -31,5 +35,9 @@ func GetProfile(ctx *pulumi.Context) string {
 	return config.Get(ctx, "databricks:profile")
 }
 func GetToken(ctx *pulumi.Context) string {
-	return config.Get(ctx, "databricks:token")
+	v, err := config.Try(ctx, "databricks:token")
+	if err == nil {
+		return v
+	}
+	return getEnvOrDefault("", nil, "DATABRICKS_TOKEN").(string)
 }

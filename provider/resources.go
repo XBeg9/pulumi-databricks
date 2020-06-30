@@ -30,7 +30,9 @@ const (
 	// packages:
 	mainPkg = "databricks"
 	// modules:
-	mainMod = "index" // the y module
+	mainMod  = "index"
+	awsMod   = "aws"
+	azureMod = "azure"
 )
 
 // makeMember manufactures a type token for the package and the given module and type.
@@ -98,15 +100,19 @@ func Provider() tfbridge.ProviderInfo {
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
 		Repository:  "https://github.com/XBeg9/pulumi-databricks",
-		Config:      map[string]*tfbridge.SchemaInfo{
+		Config: map[string]*tfbridge.SchemaInfo{
 			// Add any required configuration here, or remove the example below if
 			// no additional points are required.
-			// "region": {
-			// 	Type: makeType("region", "Region"),
-			// 	Default: &tfbridge.DefaultInfo{
-			// 		EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
-			// 	},
-			// },
+			"host": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"DATABRICKS_HOST"},
+				},
+			},
+			"token": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"DATABRICKS_TOKEN"},
+				},
+			},
 		},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
@@ -134,16 +140,16 @@ func Provider() tfbridge.ProviderInfo {
 			"databricks_dbfs_file":              {Tok: makeResource(mainMod, "DbfsFile")},
 			"databricks_dbfs_file_sync":         {Tok: makeResource(mainMod, "DbfsFileSync")},
 			"databricks_instance_profile":       {Tok: makeResource(mainMod, "InstanceProfile")},
-			"databricks_aws_s3_mount":           {Tok: makeResource(mainMod, "AwsS3Mount")},
-			"databricks_azure_blob_mount":       {Tok: makeResource(mainMod, "AzureBlobMount")},
-			"databricks_azure_adls_gen1_mount":  {Tok: makeResource(mainMod, "AzureAdlsGen1Mount")},
-			"databricks_azure_adls_gen2_mount":  {Tok: makeResource(mainMod, "AzureAdlsGen2Mount")},
+			"databricks_aws_s3_mount":           {Tok: makeResource(awsMod, "AwsS3Mount")},
+			"databricks_azure_blob_mount":       {Tok: makeResource(azureMod, "AzureBlobMount")},
+			"databricks_azure_adls_gen1_mount":  {Tok: makeResource(azureMod, "AzureAdlsGen1Mount")},
+			"databricks_azure_adls_gen2_mount":  {Tok: makeResource(azureMod, "AzureAdlsGen2Mount")},
 
 			//	MWS (multiple workspaces) resources are only limited to AWS as azure already has a built in concept of MWS
-			"databricks_mws_credentials":            {Tok: makeResource(mainMod, "MwsCredentials")},
-			"databricks_mws_storage_configurations": {Tok: makeResource(mainMod, "MwsStorageConfigurations")},
-			"databricks_mws_networks":               {Tok: makeResource(mainMod, "MwsNetworks")},
-			"databricks_mws_workspaces":             {Tok: makeResource(mainMod, "MwsWorkspaces")},
+			"databricks_mws_credentials":            {Tok: makeResource(awsMod, "MwsCredentials")},
+			"databricks_mws_storage_configurations": {Tok: makeResource(awsMod, "MwsStorageConfigurations")},
+			"databricks_mws_networks":               {Tok: makeResource(awsMod, "MwsNetworks")},
+			"databricks_mws_workspaces":             {Tok: makeResource(awsMod, "MwsWorkspaces")},
 		},
 		//
 		// "aws_acm_certificate": {
